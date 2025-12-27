@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Science Dictionary</title>
   <link rel="stylesheet" href="style.css">
-  <!-- MathJax 渲染公式 -->
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
@@ -18,7 +17,7 @@
 
 <!-- 详情页 -->
 <div id="detail" style="display:none;">
-  <button id="backBtn" class="card">← 返回</button>
+  <button id="backBtn">← 返回</button>
   <h2 id="dEn"></h2>
   <p id="dCn"></p>
   <div id="dTags"></div>
@@ -35,7 +34,6 @@ const list = document.getElementById("list");
 const detail = document.getElementById("detail");
 const backBtn = document.getElementById("backBtn");
 
-// 详情页元素
 const dEn = document.getElementById("dEn");
 const dCn = document.getElementById("dCn");
 const dTags = document.getElementById("dTags");
@@ -57,7 +55,6 @@ function render(items) {
         ${w.tags.map(t => `<span class="tag ${t}">${t}</span>`).join("")}
       </div>
     `;
-    // 点击进入详情页
     div.addEventListener("click", () => showDetail(w));
     list.appendChild(div);
   });
@@ -67,29 +64,33 @@ function render(items) {
 function showDetail(word) {
   list.style.display = "none";
   detail.style.display = "block";
+
   dEn.textContent = word.en;
   dCn.textContent = word.cn;
-  dTags.innerHTML = word.tags.map(t => `<span class="tag ${t}">${t}</span>`).join("");
+  dTags.innerHTML = (word.tags || []).map(t => `<span class="tag ${t}">${t}</span>`).join("");
   dCategory.textContent = word.category || "";
   dUsage.textContent = word.usage || "";
   dFormula.innerHTML = word.formula ? `\\(${word.formula}\\)` : "无";
-  
+
   // 相关单词
-// 相关单词
-dSimilar.innerHTML = "<strong>相关单词:</strong> ";
-if(word.similar && word.similar.length > 0){
-  word.similar.forEach(sim => {
-    const simWord = words.find(w => w.en === sim);
-    if(simWord){
-      const btn = document.createElement("button");
-      btn.textContent = simWord.en;
-      btn.className = "tag";
-      btn.addEventListener("click", () => showDetail(simWord));
-      dSimilar.appendChild(btn);
-    }
-  });
-} else {
-  dSimilar.innerHTML += "无";
+  const similarList = word.similar || [];
+  dSimilar.innerHTML = "<strong>相关单词:</strong> ";
+  if(similarList.length > 0){
+    similarList.forEach(sim => {
+      const simWord = words.find(w => w.en === sim);
+      if(simWord){
+        const btn = document.createElement("button");
+        btn.textContent = simWord.en;
+        btn.className = "tag";
+        btn.addEventListener("click", () => showDetail(simWord));
+        dSimilar.appendChild(btn);
+      }
+    });
+  } else {
+    dSimilar.innerHTML += "无";
+  }
+
+  MathJax.typesetPromise(); // 渲染公式
 }
 
 // 返回列表页
@@ -98,16 +99,18 @@ backBtn.addEventListener("click", () => {
   list.style.display = "block";
 });
 
+// 搜索
 input.addEventListener("input", () => {
   const q = input.value.toLowerCase();
   const result = words.filter(w =>
     w.en.toLowerCase().includes(q) ||
     w.cn.includes(q) ||
-    w.tags.join("").toLowerCase().includes(q)
+    (w.tags || []).join("").toLowerCase().includes(q)
   );
   render(result);
 });
 
+// 初始渲染
 render(words);
 </script>
 
