@@ -29,4 +29,44 @@ input {
 .Physics { background: #2563eb; }
 .Math { background: #16a34a; }
 .Chemistry { background: #ca8a04; }
+/* 手机优先 */
+body {
+  max-width: 600px;
+  margin: auto;
+}
+
+/* 搜索框更适合触控 */
+input {
+  font-size: 18px;
+  padding: 14px;
+  border-radius: 10px;
+  border: none;
+}
+
+/* 卡片更像 App */
+.card {
+  padding: 18px;
+  border-radius: 14px;
+}
+
+/* 单词更醒目 */
+.card h2 {
+  font-size: 22px;
+  margin-bottom: 6px;
+}
+
+/* 中文解释 */
+.card p {
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+/* 标签适合点按 */
+.tag {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 6px 10px;
+  font-size: 13px;
+  border-radius: 999px;
+}
 
