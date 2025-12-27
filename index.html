@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Science Dictionary</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Science Dictionary</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
 
@@ -52,7 +52,7 @@ function render(items) {
       <h2>${w.en}</h2>
       <p>${w.cn}</p>
       <div class="tags">
-        ${(w.tags || []).map(t => `<span class="tag ${t}" onclick="filterByTag('${t}')">${t}</span>`).join("")}
+        ${(w.tags || []).map(t => `<span class="tag ${t}" data-tag="${t}">${t}</span>`).join("")}
       </div>
     `;
     div.addEventListener("click", () => showDetail(w));
@@ -67,12 +67,11 @@ function showDetail(word) {
 
   dEn.textContent = word.en;
   dCn.textContent = word.cn;
-  dTags.innerHTML = (word.tags || []).map(t => `<span class="tag ${t}" onclick="filterByTag('${t}')">${t}</span>`).join("");
+  dTags.innerHTML = (word.tags || []).map(t => `<span class="tag ${t}" data-tag="${t}">${t}</span>`).join("");
   dCategory.textContent = word.category || "";
   dUsage.textContent = word.usage || "";
   dFormula.innerHTML = word.formula ? `\\(${word.formula}\\)` : "无";
 
-  // 相关单词
   const similarList = word.similar || [];
   dSimilar.innerHTML = "<strong>相关单词:</strong> ";
   if(similarList.length > 0){
@@ -110,11 +109,17 @@ input.addEventListener("input", () => {
   render(result);
 });
 
-// 标签点击筛选
-function filterByTag(tag) {
-  const result = words.filter(w => (w.tags || []).includes(tag));
-  render(result);
-}
+// **事件委托绑定标签点击筛选**
+document.body.addEventListener("click", e => {
+  if(e.target.classList.contains("tag") && e.target.dataset.tag) {
+    const tag = e.target.dataset.tag;
+    const result = words.filter(w => (w.tags || []).includes(tag));
+    render(result);
+    // 隐藏详情页（如果在详情页点标签）
+    detail.style.display = "none";
+    list.style.display = "block";
+  }
+});
 
 // 初始渲染
 render(words);
