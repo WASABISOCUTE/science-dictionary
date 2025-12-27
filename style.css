@@ -139,3 +139,19 @@ input {
 .tag:hover {
   opacity: 0.8;
 }
+.markBtn,
+#markDetailBtn {
+  padding: 6px 12px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  margin-top: 6px;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.markBtn:hover,
+#markDetailBtn:hover {
+  opacity: 0.85;
+}
