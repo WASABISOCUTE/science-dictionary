@@ -75,7 +75,9 @@ function showDetail(word) {
   dFormula.innerHTML = word.formula ? `\\(${word.formula}\\)` : "无";
   
   // 相关单词
-  dSimilar.innerHTML = "<strong>相关单词:</strong> ";
+// 相关单词
+dSimilar.innerHTML = "<strong>相关单词:</strong> ";
+if(word.similar && word.similar.length > 0){
   word.similar.forEach(sim => {
     const simWord = words.find(w => w.en === sim);
     if(simWord){
@@ -86,7 +88,8 @@ function showDetail(word) {
       dSimilar.appendChild(btn);
     }
   });
-  MathJax.typesetPromise(); // 渲染公式
+} else {
+  dSimilar.innerHTML += "无";
 }
 
 // 返回列表页
