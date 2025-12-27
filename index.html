@@ -13,6 +13,27 @@
 
 <input id="search" placeholder="输入英文 / 中文 / 学科">
 
+<!-- 下拉筛选 -->
+<div id="filter">
+  <select id="subjectFilter">
+    <option value="">全部科目</option>
+    <option value="Physics">Physics</option>
+    <option value="Math">Math</option>
+    <option value="Chemistry">Chemistry</option>
+  </select>
+
+  <select id="categoryFilter">
+    <option value="">全部类别</option>
+    <option value="Scalar">Scalar</option>
+    <option value="Vector">Vector</option>
+    <option value="Function">Function</option>
+    <option value="Theorem">Theorem</option>
+    <option value="Substance">Substance</option>
+  </select>
+
+  <button id="clearFilter">清除筛选</button>
+</div>
+
 <div id="list"></div>
 
 <!-- 详情页 -->
@@ -41,6 +62,10 @@ const dCategory = document.getElementById("dCategory");
 const dUsage = document.getElementById("dUsage");
 const dFormula = document.getElementById("dFormula");
 const dSimilar = document.getElementById("dSimilar");
+
+const subjectFilter = document.getElementById("subjectFilter");
+const categoryFilter = document.getElementById("categoryFilter");
+const clearFilter = document.getElementById("clearFilter");
 
 // 渲染列表页
 function render(items) {
@@ -109,16 +134,40 @@ input.addEventListener("input", () => {
   render(result);
 });
 
-// **事件委托绑定标签点击筛选**
+// 事件委托标签点击筛选
 document.body.addEventListener("click", e => {
   if(e.target.classList.contains("tag") && e.target.dataset.tag) {
     const tag = e.target.dataset.tag;
     const result = words.filter(w => (w.tags || []).includes(tag));
     render(result);
-    // 隐藏详情页（如果在详情页点标签）
     detail.style.display = "none";
     list.style.display = "block";
   }
+});
+
+// 下拉筛选函数
+function applyFilters() {
+  const subject = subjectFilter.value;
+  const category = categoryFilter.value;
+  const filtered = words.filter(w => {
+    const matchSubject = subject === "" || (w.tags || []).includes(subject);
+    const matchCategory = category === "" || w.category === category;
+    return matchSubject && matchCategory;
+  });
+  render(filtered);
+  detail.style.display = "none";
+  list.style.display = "block";
+}
+
+// 下拉筛选事件
+subjectFilter.addEventListener("change", applyFilters);
+categoryFilter.addEventListener("change", applyFilters);
+
+// 清除筛选按钮
+clearFilter.addEventListener("click", () => {
+  subjectFilter.value = "";
+  categoryFilter.value = "";
+  render(words);
 });
 
 // 初始渲染
