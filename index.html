@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Science Dictionary</title>
   <link rel="stylesheet" href="style.css">
+  <!-- MathJax 渲染公式 -->
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
 
@@ -14,11 +16,35 @@
 
 <div id="list"></div>
 
+<!-- 详情页 -->
+<div id="detail" style="display:none;">
+  <button id="backBtn">← 返回</button>
+  <h2 id="dEn"></h2>
+  <p id="dCn"></p>
+  <div id="dTags"></div>
+  <p><strong>类别:</strong> <span id="dCategory"></span></p>
+  <p id="dUsage"></p>
+  <p><strong>公式:</strong> <span id="dFormula"></span></p>
+  <div id="dSimilar"><strong>相关单词:</strong></div>
+</div>
+
 <script src="data.js"></script>
 <script>
 const input = document.getElementById("search");
 const list = document.getElementById("list");
+const detail = document.getElementById("detail");
+const backBtn = document.getElementById("backBtn");
 
+// 详情页元素
+const dEn = document.getElementById("dEn");
+const dCn = document.getElementById("dCn");
+const dTags = document.getElementById("dTags");
+const dCategory = document.getElementById("dCategory");
+const dUsage = document.getElementById("dUsage");
+const dFormula = document.getElementById("dFormula");
+const dSimilar = document.getElementById("dSimilar");
+
+// 渲染列表页
 function render(items) {
   list.innerHTML = "";
   items.forEach(w => {
@@ -31,9 +57,43 @@ function render(items) {
         ${w.tags.map(t => `<span class="tag ${t}">${t}</span>`).join("")}
       </div>
     `;
+    // 点击进入详情页
+    div.addEventListener("click", () => showDetail(w));
     list.appendChild(div);
   });
 }
+
+// 显示详情页
+function showDetail(word) {
+  list.style.display = "none";
+  detail.style.display = "block";
+  dEn.textContent = word.en;
+  dCn.textContent = word.cn;
+  dTags.innerHTML = word.tags.map(t => `<span class="tag ${t}">${t}</span>`).join("");
+  dCategory.textContent = word.category || "";
+  dUsage.textContent = word.usage || "";
+  dFormula.innerHTML = word.formula ? `\\(${word.formula}\\)` : "无";
+  
+  // 相关单词
+  dSimilar.innerHTML = "<strong>相关单词:</strong> ";
+  word.similar.forEach(sim => {
+    const simWord = words.find(w => w.en === sim);
+    if(simWord){
+      const btn = document.createElement("button");
+      btn.textContent = simWord.en;
+      btn.className = "tag";
+      btn.addEventListener("click", () => showDetail(simWord));
+      dSimilar.appendChild(btn);
+    }
+  });
+  MathJax.typesetPromise(); // 渲染公式
+}
+
+// 返回列表页
+backBtn.addEventListener("click", () => {
+  detail.style.display = "none";
+  list.style.display = "block";
+});
 
 input.addEventListener("input", () => {
   const q = input.value.toLowerCase();
