@@ -48,15 +48,13 @@ function render(items) {
   items.forEach(w => {
     const div = document.createElement("div");
     div.className = "card";
-// 列表页标签
-div.innerHTML = `
-  <h2>${w.en}</h2>
-  <p>${w.cn}</p>
-  <div class="tags">
-    ${(w.tags || []).map(t => `<span class="tag ${t}" onclick="filterByTag('${t}')">${t}</span>`).join("")}
-  </div>
-`;
-
+    div.innerHTML = `
+      <h2>${w.en}</h2>
+      <p>${w.cn}</p>
+      <div class="tags">
+        ${(w.tags || []).map(t => `<span class="tag ${t}" onclick="filterByTag('${t}')">${t}</span>`).join("")}
+      </div>
+    `;
     div.addEventListener("click", () => showDetail(w));
     list.appendChild(div);
   });
@@ -69,7 +67,6 @@ function showDetail(word) {
 
   dEn.textContent = word.en;
   dCn.textContent = word.cn;
- // 详情页标签
   dTags.innerHTML = (word.tags || []).map(t => `<span class="tag ${t}" onclick="filterByTag('${t}')">${t}</span>`).join("");
   dCategory.textContent = word.category || "";
   dUsage.textContent = word.usage || "";
@@ -113,15 +110,14 @@ input.addEventListener("input", () => {
   render(result);
 });
 
-// 初始渲染
-render(words);
-
-// 点击标签筛选
+// 标签点击筛选
 function filterByTag(tag) {
   const result = words.filter(w => (w.tags || []).includes(tag));
   render(result);
 }
 
+// 初始渲染
+render(words);
 </script>
 
 </body>
