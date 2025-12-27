@@ -69,3 +69,73 @@ input {
   margin-right: 6px;
   margin-top: 6px;
 }
+/* 下拉筛选容器 */
+#filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+/* 下拉菜单 */
+#filter select {
+  padding: 8px 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  background: #1e293b;
+  color: #e5e7eb;
+  cursor: pointer;
+}
+
+/* 按钮 */
+#filter button,
+#backBtn,
+#reportBtn,
+#submitReport,
+#cancelReport {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 10px;
+  background: #2563eb;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+#filter button:hover,
+#backBtn:hover,
+#reportBtn:hover,
+#submitReport:hover,
+#cancelReport:hover {
+  background: #1e40af;
+}
+
+/* 报错表单 */
+#reportForm textarea {
+  background: #1e293b;
+  color: #e5e7eb;
+  border-radius: 8px;
+  border: none;
+  padding: 8px;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 8px;
+}
+
+/* 卡片标签保持圆角风格 */
+.tag {
+  display: inline-block;
+  margin-top: 6px;
+  margin-right: 5px;
+  padding: 6px 10px;
+  font-size: 13px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.tag:hover {
+  opacity: 0.8;
+}
