@@ -6,14 +6,32 @@
 <title>Science Dictionary</title>
 <link rel="stylesheet" href="style.css">
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+body { font-family: sans-serif; background:#0f172a; color:#e5e7eb; padding:16px; margin:0; max-width:600px; margin:auto;}
+h1{text-align:center;margin-bottom:20px;}
+input{width:100%;padding:14px;font-size:18px;border-radius:10px;border:none;margin-bottom:20px;}
+.card{position:relative;background:#1e293b;padding:18px;border-radius:14px;margin-bottom:10px;cursor:pointer;}
+.card h2{font-size:22px;margin-bottom:6px;}
+.card p{font-size:16px;opacity:0.9;}
+.tags{margin-top:6px;}
+.tag{display:inline-block;padding:6px 10px;margin-right:5px;margin-top:6px;font-size:13px;border-radius:999px;cursor:pointer;background:#2563eb;}
+.tag:hover{opacity:0.8;}
+.markBtn{position:absolute;top:10px;right:10px;background:transparent;color:#f59e0b;font-size:20px;border:none;cursor:pointer;transition:transform 0.2s;}
+.markBtn:hover{transform:scale(1.2);}
+#filter{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px;}
+#filter select,#filter button{padding:8px 12px;border-radius:8px;border:none;background:#1e293b;color:#e5e7eb;cursor:pointer;font-size:16px;transition:background 0.2s;}
+#filter button:hover{background:#2563eb;}
+#backBtn,#reportBtn,#submitReport,#cancelReport,#markDetailBtn{padding:8px 14px;border-radius:10px;border:none;cursor:pointer;color:#fff;font-size:14px;margin-top:10px;background:#2563eb;transition:background 0.2s;}
+#backBtn:hover,#reportBtn:hover,#submitReport:hover,#cancelReport:hover,#markDetailBtn:hover{background:#1e40af;}
+#reportForm textarea{width:100%;padding:8px;border-radius:8px;border:none;background:#1e293b;color:#e5e7eb;margin-bottom:8px;font-size:14px;}
+#detail{margin-top:20px;}
+</style>
 </head>
 <body>
 
 <h1>📘 理科词典</h1>
-
 <input id="search" placeholder="输入英文 / 中文 / 学科">
 
-<!-- 下拉筛选 -->
 <div id="filter">
   <select id="subjectFilter">
     <option value="">全部科目</option>
@@ -21,7 +39,6 @@
     <option value="Math">Math</option>
     <option value="Chemistry">Chemistry</option>
   </select>
-
   <select id="categoryFilter">
     <option value="">全部类别</option>
     <option value="Scalar">Scalar</option>
@@ -30,30 +47,28 @@
     <option value="Theorem">Theorem</option>
     <option value="Substance">Substance</option>
   </select>
-
   <button id="clearFilter">清除筛选</button>
+  <button id="showMarkedBtn">⭐ 显示已标记单词</button>
 </div>
 
 <div id="list"></div>
 
-<!-- 详情页 -->
 <div id="detail" style="display:none;">
   <button id="backBtn">← 返回</button>
   <h2 id="dEn"></h2>
   <p id="dCn"></p>
   <div id="dTags"></div>
   <p><strong>类别:</strong> <span id="dCategory"></span></p>
-<p><strong>中文解释:</strong> <span id="dUsage"></span></p>
-<p><strong>English:</strong> <span id="dEnUsage"></span></p>
+  <p><strong>中文解释:</strong> <span id="dUsage"></span></p>
+  <p><strong>English:</strong> <span id="dEnUsage"></span></p>
   <p><strong>公式:</strong> <span id="dFormula"></span></p>
   <p><strong>示例:</strong> <span id="dExample"></span></p>
   <div id="dSimilar"><strong>相关单词:</strong></div>
-
-  <!-- 报错按钮和表单 -->
+  <button id="markDetailBtn">☆ 标记</button>
   <button id="reportBtn">⚠️ 报告错误</button>
-  <div id="reportForm" style="display:none; margin-top:10px;">
+  <div id="reportForm" style="display:none;">
     <p>请填写正确资料：</p>
-    <textarea id="reportText" placeholder="输入正确的英文/中文/公式/示例等" rows="4" style="width:100%;"></textarea>
+    <textarea id="reportText" placeholder="输入正确的英文/中文/公式/示例等" rows="4"></textarea>
     <button id="submitReport">提交</button>
     <button id="cancelReport">取消</button>
   </div>
@@ -71,6 +86,7 @@ const dCn = document.getElementById("dCn");
 const dTags = document.getElementById("dTags");
 const dCategory = document.getElementById("dCategory");
 const dUsage = document.getElementById("dUsage");
+const dEnUsage = document.getElementById("dEnUsage");
 const dFormula = document.getElementById("dFormula");
 const dExample = document.getElementById("dExample");
 const dSimilar = document.getElementById("dSimilar");
@@ -78,156 +94,152 @@ const dSimilar = document.getElementById("dSimilar");
 const subjectFilter = document.getElementById("subjectFilter");
 const categoryFilter = document.getElementById("categoryFilter");
 const clearFilter = document.getElementById("clearFilter");
-
+const showMarkedBtn = document.getElementById("showMarkedBtn");
 const reportBtn = document.getElementById("reportBtn");
 const reportForm = document.getElementById("reportForm");
 const reportText = document.getElementById("reportText");
 const submitReport = document.getElementById("submitReport");
 const cancelReport = document.getElementById("cancelReport");
+const markDetailBtn = document.getElementById("markDetailBtn");
 
-let currentWord = null; // 当前详情页单词
+let currentWord = null;
+let markedWords = JSON.parse(localStorage.getItem("markedWords")||"[]");
+let showingMarkedOnly = false;
 
-// 渲染列表页
-function render(items) {
-  list.innerHTML = "";
-  items.forEach(w => {
-    const div = document.createElement("div");
-    div.className = "card";
-div.innerHTML = `
-  <h2>${w.en} / ${w.cn}</h2>
-  <div class="tags">
-    ${(w.tags || []).map(t => `<span class="tag ${t}" data-tag="${t}">${t}</span>`).join("")}
-  </div>
-`;
+function updateMarkBtn(btn, wordEn){
+  btn.textContent = markedWords.includes(wordEn)?"★":"☆";
+}
 
-    div.addEventListener("click", () => showDetail(w));
+function initMarkButtons(){
+  document.querySelectorAll(".markBtn").forEach(btn=>{
+    const wordEn = btn.dataset.en;
+    updateMarkBtn(btn, wordEn);
+    btn.addEventListener("click", e=>{
+      e.stopPropagation();
+      if(markedWords.includes(wordEn)){ markedWords=markedWords.filter(w=>w!==wordEn);}
+      else{ markedWords.push(wordEn);}
+      localStorage.setItem("markedWords",JSON.stringify(markedWords));
+      updateMarkBtn(btn, wordEn);
+    });
+  });
+}
+
+function render(items){
+  list.innerHTML="";
+  items.forEach(w=>{
+    const div=document.createElement("div");
+    div.className="card";
+    div.innerHTML=`
+      <h2>${w.en} / ${w.cn}</h2>
+      <div class="tags">${(w.tags||[]).map(t=>`<span class="tag ${t}" data-tag="${t}">${t}</span>`).join("")}</div>
+      <button class="markBtn" data-en="${w.en}">☆</button>
+    `;
+    div.addEventListener("click",()=>showDetail(w));
     list.appendChild(div);
   });
+  initMarkButtons();
 }
 
-// 显示详情页
-function showDetail(word) {
+function showDetail(word){
   currentWord = word;
-  list.style.display = "none";
-  detail.style.display = "block";
-
+  list.style.display="none";
+  detail.style.display="block";
   dEn.textContent = word.en;
   dCn.textContent = word.cn;
-  dTags.innerHTML = (word.tags || []).map(t => `<span class="tag ${t}" data-tag="${t}">${t}</span>`).join("");
-  dCategory.textContent = word.category || "";
-  dUsage.textContent = word.usage || "";
-  dEnUsage.textContent = word.enUsage || "";
-  dFormula.innerHTML = word.formula ? `\\(${word.formula}\\)` : "无";
-  dExample.textContent = word.example || "无";
-
-  const similarList = word.similar || [];
-  dSimilar.innerHTML = "<strong>相关单词:</strong> ";
-  if(similarList.length > 0){
-    similarList.forEach(sim => {
-      const simWord = words.find(w => w.en === sim);
-      if(simWord){
-        const btn = document.createElement("button");
-        btn.textContent = simWord.en;
-        btn.className = "tag";
-        btn.addEventListener("click", () => showDetail(simWord));
-        dSimilar.appendChild(btn);
-      }
-    });
-  } else {
-    dSimilar.innerHTML += "无";
-  }
-
+  dTags.innerHTML = (word.tags||[]).map(t=>`<span class="tag ${t}" data-tag="${t}">${t}</span>`).join("");
+  dCategory.textContent = word.category||"";
+  dUsage.textContent = word.usage||"";
+  dEnUsage.textContent = word.enUsage||"";
+  dFormula.innerHTML = word.formula?`\\(${word.formula}\\)`:"无";
+  dExample.textContent = word.example||"无";
+  dSimilar.innerHTML="<strong>相关单词:</strong> ";
+  (word.similar||[]).forEach(sim=>{
+    const simWord = words.find(w=>w.en===sim);
+    if(simWord){
+      const btn = document.createElement("button");
+      btn.textContent = simWord.en;
+      btn.className="tag";
+      btn.addEventListener("click",()=>showDetail(simWord));
+      dSimilar.appendChild(btn);
+    }
+  });
+  if((word.similar||[]).length===0) dSimilar.innerHTML+="无";
+  updateMarkBtn(markDetailBtn, word.en);
   MathJax.typesetPromise();
-  reportForm.style.display = "none";
-  reportText.value = "";
+  reportForm.style.display="none";
+  reportText.value="";
 }
 
-// 返回列表页
-backBtn.addEventListener("click", () => {
-  detail.style.display = "none";
-  list.style.display = "block";
-});
-
-// 搜索
-input.addEventListener("input", () => {
-  const q = input.value.toLowerCase();
-  const result = words.filter(w =>
-    w.en.toLowerCase().includes(q) ||
-    w.cn.includes(q) ||
-    (w.tags || []).join("").toLowerCase().includes(q)
-  );
+backBtn.addEventListener("click",()=>{detail.style.display="none";list.style.display="block";});
+input.addEventListener("input",()=>{
+  const q=input.value.toLowerCase();
+  const result=words.filter(w=>w.en.toLowerCase().includes(q)||w.cn.includes(q)||(w.tags||[]).join("").toLowerCase().includes(q));
   render(result);
 });
-
-// 标签点击筛选
-document.body.addEventListener("click", e => {
-  if(e.target.classList.contains("tag") && e.target.dataset.tag) {
-    const tag = e.target.dataset.tag;
-    const result = words.filter(w => (w.tags || []).includes(tag));
+document.body.addEventListener("click",e=>{
+  if(e.target.classList.contains("tag") && e.target.dataset.tag){
+    const tag=e.target.dataset.tag;
+    const result=words.filter(w=>(w.tags||[]).includes(tag));
     render(result);
-    detail.style.display = "none";
-    list.style.display = "block";
+    detail.style.display="none";
+    list.style.display="block";
   }
 });
 
-// 下拉筛选函数
-function applyFilters() {
-  const subject = subjectFilter.value;
-  const category = categoryFilter.value;
-  const filtered = words.filter(w => {
-    const matchSubject = subject === "" || (w.tags || []).includes(subject);
-    const matchCategory = category === "" || w.category === category;
-    return matchSubject && matchCategory;
-  });
-  render(filtered);
-  detail.style.display = "none";
-  list.style.display = "block";
-}
-
-subjectFilter.addEventListener("change", applyFilters);
-categoryFilter.addEventListener("change", applyFilters);
-
-// 清除筛选按钮
-clearFilter.addEventListener("click", () => {
-  subjectFilter.value = "";
-  categoryFilter.value = "";
+subjectFilter.addEventListener("change",applyFilters);
+categoryFilter.addEventListener("change",applyFilters);
+clearFilter.addEventListener("click",()=>{
+  subjectFilter.value="";categoryFilter.value="";showingMarkedOnly=false;showMarkedBtn.textContent="⭐ 显示已标记单词";
   render(words);
 });
 
-// 报错按钮逻辑
-reportBtn.addEventListener("click", () => {
-  reportForm.style.display = "block";
-  reportText.value = "";
+function applyFilters(){
+  let filtered=words;
+  const subject=subjectFilter.value;
+  const category=categoryFilter.value;
+  if(subject) filtered=filtered.filter(w=>(w.tags||[]).includes(subject));
+  if(category) filtered=filtered.filter(w=>w.category===category);
+  if(showingMarkedOnly) filtered=filtered.filter(w=>markedWords.includes(w.en));
+  render(filtered);
+}
+
+showMarkedBtn.addEventListener("click", ()=>{
+  showingMarkedOnly = !showingMarkedOnly;
+  if(showingMarkedOnly){
+    showMarkedBtn.textContent = "⭐ 显示全部单词";
+  } else {
+    showMarkedBtn.textContent = "⭐ 显示已标记单词";
+  }
+  applyFilters();
 });
-cancelReport.addEventListener("click", () => {
-  reportForm.style.display = "none";
-  reportText.value = "";
+
+markDetailBtn.addEventListener("click", ()=>{
+  if(!currentWord) return;
+  const wordEn = currentWord.en;
+  if(markedWords.includes(wordEn)){ markedWords = markedWords.filter(w=>w!==wordEn);}
+  else{ markedWords.push(wordEn);}
+  localStorage.setItem("markedWords",JSON.stringify(markedWords));
+  updateMarkBtn(markDetailBtn, wordEn);
 });
-submitReport.addEventListener("click", () => {
+
+reportBtn.addEventListener("click",()=>{reportForm.style.display="block";reportText.value="";});
+cancelReport.addEventListener("click",()=>{reportForm.style.display="none";reportText.value="";});
+submitReport.addEventListener("click",()=>{
   if(currentWord){
     const content = reportText.value.trim();
     if(content){
-      // 你的 GitHub 仓库地址
       const repo = "https://github.com/WASABISOCUTE/science-dictionary/issues/new";
       const title = encodeURIComponent(`Science Dictionary 单词报错: ${currentWord.en}`);
       const body = encodeURIComponent(`错误单词: ${currentWord.en}\n用户提供资料:\n${content}`);
-
-      // 打开新建 Issue 页面
-      window.open(`${repo}?title=${title}&body=${body}`, "_blank");
-
+      window.open(`${repo}?title=${title}&body=${body}`,"_blank");
       alert("感谢反馈，已打开 GitHub Issues 提交报告。");
-      reportForm.style.display = "none";
-      reportText.value = "";
-    } else {
-      alert("请填写正确资料。");
-    }
+      reportForm.style.display="none";
+      reportText.value="";
+    } else alert("请填写正确资料。");
   }
 });
 
-
-// 初始渲染
 render(words);
 </script>
-
 </body>
 </html>
