@@ -8,6 +8,11 @@ body {
   margin: auto;
 }
 
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
 input {
   width: 100%;
   font-size: 18px;
@@ -22,6 +27,7 @@ input {
   padding: 18px;
   border-radius: 14px;
   margin-bottom: 10px;
+  cursor: pointer;
 }
 
 .card h2 {
