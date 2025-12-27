@@ -43,7 +43,8 @@
   <p id="dCn"></p>
   <div id="dTags"></div>
   <p><strong>类别:</strong> <span id="dCategory"></span></p>
-  <p id="dUsage"></p>
+<p><strong>中文解释:</strong> <span id="dUsage"></span></p>
+<p><strong>English:</strong> <span id="dEnUsage"></span></p>
   <p><strong>公式:</strong> <span id="dFormula"></span></p>
   <p><strong>示例:</strong> <span id="dExample"></span></p>
   <div id="dSimilar"><strong>相关单词:</strong></div>
@@ -92,13 +93,13 @@ function render(items) {
   items.forEach(w => {
     const div = document.createElement("div");
     div.className = "card";
-    div.innerHTML = `
-      <h2>${w.en}</h2>
-      <p>${w.cn}</p>
-      <div class="tags">
-        ${(w.tags || []).map(t => `<span class="tag ${t}" data-tag="${t}">${t}</span>`).join("")}
-      </div>
-    `;
+div.innerHTML = `
+  <h2>${w.en} / ${w.cn}</h2>
+  <div class="tags">
+    ${(w.tags || []).map(t => `<span class="tag ${t}" data-tag="${t}">${t}</span>`).join("")}
+  </div>
+`;
+
     div.addEventListener("click", () => showDetail(w));
     list.appendChild(div);
   });
@@ -115,6 +116,7 @@ function showDetail(word) {
   dTags.innerHTML = (word.tags || []).map(t => `<span class="tag ${t}" data-tag="${t}">${t}</span>`).join("");
   dCategory.textContent = word.category || "";
   dUsage.textContent = word.usage || "";
+  dEnUsage.textContent = word.enUsage || "";
   dFormula.innerHTML = word.formula ? `\\(${word.formula}\\)` : "无";
   dExample.textContent = word.example || "无";
 
