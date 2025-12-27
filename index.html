@@ -47,6 +47,15 @@
   <p><strong>公式:</strong> <span id="dFormula"></span></p>
   <p><strong>示例:</strong> <span id="dExample"></span></p>
   <div id="dSimilar"><strong>相关单词:</strong></div>
+
+  <!-- 报错按钮和表单 -->
+  <button id="reportBtn">⚠️ 报告错误</button>
+  <div id="reportForm" style="display:none; margin-top:10px;">
+    <p>请填写正确资料：</p>
+    <textarea id="reportText" placeholder="输入正确的英文/中文/公式/示例等" rows="4" style="width:100%;"></textarea>
+    <button id="submitReport">提交</button>
+    <button id="cancelReport">取消</button>
+  </div>
 </div>
 
 <script src="data.js"></script>
@@ -69,6 +78,14 @@ const subjectFilter = document.getElementById("subjectFilter");
 const categoryFilter = document.getElementById("categoryFilter");
 const clearFilter = document.getElementById("clearFilter");
 
+const reportBtn = document.getElementById("reportBtn");
+const reportForm = document.getElementById("reportForm");
+const reportText = document.getElementById("reportText");
+const submitReport = document.getElementById("submitReport");
+const cancelReport = document.getElementById("cancelReport");
+
+let currentWord = null; // 当前详情页单词
+
 // 渲染列表页
 function render(items) {
   list.innerHTML = "";
@@ -89,6 +106,7 @@ function render(items) {
 
 // 显示详情页
 function showDetail(word) {
+  currentWord = word;
   list.style.display = "none";
   detail.style.display = "block";
 
@@ -118,6 +136,8 @@ function showDetail(word) {
   }
 
   MathJax.typesetPromise();
+  reportForm.style.display = "none";
+  reportText.value = "";
 }
 
 // 返回列表页
@@ -162,7 +182,6 @@ function applyFilters() {
   list.style.display = "block";
 }
 
-// 下拉筛选事件
 subjectFilter.addEventListener("change", applyFilters);
 categoryFilter.addEventListener("change", applyFilters);
 
@@ -172,6 +191,37 @@ clearFilter.addEventListener("click", () => {
   categoryFilter.value = "";
   render(words);
 });
+
+// 报错按钮逻辑
+reportBtn.addEventListener("click", () => {
+  reportForm.style.display = "block";
+  reportText.value = "";
+});
+cancelReport.addEventListener("click", () => {
+  reportForm.style.display = "none";
+  reportText.value = "";
+});
+submitReport.addEventListener("click", () => {
+  if(currentWord){
+    const content = reportText.value.trim();
+    if(content){
+      // 你的 GitHub 仓库地址
+      const repo = "https://github.com/WASABISOCUTE/science-dictionary/issues/new";
+      const title = encodeURIComponent(`Science Dictionary 单词报错: ${currentWord.en}`);
+      const body = encodeURIComponent(`错误单词: ${currentWord.en}\n用户提供资料:\n${content}`);
+
+      // 打开新建 Issue 页面
+      window.open(`${repo}?title=${title}&body=${body}`, "_blank");
+
+      alert("感谢反馈，已打开 GitHub Issues 提交报告。");
+      reportForm.style.display = "none";
+      reportText.value = "";
+    } else {
+      alert("请填写正确资料。");
+    }
+  }
+});
+
 
 // 初始渲染
 render(words);
