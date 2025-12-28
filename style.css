@@ -193,7 +193,6 @@ input {
     opacity: 1;
 }
 
-/* ===== Tooltip ===== */
 .info-tooltip {
     display: none;
     background: #1e293b;
