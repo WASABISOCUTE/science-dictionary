@@ -6,55 +6,35 @@
 <title>Science Dictionary</title>
 <link rel="stylesheet" href="style.css">
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-<style>
-body { font-family: sans-serif; background:#0f172a; color:#e5e7eb; padding:16px; margin:0; max-width:600px; margin:auto;}
-h1{text-align:center;margin-bottom:20px;}
-input{width:100%;padding:14px;font-size:18px;border-radius:10px;border:none;margin-bottom:20px;}
-.card{position:relative;background:#1e293b;padding:18px;border-radius:14px;margin-bottom:10px;cursor:pointer;}
-.card h2{font-size:22px;margin-bottom:6px;}
-.card p{font-size:16px;opacity:0.9;}
-.tags{margin-top:6px;}
-.tag{display:inline-block;padding:6px 10px;margin-right:5px;margin-top:6px;font-size:13px;border-radius:999px;cursor:pointer;background:#2563eb;}
-.tag:hover{opacity:0.8;}
-.markBtn{position:absolute;top:10px;right:10px;background:transparent;color:#f59e0b;font-size:20px;border:none;cursor:pointer;transition:transform 0.2s;}
-.markBtn:hover{transform:scale(1.2);}
-#filter{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px;}
-#filter select,#filter button{padding:8px 12px;border-radius:8px;border:none;background:#1e293b;color:#e5e7eb;cursor:pointer;font-size:16px;transition:background 0.2s;}
-#filter button:hover{background:#2563eb;}
-#backBtn,#reportBtn,#submitReport,#cancelReport,#markDetailBtn{padding:8px 14px;border-radius:10px;border:none;cursor:pointer;color:#fff;font-size:14px;margin-top:10px;background:#2563eb;transition:background 0.2s;}
-#backBtn:hover,#reportBtn:hover,#submitReport:hover,#cancelReport:hover,#markDetailBtn:hover{background:#1e40af;}
-#reportForm textarea{width:100%;padding:8px;border-radius:8px;border:none;background:#1e293b;color:#e5e7eb;margin-bottom:8px;font-size:14px;}
-#detail{margin-top:20px;}
-</style>
 </head>
 <body>
 
-<h1>Science Dictionary</h1>
-<input id="search" placeholder="Type English / Chinese / Subject">
+<h1>📘 理科词典</h1>
+<input id="search" placeholder="输入英文 / 中文 / 学科">
 
 <div id="filter">
   <select id="subjectFilter">
-    <option value="">All Subject</option>
+    <option value="">全部科目</option>
     <option value="Physics">Physics</option>
     <option value="Math">Math</option>
     <option value="Chemistry">Chemistry</option>
   </select>
   <select id="categoryFilter">
-    <option value="">All Category</option>
+    <option value="">全部类别</option>
     <option value="Scalar">Scalar</option>
     <option value="Vector">Vector</option>
     <option value="Function">Function</option>
     <option value="Theorem">Theorem</option>
     <option value="Substance">Substance</option>
   </select>
-  <button id="clearFilter">Clear Filter</button>
+  <button id="clearFilter">清除筛选</button>
   <button id="showMarkedBtn">⭐ 显示已标记单词</button>
 </div>
 
 <div id="list"></div>
 
 <div id="detail" style="display:none;">
-  <button id="backBtn">← Back</button>
+  <button id="backBtn">← 返回</button>
   <h2 id="dEn"></h2>
   <p id="dCn"></p>
   <div id="dTags"></div>
