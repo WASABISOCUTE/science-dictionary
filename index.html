@@ -57,7 +57,7 @@
     <option value="Substance">Substance</option>
   </select>
   <button id="clearFilter">Clear Filter</button>
-  <button id="showMarkedBtn">⭐ 显示已标记单词</button>
+  <button id="showMarkedBtn">⭐ Show Marked Words</button>
 </div>
 
 <div id="list"></div>
@@ -78,7 +78,7 @@
 
   <div id="dSimilar"><strong>相关单词:</strong></div>
 
-  <button id="markDetailBtn">☆ 标记</button>
+  <button id="markDetailBtn">☆ Mark</button>
   <button id="reportBtn">⚠️ 报告错误</button>
 
   <div id="reportForm" style="display:none;">
@@ -260,8 +260,8 @@ function applyFilters(){
   render(result);
 }
 subjectFilter.onchange = categoryFilter.onchange = applyFilters;
-clearFilter.onclick = ()=>{subjectFilter.value=""; categoryFilter.value=""; showingMarkedOnly=false; showMarkedBtn.textContent="⭐ 显示已标记单词"; render(words);};
-showMarkedBtn.onclick=()=>{showingMarkedOnly=!showingMarkedOnly; showMarkedBtn.textContent=showingMarkedOnly?"⭐ 显示全部单词":"⭐ 显示已标记单词"; applyFilters();};
+clearFilter.onclick = ()=>{subjectFilter.value=""; categoryFilter.value=""; showingMarkedOnly=false; showMarkedBtn.textContent="⭐ Show Marked Words"; render(words);};
+showMarkedBtn.onclick=()=>{showingMarkedOnly=!showingMarkedOnly; showMarkedBtn.textContent=showingMarkedOnly?"⭐ Show All Words":"⭐ Show Marked Words"; applyFilters();};
 markDetailBtn.onclick=()=>{if(currentWord){toggleMark(currentWord.en); updateMarkBtn(markDetailBtn, currentWord.en);}};
 
 /* ===== 报错 ===== */
