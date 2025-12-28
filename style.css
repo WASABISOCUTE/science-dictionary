@@ -242,3 +242,21 @@ footer {
 #aboutLink:hover {
     color: #e5e7eb;
 }
+
+/* ===== Hide Scroll Bar ===== */
+
+/* Chrome / Edge / Safari */
+::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+}
+
+/* Firefox */
+html {
+    scrollbar-width: none;
+}
+
+/* IE */
+body {
+    -ms-overflow-style: none;
+}

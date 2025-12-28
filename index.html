@@ -56,6 +56,12 @@
     <option value="Theorem">Theorem</option>
     <option value="Substance">Substance</option>
   </select>
+  <select id="sortSelect">
+  <option value="">Default</option>
+  <option value="az">A → Z</option>
+  <option value="za">Z → A</option>
+  <option value="marked">Marked First</option>
+</select>
   <button id="clearFilter">Clear Filter</button>
   <button id="showMarkedBtn">⭐ Show Marked Words</button>
 </div>
@@ -159,6 +165,7 @@ const dFormula = document.getElementById("dFormula");
 const dExample = document.getElementById("dExample");
 const dSimilar = document.getElementById("dSimilar");
 
+const sortSelect = document.getElementById("sortSelect");
 const subjectFilter = document.getElementById("subjectFilter");
 const categoryFilter = document.getElementById("categoryFilter");
 const clearFilter = document.getElementById("clearFilter");
@@ -257,13 +264,35 @@ function applyFilters(){
   if(subjectFilter.value) result = result.filter(w=>(w.tags||[]).includes(subjectFilter.value));
   if(categoryFilter.value) result = result.filter(w=>w.category===categoryFilter.value);
   if(showingMarkedOnly) result = result.filter(w=>markedWords.includes(w.en));
-  render(result);
+result = applySort(result);
+render(result);
 }
+sortSelect.addEventListener("change", applyFilters);
 subjectFilter.onchange = categoryFilter.onchange = applyFilters;
 clearFilter.onclick = ()=>{subjectFilter.value=""; categoryFilter.value=""; showingMarkedOnly=false; showMarkedBtn.textContent="⭐ Show Marked Words"; render(words);};
 showMarkedBtn.onclick=()=>{showingMarkedOnly=!showingMarkedOnly; showMarkedBtn.textContent=showingMarkedOnly?"⭐ Show All Words":"⭐ Show Marked Words"; applyFilters();};
 markDetailBtn.onclick=()=>{if(currentWord){toggleMark(currentWord.en); updateMarkBtn(markDetailBtn, currentWord.en);}};
+/* ===== 排序 ===== */
+function applySort(list) {
+  const mode = sortSelect.value;
+  const arr = [...list];
 
+  if (mode === "az") {
+    arr.sort((a, b) => a.en.localeCompare(b.en));
+  } 
+  else if (mode === "za") {
+    arr.sort((a, b) => b.en.localeCompare(a.en));
+  } 
+  else if (mode === "marked") {
+    arr.sort((a, b) => {
+      const aMarked = markedWords.includes(a.en);
+      const bMarked = markedWords.includes(b.en);
+      return bMarked - aMarked;
+    });
+  }
+
+  return arr;
+}
 /* ===== 报错 ===== */
 reportBtn.onclick=()=>reportForm.style.display="block";
 cancelReport.onclick=()=>reportForm.style.display="none";
