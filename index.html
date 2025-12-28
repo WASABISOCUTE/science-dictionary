@@ -291,15 +291,24 @@ fetch("https://api.github.com/repos/WASABISOCUTE/science-dictionary/contributors
 }).catch(()=>{contributorsList.innerHTML="<li>无法加载贡献者列表</li>";});
 
 /* ===== tooltip 修复 ===== */
-const contributorsInfo=document.getElementById("contributorsInfo");
-const contributorsTip=document.getElementById("contributorsTip");
-let tipVisible=false;
-contributorsInfo.addEventListener("click", e=>{e.stopPropagation(); tipVisible=!tipVisible; contributorsTip.style.display=tipVisible?"block":"none";});
-contributorsInfo.addEventListener("mouseenter", ()=>{contributorsTip.style.display="block";});
-contributorsInfo.addEventListener("mouseleave", ()=>{if(!tipVisible) contributorsTip.style.display="none";});
-document.addEventListener("click", ()=>{tipVisible=false; contributorsTip.style.display="none";});
+const contributorsInfo = document.getElementById("contributorsInfo");
+const contributorsTip = document.getElementById("contributorsTip");
+let tipVisible = false;
 
-/* ===== 标签点击筛选 ===== */
+// 点击切换显示
+contributorsInfo.addEventListener("click", e => {
+  e.stopPropagation(); 
+  tipVisible = !tipVisible;
+  contributorsTip.style.display = tipVisible ? "block" : "none";
+});
+
+// 点击页面其他地方关闭 tooltip
+document.addEventListener("click", () => {
+  tipVisible = false;
+  contributorsTip.style.display = "none";
+});
+
+/* ===== 标签筛选 ===== */
 document.body.addEventListener("click", e=>{
   if(e.target.classList.contains("tag") && e.target.dataset.tag){
     const tag=e.target.dataset.tag;
