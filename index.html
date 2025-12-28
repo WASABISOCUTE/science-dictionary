@@ -6,10 +6,39 @@
 <title>Science Dictionary</title>
 <link rel="stylesheet" href="style.css">
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+/* tooltip 修复样式 */
+.info-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  margin-left: 6px;
+  border-radius: 50%;
+  border: 1px solid #94a3b8;
+  font-size: 12px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.info-tooltip {
+  display: none;
+  margin-top: 8px;
+  padding: 10px 12px;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  font-size: 13px;
+  line-height: 1.5;
+  pointer-events: none; /* 防止鼠标进入导致闪烁 */
+}
+</style>
 </head>
 <body>
 
 <h1>Science Dictionary</h1>
+
 <input id="search" placeholder="Type English / Chinese / Subject">
 
 <div id="filter">
@@ -33,33 +62,92 @@
 
 <div id="list"></div>
 
+<!-- ===== 详情页 ===== -->
 <div id="detail" style="display:none;">
   <button id="backBtn">← Back</button>
+
   <h2 id="dEn"></h2>
   <p id="dCn"></p>
   <div id="dTags"></div>
+
   <p><strong>类别:</strong> <span id="dCategory"></span></p>
   <p><strong>中文解释:</strong> <span id="dUsage"></span></p>
   <p><strong>English:</strong> <span id="dEnUsage"></span></p>
   <p><strong>公式:</strong> <span id="dFormula"></span></p>
   <p><strong>示例:</strong> <span id="dExample"></span></p>
+
   <div id="dSimilar"><strong>相关单词:</strong></div>
+
   <button id="markDetailBtn">☆ 标记</button>
   <button id="reportBtn">⚠️ 报告错误</button>
+
   <div id="reportForm" style="display:none;">
     <p>请填写正确资料：</p>
-    <textarea id="reportText" placeholder="输入正确的英文/中文/公式/示例等" rows="4"></textarea>
+    <textarea id="reportText" rows="4" placeholder="输入正确的英文 / 中文 / 公式 / 示例等"></textarea>
     <button id="submitReport">提交</button>
     <button id="cancelReport">取消</button>
   </div>
 </div>
+
+<!-- ===== 网站信息页 ===== -->
+<div id="about" style="display:none;">
+  <button id="aboutBackBtn">← Back</button>
+
+  <h2>网站信息 / Website Information</h2>
+
+  <section class="about-section">
+    <h3>项目简介 / About</h3>
+    <p>理科词典是一个面向理科高中生的在线学习工具，用于快速查询物理、数学、化学等科目中的重要术语。</p>
+    <p>Science Dictionary is an online learning tool designed for high school science students, used for quickly looking up important terms in Physics, Mathematics, and Chemistry.</p>
+  </section>
+
+  <section class="about-section">
+    <h3>制作人员 / Credits</h3>
+    <ul>
+      <li><strong>项目概念：</strong> WASABISOCUTE</li>
+      <li><strong>界面及功能设计：</strong> WASABISOCUTE</li>
+      <li><strong>代码：</strong> ChatGPT</li>
+    </ul>
+    <ul>
+      <li><strong>Project Concept:</strong> WASABISOCUTE</li>
+      <li><strong>UI and Feature Design:</strong> WASABISOCUTE</li>
+      <li><strong>Code Assistance:</strong> ChatGPT</li>
+    </ul>
+  </section>
+
+  <section class="about-section">
+    <h3>开源信息 / Open Source</h3>
+    <p>本项目托管于 GitHub，欢迎提交 Issue 或 Pull Request。</p>
+    <p>This project is hosted on GitHub. Issues and Pull Requests are welcome.</p>
+  </section>
+
+  <section class="about-section">
+    <h3>
+      贡献者 / Contributors
+      <span class="info-icon" id="contributorsInfo">!</span>
+    </h3>
+    <div class="info-tooltip" id="contributorsTip">
+      <p><strong>说明：</strong>该功能仍在开发中，可能不会显示所有贡献者。</p>
+      <p><strong>Note:</strong> This feature is still under development and may not display all contributors.</p>
+    </div>
+    <ul id="contributors"><li>Loading...</li></ul>
+  </section>
+</div>
+
+<footer id="footer">
+  <span id="aboutLink">网站信息</span>
+</footer>
 
 <script src="data.js"></script>
 <script>
 const input = document.getElementById("search");
 const list = document.getElementById("list");
 const detail = document.getElementById("detail");
+const about = document.getElementById("about");
+
 const backBtn = document.getElementById("backBtn");
+const aboutBackBtn = document.getElementById("aboutBackBtn");
+const aboutLink = document.getElementById("aboutLink");
 
 const dEn = document.getElementById("dEn");
 const dCn = document.getElementById("dCn");
@@ -75,35 +163,39 @@ const subjectFilter = document.getElementById("subjectFilter");
 const categoryFilter = document.getElementById("categoryFilter");
 const clearFilter = document.getElementById("clearFilter");
 const showMarkedBtn = document.getElementById("showMarkedBtn");
+
 const reportBtn = document.getElementById("reportBtn");
 const reportForm = document.getElementById("reportForm");
 const reportText = document.getElementById("reportText");
 const submitReport = document.getElementById("submitReport");
 const cancelReport = document.getElementById("cancelReport");
+
 const markDetailBtn = document.getElementById("markDetailBtn");
 
 let currentWord = null;
-let markedWords = JSON.parse(localStorage.getItem("markedWords")||"[]");
+let markedWords = JSON.parse(localStorage.getItem("markedWords") || "[]");
 let showingMarkedOnly = false;
 
-function updateMarkBtn(btn, wordEn){
-  btn.textContent = markedWords.includes(wordEn)?"★":"☆";
+/* ===== 标记逻辑 ===== */
+function updateMarkBtn(btn, en) { btn.textContent = markedWords.includes(en) ? "★" : "☆"; }
+function toggleMark(en) {
+  if(markedWords.includes(en)) markedWords = markedWords.filter(w=>w!==en);
+  else markedWords.push(en);
+  localStorage.setItem("markedWords", JSON.stringify(markedWords));
 }
-
 function initMarkButtons(){
   document.querySelectorAll(".markBtn").forEach(btn=>{
-    const wordEn = btn.dataset.en;
-    updateMarkBtn(btn, wordEn);
-    btn.addEventListener("click", e=>{
+    const en = btn.dataset.en;
+    updateMarkBtn(btn, en);
+    btn.onclick = e=>{
       e.stopPropagation();
-      if(markedWords.includes(wordEn)){ markedWords=markedWords.filter(w=>w!==wordEn);}
-      else{ markedWords.push(wordEn);}
-      localStorage.setItem("markedWords",JSON.stringify(markedWords));
-      updateMarkBtn(btn, wordEn);
-    });
+      toggleMark(en);
+      updateMarkBtn(btn, en);
+    };
   });
 }
 
+/* ===== 渲染 ===== */
 function render(items){
   list.innerHTML="";
   items.forEach(w=>{
@@ -114,16 +206,19 @@ function render(items){
       <div class="tags">${(w.tags||[]).map(t=>`<span class="tag ${t}" data-tag="${t}">${t}</span>`).join("")}</div>
       <button class="markBtn" data-en="${w.en}">☆</button>
     `;
-    div.addEventListener("click",()=>showDetail(w));
+    div.onclick=()=>showDetail(w);
     list.appendChild(div);
   });
   initMarkButtons();
 }
 
+/* ===== 详情页 ===== */
 function showDetail(word){
   currentWord = word;
   list.style.display="none";
+  about.style.display="none";
   detail.style.display="block";
+
   dEn.textContent = word.en;
   dCn.textContent = word.cn;
   dTags.innerHTML = (word.tags||[]).map(t=>`<span class="tag ${t}" data-tag="${t}">${t}</span>`).join("");
@@ -132,90 +227,85 @@ function showDetail(word){
   dEnUsage.textContent = word.enUsage||"";
   dFormula.innerHTML = word.formula?`\\(${word.formula}\\)`:"无";
   dExample.textContent = word.example||"无";
+
   dSimilar.innerHTML="<strong>相关单词:</strong> ";
-  (word.similar||[]).forEach(sim=>{
-    const simWord = words.find(w=>w.en===sim);
-    if(simWord){
-      const btn = document.createElement("button");
-      btn.textContent = simWord.en;
-      btn.className="tag";
-      btn.addEventListener("click",()=>showDetail(simWord));
-      dSimilar.appendChild(btn);
+  (word.similar||[]).forEach(s=>{
+    const sw=words.find(w=>w.en===s);
+    if(sw){
+      const b=document.createElement("button");
+      b.textContent=sw.en;
+      b.className="tag";
+      b.onclick=()=>showDetail(sw);
+      dSimilar.appendChild(b);
     }
   });
-  if((word.similar||[]).length===0) dSimilar.innerHTML+="无";
+  if(!word.similar || word.similar.length===0) dSimilar.innerHTML+="无";
+
   updateMarkBtn(markDetailBtn, word.en);
   MathJax.typesetPromise();
-  reportForm.style.display="none";
-  reportText.value="";
 }
 
-backBtn.addEventListener("click",()=>{detail.style.display="none";list.style.display="block";});
-input.addEventListener("input",()=>{
-  const q=input.value.toLowerCase();
-  const result=words.filter(w=>w.en.toLowerCase().includes(q)||w.cn.includes(q)||(w.tags||[]).join("").toLowerCase().includes(q));
+/* ===== 页面切换 ===== */
+backBtn.onclick=()=>{detail.style.display="none"; list.style.display="block";}
+aboutLink.onclick=()=>{list.style.display="none"; detail.style.display="none"; about.style.display="block";}
+aboutBackBtn.onclick=()=>{about.style.display="none"; list.style.display="block";}
+
+/* ===== 搜索 & 筛选 ===== */
+input.oninput=()=>{const q=input.value.toLowerCase(); render(words.filter(w=>w.en.toLowerCase().includes(q)||w.cn.includes(q)||(w.tags||[]).join("").toLowerCase().includes(q)));};
+function applyFilters(){
+  let result = words;
+  if(subjectFilter.value) result = result.filter(w=>(w.tags||[]).includes(subjectFilter.value));
+  if(categoryFilter.value) result = result.filter(w=>w.category===categoryFilter.value);
+  if(showingMarkedOnly) result = result.filter(w=>markedWords.includes(w.en));
   render(result);
-});
-document.body.addEventListener("click",e=>{
+}
+subjectFilter.onchange = categoryFilter.onchange = applyFilters;
+clearFilter.onclick = ()=>{subjectFilter.value=""; categoryFilter.value=""; showingMarkedOnly=false; showMarkedBtn.textContent="⭐ 显示已标记单词"; render(words);};
+showMarkedBtn.onclick=()=>{showingMarkedOnly=!showingMarkedOnly; showMarkedBtn.textContent=showingMarkedOnly?"⭐ 显示全部单词":"⭐ 显示已标记单词"; applyFilters();};
+markDetailBtn.onclick=()=>{if(currentWord){toggleMark(currentWord.en); updateMarkBtn(markDetailBtn, currentWord.en);}};
+
+/* ===== 报错 ===== */
+reportBtn.onclick=()=>reportForm.style.display="block";
+cancelReport.onclick=()=>reportForm.style.display="none";
+submitReport.onclick=()=>{
+  if(currentWord && reportText.value.trim()){
+    const repo="https://github.com/WASABISOCUTE/science-dictionary/issues/new";
+    const title=encodeURIComponent(`Science Dictionary 单词报错: ${currentWord.en}`);
+    const body=encodeURIComponent(reportText.value);
+    window.open(`${repo}?title=${title}&body=${body}`,"_blank");
+    reportForm.style.display="none"; reportText.value="";
+  }
+};
+
+/* ===== GitHub 贡献者 ===== */
+const contributorsList = document.getElementById("contributors");
+fetch("https://api.github.com/repos/WASABISOCUTE/science-dictionary/contributors")
+.then(res=>res.json())
+.then(data=>{
+  contributorsList.innerHTML="";
+  data.forEach(user=>{
+    const li=document.createElement("li");
+    li.innerHTML=`<a href="${user.html_url}" target="_blank" style="color:#60a5fa;">${user.login}</a> （${user.contributions} commits）`;
+    contributorsList.appendChild(li);
+  });
+}).catch(()=>{contributorsList.innerHTML="<li>无法加载贡献者列表</li>";});
+
+/* ===== tooltip 修复 ===== */
+const contributorsInfo=document.getElementById("contributorsInfo");
+const contributorsTip=document.getElementById("contributorsTip");
+let tipVisible=false;
+contributorsInfo.addEventListener("click", e=>{e.stopPropagation(); tipVisible=!tipVisible; contributorsTip.style.display=tipVisible?"block":"none";});
+contributorsInfo.addEventListener("mouseenter", ()=>{contributorsTip.style.display="block";});
+contributorsInfo.addEventListener("mouseleave", ()=>{if(!tipVisible) contributorsTip.style.display="none";});
+document.addEventListener("click", ()=>{tipVisible=false; contributorsTip.style.display="none";});
+
+/* ===== 标签点击筛选 ===== */
+document.body.addEventListener("click", e=>{
   if(e.target.classList.contains("tag") && e.target.dataset.tag){
     const tag=e.target.dataset.tag;
-    const result=words.filter(w=>(w.tags||[]).includes(tag));
-    render(result);
+    render(words.filter(w=>(w.tags||[]).includes(e.target.dataset.tag)));
     detail.style.display="none";
     list.style.display="block";
-  }
-});
-
-subjectFilter.addEventListener("change",applyFilters);
-categoryFilter.addEventListener("change",applyFilters);
-clearFilter.addEventListener("click",()=>{
-  subjectFilter.value="";categoryFilter.value="";showingMarkedOnly=false;showMarkedBtn.textContent="⭐ 显示已标记单词";
-  render(words);
-});
-
-function applyFilters(){
-  let filtered=words;
-  const subject=subjectFilter.value;
-  const category=categoryFilter.value;
-  if(subject) filtered=filtered.filter(w=>(w.tags||[]).includes(subject));
-  if(category) filtered=filtered.filter(w=>w.category===category);
-  if(showingMarkedOnly) filtered=filtered.filter(w=>markedWords.includes(w.en));
-  render(filtered);
-}
-
-showMarkedBtn.addEventListener("click", ()=>{
-  showingMarkedOnly = !showingMarkedOnly;
-  if(showingMarkedOnly){
-    showMarkedBtn.textContent = "⭐ 显示全部单词";
-  } else {
-    showMarkedBtn.textContent = "⭐ 显示已标记单词";
-  }
-  applyFilters();
-});
-
-markDetailBtn.addEventListener("click", ()=>{
-  if(!currentWord) return;
-  const wordEn = currentWord.en;
-  if(markedWords.includes(wordEn)){ markedWords = markedWords.filter(w=>w!==wordEn);}
-  else{ markedWords.push(wordEn);}
-  localStorage.setItem("markedWords",JSON.stringify(markedWords));
-  updateMarkBtn(markDetailBtn, wordEn);
-});
-
-reportBtn.addEventListener("click",()=>{reportForm.style.display="block";reportText.value="";});
-cancelReport.addEventListener("click",()=>{reportForm.style.display="none";reportText.value="";});
-submitReport.addEventListener("click",()=>{
-  if(currentWord){
-    const content = reportText.value.trim();
-    if(content){
-      const repo = "https://github.com/WASABISOCUTE/science-dictionary/issues/new";
-      const title = encodeURIComponent(`Science Dictionary 单词报错: ${currentWord.en}`);
-      const body = encodeURIComponent(`错误单词: ${currentWord.en}\n用户提供资料:\n${content}`);
-      window.open(`${repo}?title=${title}&body=${body}`,"_blank");
-      alert("感谢反馈，已打开 GitHub Issues 提交报告。");
-      reportForm.style.display="none";
-      reportText.value="";
-    } else alert("请填写正确资料。");
   }
 });
 

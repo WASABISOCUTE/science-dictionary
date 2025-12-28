@@ -137,3 +137,70 @@ input {
 #detail {
     margin-top: 20px;
 }
+/* ===== Footer ===== */
+#footer {
+    margin-top: 40px;
+    text-align: center;
+    padding: 20px 0;
+    opacity: 0.8;
+}
+
+#aboutLink {
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 14px;
+}
+
+#aboutLink:hover {
+    opacity: 1;
+}
+
+/* ===== About Page ===== */
+#about {
+    margin-top: 20px;
+}
+
+.about-section {
+    margin-top: 20px;
+}
+
+.about-section h3 {
+    margin-bottom: 8px;
+}
+
+.about-section p,
+.about-section li {
+    font-size: 15px;
+    line-height: 1.6;
+    opacity: 0.95;
+}
+/* ===== Contributors Info Icon ===== */
+.info-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    margin-left: 6px;
+    border: 1.5px solid #e5e7eb;
+    border-radius: 50%;
+    font-size: 12px;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.info-icon:hover {
+    opacity: 1;
+}
+
+/* ===== Tooltip ===== */
+.info-tooltip {
+    display: none;
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 10px;
+    padding: 10px 12px;
+    margin-top: 8px;
+    font-size: 13px;
+    line-height: 1.5;
+}
