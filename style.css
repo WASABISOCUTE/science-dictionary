@@ -1,157 +1,139 @@
 body {
-  font-family: sans-serif;
-  background: #0f172a;
-  color: #e5e7eb;
-  padding: 16px;
-  margin: 0;
-  max-width: 600px;
-  margin: auto;
+    font-family: sans-serif;
+    background: #0f172a;
+    color: #e5e7eb;
+    padding: 16px;
+    margin: 0;
+    max-width: 600px;
+    margin: auto;
 }
 
 h1 {
-  text-align: center;
-  margin-bottom: 20px;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 input {
-  width: 100%;
-  font-size: 18px;
-  padding: 14px;
-  border-radius: 10px;
-  border: none;
-  margin-bottom: 20px;
+    width: 100%;
+    padding: 14px;
+    font-size: 18px;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 20px;
 }
 
 .card {
-  background: #1e293b;
-  padding: 18px;
-  border-radius: 14px;
-  margin-bottom: 10px;
-  cursor: pointer;
+    position: relative;
+    background: #1e293b;
+    padding: 18px;
+    border-radius: 14px;
+    margin-bottom: 10px;
+    cursor: pointer;
 }
 
 .card h2 {
-  font-size: 22px;
-  margin-bottom: 6px;
+    font-size: 22px;
+    margin-bottom: 6px;
 }
 
 .card p {
-  font-size: 16px;
-  opacity: 0.9;
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+.tags {
+    margin-top: 6px;
 }
 
 .tag {
-  display: inline-block;
-  margin-top: 8px;
-  padding: 6px 10px;
-  font-size: 13px;
-  border-radius: 999px;
-  cursor: pointer;
-}
-
-.Physics { background: #2563eb; }
-.Math { background: #16a34a; }
-.Chemistry { background: #ca8a04; }
-
-/* 详情页按钮 */
-#backBtn {
-  padding: 6px 12px;
-  border: none;
-  border-radius: 6px;
-  margin-bottom: 10px;
-  cursor: pointer;
-  background: #374151;
-  color: #e5e7eb;
-}
-
-/* 详情页相关单词按钮 */
-#dSimilar .tag {
-  margin-right: 6px;
-  margin-top: 6px;
-}
-/* 下拉筛选容器 */
-#filter {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
-/* 下拉菜单 */
-#filter select {
-  padding: 8px 12px;
-  font-size: 16px;
-  border-radius: 8px;
-  border: none;
-  background: #1e293b;
-  color: #e5e7eb;
-  cursor: pointer;
-}
-
-/* 按钮 */
-#filter button,
-#backBtn,
-#reportBtn,
-#submitReport,
-#cancelReport {
-  padding: 8px 14px;
-  border: none;
-  border-radius: 10px;
-  background: #2563eb;
-  color: #fff;
-  font-size: 14px;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-#filter button:hover,
-#backBtn:hover,
-#reportBtn:hover,
-#submitReport:hover,
-#cancelReport:hover {
-  background: #1e40af;
-}
-
-/* 报错表单 */
-#reportForm textarea {
-  background: #1e293b;
-  color: #e5e7eb;
-  border-radius: 8px;
-  border: none;
-  padding: 8px;
-  font-size: 14px;
-  width: 100%;
-  box-sizing: border-box;
-  margin-bottom: 8px;
-}
-
-/* 卡片标签保持圆角风格 */
-.tag {
-  display: inline-block;
-  margin-top: 6px;
-  margin-right: 5px;
-  padding: 6px 10px;
-  font-size: 13px;
-  border-radius: 999px;
-  cursor: pointer;
+    display: inline-block;
+    padding: 6px 10px;
+    margin-right: 5px;
+    margin-top: 6px;
+    font-size: 13px;
+    border-radius: 999px;
+    cursor: pointer;
+    background: #2563eb;
 }
 
 .tag:hover {
-  opacity: 0.8;
-}
-.markBtn,
-#markDetailBtn {
-  padding: 6px 12px;
-  border-radius: 10px;
-  border: none;
-  cursor: pointer;
-  color: #fff;
-  margin-top: 6px;
-  font-size: 14px;
-  transition: background 0.2s;
+    opacity: 0.8;
 }
 
-.markBtn:hover,
+.markBtn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    color: #f59e0b;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.markBtn:hover {
+    transform: scale(1.2);
+}
+
+#filter {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+#filter select,
+#filter button {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: none;
+    background: #1e293b;
+    color: #e5e7eb;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.2s;
+}
+
+#filter button:hover {
+    background: #2563eb;
+}
+
+#backBtn,
+#reportBtn,
+#submitReport,
+#cancelReport,
+#markDetailBtn {
+    padding: 8px 14px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    font-size: 14px;
+    margin-top: 10px;
+    background: #2563eb;
+    transition: background 0.2s;
+}
+
+#backBtn:hover,
+#reportBtn:hover,
+#submitReport:hover,
+#cancelReport:hover,
 #markDetailBtn:hover {
-  opacity: 0.85;
+    background: #1e40af;
+}
+
+#reportForm textarea {
+    width: 100%;
+    padding: 8px;
+    border-radius: 8px;
+    border: none;
+    background: #1e293b;
+    color: #e5e7eb;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+#detail {
+    margin-top: 20px;
 }
