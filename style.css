@@ -260,3 +260,28 @@ html {
 body {
     -ms-overflow-style: none;
 }
+
+/* ===== Added: Sort Control ===== */
+#sortSelect {
+    padding: 8px 12px;
+    border-radius: 10px;
+    border: none;
+    background: #1e293b;
+    color: #e5e7eb;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+#sortSelect:hover {
+    background: #2563eb;
+}
+
+/* ===== Detail Updated Time ===== */
+.detail-updated {
+    margin-top: 18px;
+    padding-top: 10px;
+    border-top: 1px dashed #334155;
+    font-size: 13px;
+    color: #9ca3af;
+}
+
