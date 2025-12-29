@@ -8,7 +8,8 @@ const words = [
     formula:"", 
     category:"Scalar", 
     similar:["Distance","Speed",], 
-    example:"质量、长度、时间" 
+    example:"质量、长度、时间",
+    updated: "2025-12-28"
   },
   { 
     en: "Speed", 
@@ -19,7 +20,8 @@ const words = [
     formula:"s = d/t", 
     category:"Scalar", 
     similar:["Distance","Velocity",], 
-    example:"汽车行驶速度、风速" 
+    example:"汽车行驶速度、风速",
+    updated: "2025-12-28"
   },
   { 
     en: "Velocity", 
@@ -30,7 +32,8 @@ const words = [
     formula:"v = s/t", 
     category:"Vector", 
     similar:["Displacement","Speed",], 
-    example:"向北10 ms¯¹" 
+    example:"向北10 ms¯¹" ,
+    updated: "2025-12-28"
   },
   { 
     en: "Vector", 
@@ -41,9 +44,10 @@ const words = [
     formula:"", 
     category:"Vector", 
     similar:["Acceleration","Displacement","Velocity",], 
-    example:"力、速度" 
+    example:"力、速度" ,
+    updated: "2025-12-28"
   },
-  { 
+  {
     en: "Scalar", 
     cn: "标量", 
     enUsage: "A quantity that only has magnitude without direction", 
@@ -52,7 +56,8 @@ const words = [
     formula:"", 
     category:"Scalar", 
     similar:["Distance","Magnitude",], 
-    example:"温度、质量" 
+    example:"温度、质量" ,
+    updated: "2025-12-28"
   },
   { 
     en: "Magnitude", 
@@ -63,7 +68,8 @@ const words = [
     formula:"", 
     category:"Scalar", 
     similar:["Scalar","Vector"], 
-    example:"速度的大小、力的大小" 
+    example:"速度的大小、力的大小" ,
+    updated: "2025-12-28"
   },
   { 
     en: "Acceleration", 
@@ -74,7 +80,8 @@ const words = [
     formula:"a = Δv/t", 
     category:"Vector", 
     similar:["Speed","Velocity",], 
-    example:"自由落体加速度 9.8 ms⁻²" 
+    example:"自由落体加速度 9.8 ms⁻²" ,
+    updated: "2025-12-28"
   },
   { 
     en: "Trigonometric Function", 
@@ -85,7 +92,8 @@ const words = [
     formula:"", 
     category:"Function", 
     similar:["Pythagorean Theorem"], 
-    example:"sin(30°)=0.5, cos(60°)=0.5" 
+    example:"sin(30°)=0.5, cos(60°)=0.5" ,
+    updated: "2025-12-28"
   },
   { 
     en: "Pythagorean Theorem", 
@@ -96,7 +104,8 @@ const words = [
     formula:"a² + b² = c²", 
     category:"Theorem", 
     similar:["Trigonometric Function"], 
-    example:"直角三角形，a=3, b=4, c=5" 
+    example:"直角三角形，a=3, b=4, c=5" ,
+    updated: "2025-12-28"
   },
   { 
     en: "Pure Substance", 
@@ -107,7 +116,8 @@ const words = [
     formula:"", 
     category:"Substance", 
     similar:["Mixture"], 
-    example:"水、氧气" 
+    example:"水、氧气" ,
+    updated: "2025-12-29"
   },
   { 
     en: "Mixture", 
@@ -118,7 +128,8 @@ const words = [
     formula:"", 
     category:"Substance", 
     similar:["Pure Substance"], 
-    example:"空气、盐水" 
+    example:"空气、盐水" ,
+    updated: "2025-12-29"
   },
   { 
     en: "Distance", 
@@ -129,7 +140,8 @@ const words = [
     formula:"s = v × t", 
     category:"Scalar", 
     similar:["Displacement","Speed"], 
-    example:"The ant walked 1cm" 
+    example:"The ant walked 1cm" ,
+    updated: "2025-12-28"
   },
   { 
     en: "Displacement", 
@@ -140,7 +152,8 @@ const words = [
     formula:"Δx = x₂ - x₁", 
     category:"Vector", 
     similar:["Distance","Velocity"], 
-    example:"The ant walked 3cm East" 
+    example:"The ant walked 3cm East" ,
+    updated: "2025-12-28"
   },
   { 
     en: "Constant", 
@@ -151,6 +164,7 @@ const words = [
     formula:"", 
     category:"Scalar", 
     similar:["Magnitude","Quantity",], 
-    example:"π=3.14159, 重力加速度 g=9.8 ms¯²" 
+    example:"π=3.14159, 重力加速度 g=9.8 ms¯²" ,
+    updated: "2025-12-28"
   }
 ];
