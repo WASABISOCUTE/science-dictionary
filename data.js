@@ -116,6 +116,10 @@ const words = [
     formula:"", 
     category:"Substance", 
     similar:["Mixture"], 
+  classification: [
+    { en: "Element", cn: "元素" },
+    { en: "Compound", cn: "化合物" }
+  ],
     example:"水、氧气" ,
     updated: "2025-12-29"
   },
@@ -166,5 +170,17 @@ const words = [
     similar:["Magnitude","Quantity",], 
     example:"π=3.14159, 重力加速度 g=9.8 ms¯²" ,
     updated: "2025-12-28"
-  }
+  },
+  { 
+    en: "Compound", 
+    cn: "化合物", 
+    enUsage: "Consist of two or more elements chemically bonded together, have completely new properties", 
+    usage:"由两种或两种以上元素通过化学结合而成，有新物质产生。", 
+    tags: ["Chemistry"], 
+    formula:"", 
+    category:"Substance", 
+    similar:["Pure Substance"], 
+    example:"NaCI, H₂O" ,
+    updated: "2025-12-29"
+  },
 ];
