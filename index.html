@@ -6,34 +6,6 @@
 <title>Science Dictionary</title>
 <link rel="stylesheet" href="style.css">
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-<style>
-/* tooltip 修复样式 */
-.info-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 18px;
-  height: 18px;
-  margin-left: 6px;
-  border-radius: 50%;
-  border: 1px solid #94a3b8;
-  font-size: 12px;
-  cursor: pointer;
-  user-select: none;
-}
-
-.info-tooltip {
-  display: none;
-  margin-top: 8px;
-  padding: 10px 12px;
-  background: #1e293b;
-  border: 1px solid #334155;
-  border-radius: 10px;
-  font-size: 13px;
-  line-height: 1.5;
-  pointer-events: none; /* 防止鼠标进入导致闪烁 */
-}
-</style>
 </head>
 <body>
 
@@ -81,9 +53,10 @@
   <p><strong>English:</strong> <span id="dEnUsage"></span></p>
   <p><strong>公式:</strong> <span id="dFormula"></span></p>
   <p><strong>示例:</strong> <span id="dExample"></span></p>
-
-  <div id="dSimilar"><strong>相关单词:</strong></div>
-
+  <!-- 所属分类 -->
+  <p id="belongsBlock" class="detail-section"> <strong>所属分类 / Belongs to:</strong> <span id="belongsList"></span></p>
+  <p id="classificationBlock" class="detail-section"><strong>分类:</strong> <span id="classificationList"></span></p>
+  <p id="dSimilar"><strong>相关单词:</strong></p>
   <button id="markDetailBtn">☆ Mark</button>
   <button id="reportBtn">⚠️ 报告错误</button>
 <!-- 更新时间 -->
@@ -166,6 +139,10 @@ const dEnUsage = document.getElementById("dEnUsage");
 const dFormula = document.getElementById("dFormula");
 const dExample = document.getElementById("dExample");
 const dSimilar = document.getElementById("dSimilar");
+const belongsBlock = document.getElementById("belongsBlock");
+const belongsList = document.getElementById("belongsList");
+const classificationBlock = document.getElementById("classificationBlock");
+const classificationList = document.getElementById("classificationList");
 
 const sortSelect = document.getElementById("sortSelect");
 const subjectFilter = document.getElementById("subjectFilter");
@@ -212,11 +189,28 @@ function render(items){
   items.forEach(w=>{
     const div=document.createElement("div");
     div.className="card";
-    div.innerHTML=`
-      <h2>${w.en} / ${w.cn}</h2>
-      <div class="tags">${(w.tags||[]).map(t=>`<span class="tag ${t}" data-tag="${t}">${t}</span>`).join("")}</div>
-      <button class="markBtn" data-en="${w.en}">☆</button>
-    `;
+const parents = getParentCategories(w);
+
+div.innerHTML = `
+  <h2>${w.en} / ${w.cn}</h2>
+
+  ${
+    parents.length > 0
+      ? `<div class="belongs-text">
+           属于：${parents.map(p => `${p.en}`).join(", ")}
+         </div>`
+      : ""
+  }
+
+  <div class="tags">
+    ${(w.tags || []).map(t =>
+      `<span class="tag ${t}" data-tag="${t}">${t}</span>`
+    ).join("")}
+  </div>
+
+  <button class="markBtn" data-en="${w.en}">☆</button>
+`;
+
     div.onclick=()=>showDetail(w);
     list.appendChild(div);
   });
@@ -252,6 +246,52 @@ function showDetail(word){
   });
   if(!word.similar || word.similar.length===0) dSimilar.innerHTML+="无";
 
+  /* 所属分类 / Belongs to */
+belongsList.innerHTML = "";
+
+const parents = words.filter(w =>
+  Array.isArray(w.classification) &&
+  w.classification.some(c => c.en === word.en)
+);
+
+if (parents.length > 0) {
+  belongsBlock.style.display = "block";
+
+  parents.forEach(p => {
+    const tag = document.createElement("span");
+    tag.className = "tag";
+    tag.textContent = `${p.en} / ${p.cn}`;
+
+    tag.onclick = () => showDetail(p);
+
+    belongsList.appendChild(tag);
+  });
+} else {
+  belongsBlock.style.display = "none";
+}
+
+  /* 分类 / Classification */
+classificationList.innerHTML = "";
+
+if (word.classification && word.classification.length > 0) {
+  classificationBlock.style.display = "block";
+
+  word.classification.forEach(item => {
+    const btn = document.createElement("span");
+    btn.className = "tag";
+    btn.textContent = `${item.en} / ${item.cn}`;
+
+    btn.onclick = () => {
+      searchInput.value = item.en;
+      renderList();
+    };
+
+    classificationList.appendChild(btn);
+  });
+} else {
+  classificationBlock.style.display = "none";
+}
+
   /* 更新时间 */
 if (word.updated) {
   dUpdated.textContent = `更新时间 / Last Updated: ${word.updated}`;
@@ -261,6 +301,13 @@ if (word.updated) {
 
   updateMarkBtn(markDetailBtn, word.en);
   MathJax.typesetPromise();
+}
+/* ===== 列表中属于 ===== */
+function getParentCategories(word) {
+  return words.filter(w =>
+    Array.isArray(w.classification) &&
+    w.classification.some(c => c.en === word.en)
+  );
 }
 
 /* ===== 页面切换 ===== */
