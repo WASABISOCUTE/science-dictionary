@@ -86,6 +86,8 @@
 
   <button id="markDetailBtn">☆ Mark</button>
   <button id="reportBtn">⚠️ 报告错误</button>
+<!-- 更新时间 -->
+<div id="dUpdated" class="detail-updated"></div>
 
   <div id="reportForm" style="display:none;">
     <p>请填写正确资料：</p>
@@ -171,6 +173,8 @@ const categoryFilter = document.getElementById("categoryFilter");
 const clearFilter = document.getElementById("clearFilter");
 const showMarkedBtn = document.getElementById("showMarkedBtn");
 
+const dUpdated = document.getElementById("dUpdated");
+
 const reportBtn = document.getElementById("reportBtn");
 const reportForm = document.getElementById("reportForm");
 const reportText = document.getElementById("reportText");
@@ -247,6 +251,13 @@ function showDetail(word){
     }
   });
   if(!word.similar || word.similar.length===0) dSimilar.innerHTML+="无";
+
+  /* 更新时间 */
+if (word.updated) {
+  dUpdated.textContent = `更新时间 / Last Updated: ${word.updated}`;
+} else {
+  dUpdated.textContent = "更新时间 / Last Updated: Unknown";
+}
 
   updateMarkBtn(markDetailBtn, word.en);
   MathJax.typesetPromise();
