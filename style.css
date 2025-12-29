@@ -214,7 +214,32 @@ input::placeholder {
 .info-icon:hover {
     background: #334155;
 }
+/* tooltip 修复样式 */
+.info-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  margin-left: 6px;
+  border-radius: 50%;
+  border: 1px solid #94a3b8;
+  font-size: 12px;
+  cursor: pointer;
+  user-select: none;
+}
 
+.info-tooltip {
+  display: none;
+  margin-top: 8px;
+  padding: 10px 12px;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  font-size: 13px;
+  line-height: 1.5;
+  pointer-events: none; /* 防止鼠标进入导致闪烁 */
+}
 /* ===== Contributors Tooltip ===== */
 .info-tooltip {
     display: none;
@@ -285,3 +310,8 @@ body {
     color: #9ca3af;
 }
 
+.belongs-text {
+  font-size: 13px;
+  color: #94a3b8;
+  margin: 4px 0 6px;
+}
