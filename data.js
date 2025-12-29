@@ -101,7 +101,7 @@ const words = [
   { 
     en: "Pure Substance", 
     cn: "纯净物", 
-    enUsage: "A material with a single type of component", 
+    enUsage: "Made up of only one kind of particles", 
     usage:"由单一成分组成的物质。", 
     tags: ["Chemistry"], 
     formula:"", 
@@ -112,8 +112,8 @@ const words = [
   { 
     en: "Mixture", 
     cn: "混合物", 
-    enUsage: "A combination of two or more substances", 
-    usage:"由两种或多种物质混合而成的物质。", 
+    enUsage: "Made up of two or more substances, not chemically combined, can be separated by physical means", 
+    usage:"由两种或两种以上物质组成，不通过化学方式结合，可以通过物理方法分离。", 
     tags: ["Chemistry"], 
     formula:"", 
     category:"Substance", 
