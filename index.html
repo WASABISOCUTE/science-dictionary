@@ -44,7 +44,10 @@
 <div id="detail" style="display:none;">
   <button id="backBtn">← Back</button>
 
-  <h2 id="dEn"></h2>
+  <h2>
+  <span id="dEn"></span>
+  <button id="pronounceBtn" title="Pronounce">🔊</button>
+  </h2>
   <p id="dCn"></p>
   <div id="dTags"></div>
 
@@ -112,6 +115,15 @@
       <p><strong>Note:</strong> This feature is still under development and may not display all contributors.</p>
     </div>
     <ul id="contributors"><li>Loading...</li></ul>
+  </section>
+
+  <section class="about-section">
+    <h3>计划添加功能 / Planned Features</h3>
+    <ul>
+    <li><strong>单词发音</strong></li>
+    <li><strong>公式查找</strong></li>
+    <li><strong>设置</strong></li>
+    </ul>
   </section>
 </div>
 
@@ -245,6 +257,34 @@ function showDetail(word){
     }
   });
   if(!word.similar || word.similar.length===0) dSimilar.innerHTML+="无";
+
+const pronounceBtn = document.getElementById("pronounceBtn");
+
+/*发音 */
+function pronounceWord(text) {
+  if (!window.speechSynthesis) return;
+
+  speechSynthesis.cancel(); // 停止上一次发音
+
+  const utter = new SpeechSynthesisUtterance(text);
+  utter.lang = "en-US";
+  utter.rate = 0.9;
+  utter.pitch = 1;
+
+  // 优先选择英文声音
+  const voices = speechSynthesis.getVoices();
+  const enVoice = voices.find(v => v.lang.startsWith("en"));
+  if (enVoice) utter.voice = enVoice;
+
+  speechSynthesis.speak(utter);
+}
+
+pronounceBtn.onclick = () => {
+  if (currentWord) {
+    pronounceWord(currentWord.en);
+  }
+};
+
 
   /* 所属分类 / Belongs to */
 belongsList.innerHTML = "";
