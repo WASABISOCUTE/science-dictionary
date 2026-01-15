@@ -232,7 +232,7 @@ const words = [
     tags: ["Chemistry"], 
     formula:"", 
     category:"Element", 
-    similar:["Molecules"], 
+    similar:["Molecules","Ions"], 
     example:"He, Ne, Ar" ,
     updated: "2025-12-29"
   },
@@ -244,7 +244,7 @@ const words = [
     tags: ["Chemistry"], 
     formula:"", 
     category:"Element", 
-    similar:["Atoms"], 
+    similar:["Atoms","Ions"], 
     example:"H₂, O₂, CO₂" ,
     updated: "2025-12-29"
   },
@@ -256,7 +256,7 @@ const words = [
     tags: ["Chemistry"], 
     formula:"", 
     category:"", 
-    similar:[""], 
+    similar:["Atoms","Molecules"], 
     classification: [
     { en: "Cation", cn: "阳离子" },
     { en: "Anion", cn: "阴离子" }
