@@ -350,14 +350,13 @@ input.oninput=()=>{const q=input.value.toLowerCase(); render(words.filter(w=>w.e
 function applyFilters(){
   let result = words;
   if(subjectFilter.value) result = result.filter(w=>(w.tags||[]).includes(subjectFilter.value));
-  if(categoryFilter.value) result = result.filter(w=>w.category===categoryFilter.value);
   if(showingMarkedOnly) result = result.filter(w=>markedWords.includes(w.en));
 result = applySort(result);
 render(result);
 }
 sortSelect.addEventListener("change", applyFilters);
-subjectFilter.onchange = categoryFilter.onchange = applyFilters;
-clearFilter.onclick = ()=>{subjectFilter.value=""; categoryFilter.value=""; showingMarkedOnly=false; showMarkedBtn.textContent="⭐ Show Marked Words"; render(words);};
+subjectFilter.onchange = applyFilters;
+clearFilter.onclick = ()=>{subjectFilter.value=""; showingMarkedOnly=false; showMarkedBtn.textContent="⭐ Show Marked Words"; render(words);};
 showMarkedBtn.onclick=()=>{showingMarkedOnly=!showingMarkedOnly; showMarkedBtn.textContent=showingMarkedOnly?"⭐ Show All Words":"⭐ Show Marked Words"; applyFilters();};
 markDetailBtn.onclick=()=>{if(currentWord){toggleMark(currentWord.en); updateMarkBtn(markDetailBtn, currentWord.en);}};
 /* ===== 排序 ===== */
