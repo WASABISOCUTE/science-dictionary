@@ -219,7 +219,7 @@ const words = [
     classification: [
       { en: "Ions", cn: "离子"},
       { en: "Atoms", cn: "原子"},
-      { en: " Molecules", cn: "分子"},
+      { en: "Molecules", cn: "分子"},
     ],
     example:"" ,
     updated: "2025-12-29"
