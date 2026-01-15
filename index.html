@@ -350,8 +350,7 @@ aboutBackBtn.onclick=()=>{about.style.display="none"; list.style.display="block"
 input.oninput=()=>{const q=input.value.toLowerCase(); render(words.filter(w=>w.en.toLowerCase().includes(q)||w.cn.includes(q)||(w.tags||[]).join("").toLowerCase().includes(q)));};
 function applyFilters(){
   let result = words;
-  if(subjectFilter.value) result = result.filter(w=>(w.tags||[]).includes(subjectFilter.value));
-  if(categoryFilter.value) result = result.filter(w=>w.category===categoryFilter.value);
+  if(subjectFilter.value) result = result.filter(w=>(w.tags||[]).includes(subjectFilter.value);
   if(showingMarkedOnly) result = result.filter(w=>markedWords.includes(w.en));
 result = applySort(result);
 render(result);
