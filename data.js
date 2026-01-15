@@ -216,6 +216,11 @@ const words = [
     formula:"", 
     category:"", 
     similar:[""], 
+    classification: [
+      { en: "Ions", cn: "离子"},
+      { en: "Atoms", cn: "原子"},
+      { en: " Molecules", cn: "分子"},
+    ],
     example:"" ,
     updated: "2025-12-29"
   },
@@ -253,8 +258,8 @@ const words = [
     category:"", 
     similar:[""], 
     classification: [
-    { en: "Cation", cn: "正离子" },
-    { en: "Anion", cn: "负离子" }
+    { en: "Cation", cn: "阳离子" },
+    { en: "Anion", cn: "阴离子" }
   ],
     example:"" ,
     updated: "2025-12-29"
@@ -308,8 +313,8 @@ const words = [
     formula:"", 
     category:"", 
     similar:["Liquid","Gas",], 
-    example:"",
-    updated: "2026-01-14"
+    example:"Ice",
+    updated: "2026-01-15"
   },
   { 
     en: "Liquid", 
@@ -320,8 +325,8 @@ const words = [
     formula:"", 
     category:"", 
     similar:["Solid","Gas",], 
-    example:"",
-    updated: "2026-01-14"
+    example:"Water",
+    updated: "2026-01-15"
   },
   { 
     en: "Gas", 
@@ -332,8 +337,8 @@ const words = [
     formula:"", 
     category:"", 
     similar:["Solid","Liquid",], 
-    example:"",
-    updated: "2026-01-14"
+    example:"Steam",
+    updated: "2026-01-15"
   },
   { 
     en: "Heterogeneous Mixture", 
