@@ -19,7 +19,7 @@
     <option value="Physics">Physics</option>
     <option value="Math">Math</option>
     <option value="Chemistry">Chemistry</option>
-</select>
+  </select>
   <select id="sortSelect">
   <option value="">Default</option>
   <option value="az">A → Z</option>
@@ -149,7 +149,6 @@ const classificationList = document.getElementById("classificationList");
 
 const sortSelect = document.getElementById("sortSelect");
 const subjectFilter = document.getElementById("subjectFilter");
-const categoryFilter = document.getElementById("categoryFilter");
 const clearFilter = document.getElementById("clearFilter");
 const showMarkedBtn = document.getElementById("showMarkedBtn");
 
@@ -350,7 +349,8 @@ aboutBackBtn.onclick=()=>{about.style.display="none"; list.style.display="block"
 input.oninput=()=>{const q=input.value.toLowerCase(); render(words.filter(w=>w.en.toLowerCase().includes(q)||w.cn.includes(q)||(w.tags||[]).join("").toLowerCase().includes(q)));};
 function applyFilters(){
   let result = words;
-  if(subjectFilter.value) result = result.filter(w=>(w.tags||[]).includes(subjectFilter.value);
+  if(subjectFilter.value) result = result.filter(w=>(w.tags||[]).includes(subjectFilter.value));
+  if(categoryFilter.value) result = result.filter(w=>w.category===categoryFilter.value);
   if(showingMarkedOnly) result = result.filter(w=>markedWords.includes(w.en));
 result = applySort(result);
 render(result);
