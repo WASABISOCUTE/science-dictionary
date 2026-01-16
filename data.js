@@ -364,4 +364,37 @@ const words = [
     example:"",
     updated: "2026-01-14"
   },
+  { 
+    en: "Linear Motion", 
+    cn: "直线运动", 
+    enUsage: "aka Straight Line Motion", 
+    usage:"", 
+    tags: ["Physics"], 
+    formula:"", 
+    category:"", 
+    similar:["",], 
+    classification: [
+      { en: "Mechanical Motion", cn: "机械运动" },
+      { en: "Reference Motion", cn: "参考系运动" },
+      { en: "Key Parameters of Mechanical Motion", cn: "机械运动的关键参数" },
+      { en: "Uniform Linear Motion", cn: "匀速直线运动" },
+      { en: "Variable Speed Linear Motion", cn: "变速直线运动" },
+      { en: "Uniform Acceration Linear Motion", cn: "匀加速直线运动" },
+      { en: "Free Fall Motion", cn: "自由落体运动" },
+    ],
+    example:"",
+    updated: "2026-01-16"
+  },
+  { 
+    en: "Mechanical Motion", 
+    cn: "直线运动", 
+    enUsage: "", 
+    usage:"", 
+    tags: ["Physics"], 
+    formula:"", 
+    category:"", 
+    similar:["",], 
+    example:"",
+    updated: "2026-01-16"
+  },
 ];
