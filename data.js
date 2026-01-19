@@ -792,7 +792,7 @@ const words = [
   similar: [""],
   example: "(1,3)",
   updated: "2026-01-20"
-};
+},
 
 
 
