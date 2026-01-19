@@ -732,6 +732,68 @@ const words = [
   similar: ["Melting","Condensation","Vaporization","Deposition","Freezing"],
   example: "Dry ice sublimates directly into carbon dioxide gas.",
   updated: "2026-01-19"
-}
+},
+{
+  en: "Perpendicular",
+  cn: "垂直",
+  enUsage: "",
+  usage: "",
+  tags: ["Math"],
+  formula: "",
+  category: "",
+  similar: [""],
+  example: "",
+  updated: "2026-01-20"
+},
+{
+  en: "Parallel",
+  cn: "平行",
+  enUsage: "",
+  usage: "",
+  tags: ["Math"],
+  formula: "",
+  category: "",
+  similar: [""],
+  example: "",
+  updated: "2026-01-20"
+},
+{
+  en: "Intersect",
+  cn: "交界",
+  enUsage: "",
+  usage: "",
+  tags: ["Math"],
+  formula: "",
+  category: "",
+  similar: [""],
+  example: "",
+  updated: "2026-01-20"
+},
+{
+  en: "Origin",
+  cn: "原点",
+  enUsage: "",
+  usage: "",
+  tags: ["Math"],
+  formula: "",
+  category: "",
+  similar: [""],
+  example: "(0,0)",
+  updated: "2026-01-20"
+},
+{
+  en: "Coordinate",
+  cn: "坐标",
+  enUsage: "",
+  usage: "",
+  tags: ["Math"],
+  formula: "(x,y)",
+  category: "",
+  similar: [""],
+  example: "(1,3)",
+  updated: "2026-01-20"
+};
 
-];
+
+
+
