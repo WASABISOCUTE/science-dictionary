@@ -589,4 +589,16 @@ const words = [
     example:"",
     updated: "2026-01-16"
   },
+  { 
+    en: "Solution", 
+    cn: "溶液", 
+    enUsage: "", 
+    usage:"", 
+    tags: ["Chemistry"], 
+    formula:"", 
+    category:"", 
+    similar:["Directly Proportional Relation",], 
+    example:"",
+    updated: "2026-01-16"
+  },
 ];
