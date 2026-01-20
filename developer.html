@@ -1,192 +1,341 @@
 ﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<title>理科词典 · Developer Editor</title>
-<link rel="stylesheet" href="style.css">
-<style>
-body {
-    display: flex;
-    height: 100vh;
-    margin: 0;
-    font-family: system-ui, sans-serif;
-}
+    <meta charset="UTF-8">
+    <title>Science Dictionary · Developer</title>
+    <link rel="stylesheet" href="style.css">
 
-#list {
-    width: 260px;
-    border-right: 1px solid #ccc;
-    overflow-y: auto;
-    padding: 10px;
-}
+    <style>
+        body {
+            display: flex;
+            height: 100vh;
+            margin: 0;
+            background: #0f172a;
+            color: #e5e7eb;
+            font-family: system-ui, sans-serif;
+        }
 
-#list button {
-    width: 100%;
-    margin-bottom: 6px;
-    text-align: left;
-}
+        /* ===== Left ===== */
+        #list {
+            width: 280px;
+            border-right: 1px solid #334155;
+            padding: 12px;
+            overflow-y: auto;
+        }
 
-#editor {
-    flex: 1;
-    padding: 16px;
-    overflow-y: auto;
-}
+        #devSearch {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 12px;
+            border: none;
+            background: #020617;
+            color: #e5e7eb;
+        }
 
-label {
-    display: block;
-    margin-top: 10px;
-    font-weight: bold;
-}
+        #list button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 6px;
+            border-radius: 10px;
+            border: none;
+            background: #1e293b;
+            color: #e5e7eb;
+            cursor: pointer;
+        }
 
-input, textarea {
-    width: 100%;
-    padding: 6px;
-    box-sizing: border-box;
-}
+            #list button.active {
+                background: #2563eb;
+            }
 
-textarea {
-    min-height: 60px;
-}
+        /* ===== Editor ===== */
+        #editor {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
 
-.actions {
-    margin-top: 20px;
-    display: flex;
-    gap: 10px;
-}
-</style>
+        label {
+            margin-top: 14px;
+            display: block;
+            font-size: 13px;
+            color: #94a3b8;
+        }
+
+        input, textarea {
+            width: 100%;
+            margin-top: 6px;
+            padding: 10px;
+            border-radius: 12px;
+            border: 1px solid #334155;
+            background: #020617;
+            color: #e5e7eb;
+        }
+
+        textarea {
+            min-height: 70px;
+            line-height: 1.6;
+        }
+
+        /* ===== Tags ===== */
+        #tagSelect {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 6px;
+        }
+
+        .tag-btn {
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-size: 13px;
+            background: #1e293b;
+            color: #e5e7eb;
+            cursor: pointer;
+            user-select: none;
+            transition: background 0.15s;
+        }
+
+            .tag-btn.active {
+                background: #2563eb;
+            }
+
+        /* ===== Buttons ===== */
+        .actions {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 10px 16px;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+        }
+
+            .btn.primary {
+                background: #2563eb;
+                color: #fff;
+            }
+
+            .btn.danger {
+                background: #dc2626;
+                color: #fff;
+            }
+
+            .btn.ghost {
+                background: #1e293b;
+                color: #e5e7eb;
+            }
+
+        /* ===== Toast ===== */
+        #toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            background: #2563eb;
+            color: #fff;
+            padding: 10px 18px;
+            border-radius: 999px;
+            font-size: 14px;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.25s ease;
+        }
+
+            #toast.show {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0);
+            }
+    </style>
 </head>
 
 <body>
 
-<div id="list">
-    <button onclick="newWord()">➕ 新增词条</button>
-    <div id="wordList"></div>
-</div>
-
-<div id="editor">
-    <h2 id="title">未选择词条</h2>
-
-    <label>英文（en）</label>
-    <input id="en">
-
-    <label>中文（cn）</label>
-    <input id="cn">
-
-    <label>英文解释（enUsage）</label>
-    <textarea id="enUsage"></textarea>
-
-    <label>中文解释（usage）</label>
-    <textarea id="usage"></textarea>
-
-    <label>标签（tags，用逗号分隔）</label>
-    <input id="tags">
-
-    <label>公式（formula）</label>
-    <input id="formula">
-
-    <label>分类（category）</label>
-    <input id="category">
-
-    <label>相似词（similar，用逗号分隔）</label>
-    <input id="similar">
-
-    <label>例子（example）</label>
-    <input id="example">
-
-    <div class="actions">
-        <button onclick="save()">💾 保存</button>
-        <button onclick="remove()">🗑 删除</button>
-        <button onclick="exportData()">📦 导出 data.js</button>
+    <!-- ===== Left ===== -->
+    <div id="list">
+        <input id="devSearch" placeholder="搜索词条…" />
+        <button onclick="newWord()">➕ 新增词条</button>
+        <div id="wordList"></div>
     </div>
-</div>
 
-<script src="data.js"></script>
-<script>
-let currentIndex = null;
+    <!-- ===== Editor ===== -->
+    <div id="editor">
+        <h2 id="title">未选择词条</h2>
 
-const fields = [
-    "en","cn","enUsage","usage",
-    "tags","formula","category","similar","example"
-];
+        <label>英文（en）</label>
+        <input id="en">
 
-function renderList() {
-    const list = document.getElementById("wordList");
-    list.innerHTML = "";
-    words.forEach((w, i) => {
-        const btn = document.createElement("button");
-        btn.textContent = w.en;
-        btn.onclick = () => load(i);
-        list.appendChild(btn);
-    });
-}
+        <label>中文（cn）</label>
+        <input id="cn">
 
-function load(i) {
-    currentIndex = i;
-    const w = words[i];
-    document.getElementById("title").textContent = w.en;
+        <label>英文解释（enUsage）</label>
+        <textarea id="enUsage"></textarea>
 
-    fields.forEach(f => {
-        document.getElementById(f).value =
-            Array.isArray(w[f]) ? w[f].join(", ") : (w[f] || "");
-    });
-}
+        <label>中文解释（usage）</label>
+        <textarea id="usage"></textarea>
 
-function save() {
-    if (currentIndex === null) return;
-    const w = words[currentIndex];
+        <label>学科标签（Tag）</label>
+        <div id="tagSelect"></div>
 
-    fields.forEach(f => {
-        let v = document.getElementById(f).value.trim();
-        if (f === "tags" || f === "similar") {
-            w[f] = v ? v.split(",").map(s => s.trim()) : [];
-        } else {
-            w[f] = v;
+        <label>公式（formula）</label>
+        <input id="formula">
+
+        <label>分类（category）</label>
+        <input id="category">
+
+        <label>相似词（similar，用逗号）</label>
+        <input id="similar">
+
+        <label>例子（example）</label>
+        <input id="example">
+
+        <label>最后修改</label>
+        <input id="updated" disabled>
+
+        <div class="actions">
+            <button class="btn primary" onclick="save()">💾 保存</button>
+            <button class="btn danger" onclick="remove()">🗑 删除</button>
+            <button class="btn ghost" onclick="exportData()">📦 导出 data.js</button>
+        </div>
+    </div>
+
+    <div id="toast">已保存 ✔</div>
+
+    <script src="data.js"></script>
+    <script>
+        /* ===== 学科标签（与 index.html 一致） ===== */
+        const SUBJECT_TAGS = ["Physics", "Math", "Chemistry", "Biology", "Computer"];
+
+        let currentIndex = null;
+        let selectedTags = [];
+
+        /* ===== Toast ===== */
+        function showToast() {
+            const t = document.getElementById("toast");
+            t.classList.add("show");
+            setTimeout(() => t.classList.remove("show"), 1500);
         }
-    });
 
-    w.updated = new Date().toISOString().slice(0,10);
-    renderList();
-    alert("已保存到内存（记得导出）");
-}
+        /* ===== 渲染 Tag ===== */
+        function renderTagSelector() {
+            const box = document.getElementById("tagSelect");
+            box.innerHTML = "";
+            SUBJECT_TAGS.forEach(tag => {
+                const b = document.createElement("div");
+                b.className = "tag-btn" + (selectedTags.includes(tag) ? " active" : "");
+                b.textContent = tag;
+                b.onclick = () => {
+                    selectedTags.includes(tag)
+                        ? selectedTags = selectedTags.filter(t => t !== tag)
+                        : selectedTags.push(tag);
+                    renderTagSelector();
+                };
+                box.appendChild(b);
+            });
+        }
 
-function newWord() {
-    const w = {
-        en: "NewTerm",
-        cn: "",
-        enUsage: "",
-        usage: "",
-        tags: [],
-        formula: "",
-        category: "",
-        similar: [],
-        example: "",
-        updated: new Date().toISOString().slice(0,10)
-    };
-    words.push(w);
-    renderList();
-    load(words.length - 1);
-}
+        /* ===== 列表 ===== */
+        function renderList() {
+            const list = document.getElementById("wordList");
+            list.innerHTML = "";
+            words.forEach((w, i) => {
+                const b = document.createElement("button");
+                b.textContent = w.en;
+                b.onclick = () => load(i);
+                list.appendChild(b);
+            });
+        }
 
-function remove() {
-    if (currentIndex === null) return;
-    if (!confirm("确定删除这个词条？")) return;
-    words.splice(currentIndex, 1);
-    currentIndex = null;
-    document.getElementById("title").textContent = "未选择词条";
-    fields.forEach(f => document.getElementById(f).value = "");
-    renderList();
-}
+        function load(i) {
+            currentIndex = i;
+            const w = words[i];
 
-function exportData() {
-    const content =
-`const words = ${JSON.stringify(words, null, 4)};`;
-    const blob = new Blob([content], { type: "text/javascript" });
-    const a = document.createElement("a");
-    a.href = URL.createObjectURL(blob);
-    a.download = "data.js";
-    a.click();
-}
+            document.querySelectorAll("#wordList button")
+                .forEach(b => b.classList.remove("active"));
+            document.querySelectorAll("#wordList button")[i].classList.add("active");
 
-renderList();
-</script>
+            title.textContent = w.en;
+            en.value = w.en || "";
+            cn.value = w.cn || "";
+            enUsage.value = w.enUsage || "";
+            usage.value = w.usage || "";
+            formula.value = w.formula || "";
+            category.value = w.category || "";
+            similar.value = (w.similar || []).join(", ");
+            example.value = w.example || "";
+            updated.value = w.updated || "";
+
+            selectedTags = [...(w.tags || [])];
+            renderTagSelector();
+        }
+
+        /* ===== 保存 ===== */
+        function save() {
+            if (currentIndex === null) return;
+            const w = words[currentIndex];
+
+            w.en = en.value.trim();
+            w.cn = cn.value.trim();
+            w.enUsage = enUsage.value.trim();
+            w.usage = usage.value.trim();
+            w.formula = formula.value.trim();
+            w.category = category.value.trim();
+            w.similar = similar.value.split(",").map(s => s.trim()).filter(Boolean);
+            w.example = example.value.trim();
+            w.tags = [...selectedTags];
+            w.updated = new Date().toISOString().slice(0, 10);
+
+            updated.value = w.updated;
+            renderList();
+            showToast();
+        }
+
+        /* ===== 新增 / 删除 / 导出 ===== */
+        function newWord() {
+            words.push({
+                en: "NewTerm", cn: "",
+                enUsage: "", usage: "",
+                tags: [], formula: "",
+                category: "", similar: [],
+                example: "",
+                updated: new Date().toISOString().slice(0, 10)
+            });
+            renderList();
+            load(words.length - 1);
+        }
+
+        function remove() {
+            if (currentIndex === null) return;
+            if (!confirm("确定删除？")) return;
+            words.splice(currentIndex, 1);
+            currentIndex = null;
+            renderList();
+        }
+
+        function exportData() {
+            const blob = new Blob(
+                [`const words = ${JSON.stringify(words, null, 4)};`],
+                { type: "text/javascript" }
+            );
+            const a = document.createElement("a");
+            a.href = URL.createObjectURL(blob);
+            a.download = "data.js";
+            a.click();
+        }
+
+        /* ===== 搜索 ===== */
+        devSearch.oninput = e => {
+            const q = e.target.value.toLowerCase();
+            document.querySelectorAll("#wordList button").forEach(b => {
+                b.style.display = b.textContent.toLowerCase().includes(q) ? "block" : "none";
+            });
+        };
+
+        renderList();
+        renderTagSelector();
+    </script>
 </body>
 </html>
