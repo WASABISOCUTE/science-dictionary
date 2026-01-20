@@ -1,0 +1,192 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>理科词典 · Developer Editor</title>
+<link rel="stylesheet" href="style.css">
+<style>
+body {
+    display: flex;
+    height: 100vh;
+    margin: 0;
+    font-family: system-ui, sans-serif;
+}
+
+#list {
+    width: 260px;
+    border-right: 1px solid #ccc;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+#list button {
+    width: 100%;
+    margin-bottom: 6px;
+    text-align: left;
+}
+
+#editor {
+    flex: 1;
+    padding: 16px;
+    overflow-y: auto;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 6px;
+    box-sizing: border-box;
+}
+
+textarea {
+    min-height: 60px;
+}
+
+.actions {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<div id="list">
+    <button onclick="newWord()">➕ 新增词条</button>
+    <div id="wordList"></div>
+</div>
+
+<div id="editor">
+    <h2 id="title">未选择词条</h2>
+
+    <label>英文（en）</label>
+    <input id="en">
+
+    <label>中文（cn）</label>
+    <input id="cn">
+
+    <label>英文解释（enUsage）</label>
+    <textarea id="enUsage"></textarea>
+
+    <label>中文解释（usage）</label>
+    <textarea id="usage"></textarea>
+
+    <label>标签（tags，用逗号分隔）</label>
+    <input id="tags">
+
+    <label>公式（formula）</label>
+    <input id="formula">
+
+    <label>分类（category）</label>
+    <input id="category">
+
+    <label>相似词（similar，用逗号分隔）</label>
+    <input id="similar">
+
+    <label>例子（example）</label>
+    <input id="example">
+
+    <div class="actions">
+        <button onclick="save()">💾 保存</button>
+        <button onclick="remove()">🗑 删除</button>
+        <button onclick="exportData()">📦 导出 data.js</button>
+    </div>
+</div>
+
+<script src="data.js"></script>
+<script>
+let currentIndex = null;
+
+const fields = [
+    "en","cn","enUsage","usage",
+    "tags","formula","category","similar","example"
+];
+
+function renderList() {
+    const list = document.getElementById("wordList");
+    list.innerHTML = "";
+    words.forEach((w, i) => {
+        const btn = document.createElement("button");
+        btn.textContent = w.en;
+        btn.onclick = () => load(i);
+        list.appendChild(btn);
+    });
+}
+
+function load(i) {
+    currentIndex = i;
+    const w = words[i];
+    document.getElementById("title").textContent = w.en;
+
+    fields.forEach(f => {
+        document.getElementById(f).value =
+            Array.isArray(w[f]) ? w[f].join(", ") : (w[f] || "");
+    });
+}
+
+function save() {
+    if (currentIndex === null) return;
+    const w = words[currentIndex];
+
+    fields.forEach(f => {
+        let v = document.getElementById(f).value.trim();
+        if (f === "tags" || f === "similar") {
+            w[f] = v ? v.split(",").map(s => s.trim()) : [];
+        } else {
+            w[f] = v;
+        }
+    });
+
+    w.updated = new Date().toISOString().slice(0,10);
+    renderList();
+    alert("已保存到内存（记得导出）");
+}
+
+function newWord() {
+    const w = {
+        en: "NewTerm",
+        cn: "",
+        enUsage: "",
+        usage: "",
+        tags: [],
+        formula: "",
+        category: "",
+        similar: [],
+        example: "",
+        updated: new Date().toISOString().slice(0,10)
+    };
+    words.push(w);
+    renderList();
+    load(words.length - 1);
+}
+
+function remove() {
+    if (currentIndex === null) return;
+    if (!confirm("确定删除这个词条？")) return;
+    words.splice(currentIndex, 1);
+    currentIndex = null;
+    document.getElementById("title").textContent = "未选择词条";
+    fields.forEach(f => document.getElementById(f).value = "");
+    renderList();
+}
+
+function exportData() {
+    const content =
+`const words = ${JSON.stringify(words, null, 4)};`;
+    const blob = new Blob([content], { type: "text/javascript" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "data.js";
+    a.click();
+}
+
+renderList();
+</script>
+</body>
+</html>
