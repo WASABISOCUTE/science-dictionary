@@ -1,341 +1,635 @@
 ﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <title>Science Dictionary · Developer</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>SD · Developer</title>
+<link rel="stylesheet" href="style.css">
 
-    <style>
-        body {
-            display: flex;
-            height: 100vh;
-            margin: 0;
-            background: #0f172a;
-            color: #e5e7eb;
-            font-family: system-ui, sans-serif;
-        }
+<style>
+body{
+  display:flex;
+  height:100vh;
+  margin:0;
+  background:#0f172a;
+  color:#e5e7eb;
+  font-family:system-ui,sans-serif;
+  overflow:hidden;
+}
 
-        /* ===== Left ===== */
-        #list {
-            width: 280px;
-            border-right: 1px solid #334155;
-            padding: 12px;
-            overflow-y: auto;
-        }
+/* ===== Left ===== */
+#list{
+  width:240px;
+  height:100vh;
+  border-right:1px solid #334155;
+  overflow-y:auto;
+}
 
-        #devSearch {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border-radius: 12px;
-            border: none;
-            background: #020617;
-            color: #e5e7eb;
-        }
+.list-header{
+  position:sticky;
+  top:0;
+  z-index:10;
+  background:#0f172a;
+  padding:8px 0;
+  border-bottom:1px solid #334155;
+}
 
-        #list button {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 6px;
-            border-radius: 10px;
-            border: none;
-            background: #1e293b;
-            color: #e5e7eb;
-            cursor: pointer;
-        }
+#devSearch{
+  width:82%;
+  margin:0 8px 6px;
+  padding:10px;
+  border-radius:12px;
+  border:none;
+  background:#020617;
+  color:#e5e7eb;
+}
 
-            #list button.active {
-                background: #2563eb;
-            }
+#list button{
+  width:90%;
+  margin:0 8px 6px;
+  padding:8px 10px;
+  border-radius:12px;
+  border:none;
+  background:#1e293b;
+  color:#e5e7eb;
+  cursor:pointer;
+}
 
-        /* ===== Editor ===== */
-        #editor {
-            flex: 1;
-            padding: 20px;
-            overflow-y: auto;
-        }
+#list button.active{background:#2563eb;}
+#list button.dirty{background:#7c2d12;position:relative;}
+#list button.dirty::after{
+  content:"";
+  width:8px;height:8px;
+  background:#fb923c;
+  border-radius:50%;
+  position:absolute;
+  right:10px;top:50%;
+  transform:translateY(-50%);
+}
 
-        label {
-            margin-top: 14px;
-            display: block;
-            font-size: 13px;
-            color: #94a3b8;
-        }
+/* ===== Editor ===== */
+#editor{
+  flex:1;
+  max-width:920px;
+  padding:24px 30px;
+  margin:0 auto;
+  overflow-y:auto;
+}
 
-        input, textarea {
-            width: 100%;
-            margin-top: 6px;
-            padding: 10px;
-            border-radius: 12px;
-            border: 1px solid #334155;
-            background: #020617;
-            color: #e5e7eb;
-        }
+#title.dirty::after{content:" *";color:#fb923c;}
 
-        textarea {
-            min-height: 70px;
-            line-height: 1.6;
-        }
+label{
+  margin-top:14px;
+  display:block;
+  font-size:13px;
+  color:#94a3b8;
+}
 
-        /* ===== Tags ===== */
-        #tagSelect {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 6px;
-        }
+input{
+  width:100%;
+  max-width:760px;
+  margin-top:6px;
+  padding:10px;
+  border-radius:12px;
+  border:1px solid #334155;
+  background:#020617;
+  color:#e5e7eb;
+}
 
-        .tag-btn {
-            padding: 6px 12px;
-            border-radius: 999px;
-            font-size: 13px;
-            background: #1e293b;
-            color: #e5e7eb;
-            cursor: pointer;
-            user-select: none;
-            transition: background 0.15s;
-        }
+.rich{
+  max-width:760px;
+  min-height:90px;
+  margin-top:6px;
+  padding:10px;
+  border-radius:12px;
+  border:1px solid #334155;
+  background:#020617;
+  color:#e5e7eb;
+  white-space:pre-wrap;
+}
 
-            .tag-btn.active {
-                background: #2563eb;
-            }
+.rich b{font-weight:600;}
+.rich i{font-style:italic;}
 
-        /* ===== Buttons ===== */
-        .actions {
-            margin-top: 20px;
-            display: flex;
-            gap: 10px;
-        }
+/* ===== Tags ===== */
+#tagSelect{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.tag-btn{
+  padding:6px 12px;
+  border-radius:999px;
+  font-size:13px;
+  background:#1e293b;
+  cursor:pointer;
+}
+.tag-btn.active{background:#2563eb}
 
-        .btn {
-            padding: 10px 16px;
-            border-radius: 12px;
-            border: none;
-            cursor: pointer;
-        }
+/* ===== Dropdown / Chips ===== */
+.dropdown{
+  max-width:760px;
+  background:#020617;
+  border:1px solid #334155;
+  border-radius:12px;
+  margin-top:4px;
+  display:none;
+}
+.dropdown div{padding:8px 12px;cursor:pointer;}
+.dropdown div:hover{background:#1e293b;}
 
-            .btn.primary {
-                background: #2563eb;
-                color: #fff;
-            }
+.chips{
+  max-width:760px;
+  margin-top:6px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+}
+.chip{
+  padding:6px 10px;
+  border-radius:999px;
+  background:#1e293b;
+  font-size:13px;
+  cursor:pointer;
+}
+.chip:hover{background:#7c2d12}
 
-            .btn.danger {
-                background: #dc2626;
-                color: #fff;
-            }
+/* ===== Buttons ===== */
+.actions{margin-top:20px;display:flex;gap:10px}
+.btn{padding:10px 16px;border-radius:12px;border:none;cursor:pointer}
+.btn.primary{background:#2563eb;color:#fff}
+.btn.danger{background:#dc2626;color:#fff}
+.btn.ghost{background:#1e293b;color:#e5e7eb}
+#list button:disabled{
+  opacity:.3;
+  cursor:not-allowed;
+}
 
-            .btn.ghost {
-                background: #1e293b;
-                color: #e5e7eb;
-            }
+/* ===== Toast ===== */
+#toast{
+  position:fixed;
+  bottom:20px;
+  left:50%;
+  transform:translateX(-50%) translateY(20px);
+  background:#2563eb;
+  color:#fff;
+  padding:10px 18px;
+  border-radius:999px;
+  opacity:0;
+  transition:.25s;
+}
+#toast.show{opacity:1;transform:translateX(-50%)}
+/* 每一行 */
+.list-row{
+  display:flex;
+  align-items:center;
+  gap:4px;
+  margin:0 8px 6px;
+}
 
-        /* ===== Toast ===== */
-        #toast {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%) translateY(20px);
-            background: #2563eb;
-            color: #fff;
-            padding: 10px 18px;
-            border-radius: 999px;
-            font-size: 14px;
-            opacity: 0;
-            pointer-events: none;
-            transition: all 0.25s ease;
-        }
+/* 排序按钮：小 + 等宽 */
+.sort-btn{
+  width:28px;
+  height:28px;
+  padding:0;
+  border-radius:8px;
+  border:none;
+  background:#1e293b;
+  color:#e5e7eb;
+  cursor:pointer;
+  font-size:14px;
+}
 
-            #toast.show {
-                opacity: 1;
-                transform: translateX(-50%) translateY(0);
-            }
-    </style>
+.sort-btn:disabled{
+  opacity:.3;
+  cursor:not-allowed;
+}
+
+/* 单词按钮：占满剩余空间 */
+.word-btn{
+  flex:1;
+  padding:8px 10px;
+  border-radius:12px;
+  border:none;
+  background:#1e293b;
+  color:#e5e7eb;
+  cursor:pointer;
+  text-align:left;
+}
+
+.word-btn.active{
+  background:#2563eb;
+}
+.sort-btn{
+  opacity:0;
+}
+.sort-mode .sort-btn{
+  opacity:1;
+}
+
+</style>
 </head>
 
 <body>
 
-    <!-- ===== Left ===== -->
-    <div id="list">
-        <input id="devSearch" placeholder="搜索词条…" />
-        <button onclick="newWord()">➕ 新增词条</button>
-        <div id="wordList"></div>
-    </div>
+<div id="list">
+  <div class="list-header">
+    <input id="devSearch" placeholder="搜索词条…">
+    <button onclick="newWord()">新增词条</button>
+    <button id="sortToggle">排序模式：关</button>
+  </div>
+  <div id="wordList"></div>
+</div>
 
-    <!-- ===== Editor ===== -->
-    <div id="editor">
-        <h2 id="title">未选择词条</h2>
+<div id="editor">
+  <h2 id="title">未选择词条</h2>
 
-        <label>英文（en）</label>
-        <input id="en">
+  <label>英文 / en</label><input id="en">
+  <label>中文 / cn</label><input id="cn">
 
-        <label>中文（cn）</label>
-        <input id="cn">
+  <label>英文解释 / enUsage</label>
+  <div id="enUsage" class="rich" contenteditable="true"></div>
 
-        <label>英文解释（enUsage）</label>
-        <textarea id="enUsage"></textarea>
+  <label>中文解释 / usage</label>
+  <div id="usage" class="rich" contenteditable="true"></div>
 
-        <label>中文解释（usage）</label>
-        <textarea id="usage"></textarea>
+  <label>学科标签 / tag</label>
+  <div id="tagSelect"></div>
 
-        <label>学科标签（Tag）</label>
-        <div id="tagSelect"></div>
+  <label>公式 / formula</label><input id="formula">
+  <label>分类 / category</label><input id="category">
 
-        <label>公式（formula）</label>
-        <input id="formula">
+  <label>相似词 / similar</label>
+  <input id="similarInput" placeholder="选择或输入">
+  <div id="similarList" class="dropdown"></div>
+  <div id="similarChips" class="chips"></div>
 
-        <label>分类（category）</label>
-        <input id="category">
+  <label>分类 / classification</label>
+  <input id="classInput" placeholder="搜索已有词条">
+  <div id="classList" class="dropdown"></div>
+  <div id="classChips" class="chips"></div>
 
-        <label>相似词（similar，用逗号）</label>
-        <input id="similar">
+  <label>例子 / example</label><input id="example">
+  <label>最后修改 / updated</label><input id="updated" disabled>
 
-        <label>例子（example）</label>
-        <input id="example">
+  <div class="actions">
+    <button class="btn primary" onclick="save()">保存</button>
+    <button class="btn danger" onclick="remove()">删除</button>
+    <button class="btn ghost" onclick="exportData()">导出</button>
+  </div>
+</div>
 
-        <label>最后修改</label>
-        <input id="updated" disabled>
+<div id="toast">已保存 ✔</div>
 
-        <div class="actions">
-            <button class="btn primary" onclick="save()">💾 保存</button>
-            <button class="btn danger" onclick="remove()">🗑 删除</button>
-            <button class="btn ghost" onclick="exportData()">📦 导出 data.js</button>
-        </div>
-    </div>
+<script src="data.js"></script>
+<script>
+const SUBJECT_TAGS=["Physics","Math","Chemistry","Biology","Computer"];
+const row = document.createElement("div");
+row.style.display = "flex";
+row.style.alignItems = "center";
+row.style.gap = "4px";
+row.style.margin = "0 8px 6px";
 
-    <div id="toast">已保存 ✔</div>
+let currentIndex=null,isDirty=false;
+let selectedTags=[],similarSelected=[],classificationSelected=[];
+let snapshot="";
+let sortMode = false;
 
-    <script src="data.js"></script>
-    <script>
-        /* ===== 学科标签（与 index.html 一致） ===== */
-        const SUBJECT_TAGS = ["Physics", "Math", "Chemistry", "Biology", "Computer"];
+/* ===== util ===== */
+function getFormState(){
+  return JSON.stringify({
+    en:en.value,cn:cn.value,
+    enUsage:enUsage.innerHTML,
+    usage:usage.innerHTML,
+    formula:formula.value,
+    category:category.value,
+    similar:[...similarSelected],
+    classification:[...classificationSelected],
+    example:example.value,
+    tags:[...selectedTags]
+  });
+}
 
-        let currentIndex = null;
-        let selectedTags = [];
+function markDirty(){
+  if(currentIndex===null)return;
+  isDirty=true;
+  title.classList.add("dirty");
+  document.querySelectorAll("#wordList .word-btn")[currentIndex]?.classList.add("dirty");
+}
 
-        /* ===== Toast ===== */
-        function showToast() {
-            const t = document.getElementById("toast");
-            t.classList.add("show");
-            setTimeout(() => t.classList.remove("show"), 1500);
+function showToast(){
+  toast.classList.add("show");
+  setTimeout(()=>toast.classList.remove("show"),1500);
+}
+
+/* ===== dirty listeners ===== */
+document.querySelectorAll("input").forEach(el=>el.addEventListener("input",markDirty));
+document.querySelectorAll(".rich").forEach(el=>el.addEventListener("input",markDirty));
+
+/* ===== tag ===== */
+function renderTagSelector(){
+  tagSelect.innerHTML="";
+  SUBJECT_TAGS.forEach(t=>{
+    const b=document.createElement("div");
+    b.className="tag-btn"+(selectedTags.includes(t)?" active":"");
+    b.textContent=t;
+    b.onclick=()=>{
+      selectedTags.includes(t)
+        ?selectedTags=selectedTags.filter(x=>x!==t)
+        :selectedTags.push(t);
+      renderTagSelector();markDirty();
+    };
+    tagSelect.appendChild(b);
+  });
+}
+
+/* ===== similar ===== */
+function renderSimilarChips(){
+  similarChips.innerHTML="";
+  similarSelected.forEach((s,i)=>{
+    const d=document.createElement("div");
+    d.className="chip";
+    d.textContent=s;
+    d.onclick=()=>{similarSelected.splice(i,1);renderSimilarChips();markDirty();};
+    similarChips.appendChild(d);
+  });
+}
+
+similarInput.oninput=()=>{
+  const q=similarInput.value.toLowerCase();
+  similarList.innerHTML="";
+  if(!q){similarList.style.display="none";return;}
+  words.map(w=>w.en).filter(e=>e.toLowerCase().includes(q)).forEach(e=>{
+    const d=document.createElement("div");
+    d.textContent=e;
+    d.onclick=()=>{
+      if(!similarSelected.includes(e))similarSelected.push(e);
+      similarInput.value="";
+      similarList.style.display="none";
+      renderSimilarChips();markDirty();
+    };
+    similarList.appendChild(d);
+  });
+  similarList.style.display="block";
+};
+sortToggle.onclick = () => {
+  sortMode = !sortMode;
+  document.body.classList.toggle("sort-mode", sortMode);
+  sortToggle.textContent = `排序模式：${sortMode ? "开" : "关"}`;
+  renderList();
+};
+
+
+/* ===== classification ===== */
+function renderClassChips(){
+  classChips.innerHTML="";
+  classificationSelected.forEach((c,i)=>{
+    const d=document.createElement("div");
+    d.className="chip";
+    d.textContent=c.cn;
+    d.title=c.en;
+    d.onclick=()=>{classificationSelected.splice(i,1);renderClassChips();markDirty();};
+    classChips.appendChild(d);
+  });
+}
+
+classInput.oninput=()=>{
+  const q=classInput.value.toLowerCase();
+  classList.innerHTML="";
+  if(!q){classList.style.display="none";return;}
+  words.forEach(w=>{
+    if(w.en.toLowerCase().includes(q)||(w.cn&&w.cn.includes(q))){
+      const d=document.createElement("div");
+      d.textContent=`${w.cn||"(无中文)"} · ${w.en}`;
+      d.onclick=()=>{
+        if(!classificationSelected.some(c=>c.en===w.en)){
+          classificationSelected.push({en:w.en,cn:w.cn||w.en});
         }
+        classInput.value="";
+        classList.style.display="none";
+        renderClassChips();markDirty();
+      };
+      classList.appendChild(d);
+    }
+  });
+  classList.style.display="block";
+};
 
-        /* ===== 渲染 Tag ===== */
-        function renderTagSelector() {
-            const box = document.getElementById("tagSelect");
-            box.innerHTML = "";
-            SUBJECT_TAGS.forEach(tag => {
-                const b = document.createElement("div");
-                b.className = "tag-btn" + (selectedTags.includes(tag) ? " active" : "");
-                b.textContent = tag;
-                b.onclick = () => {
-                    selectedTags.includes(tag)
-                        ? selectedTags = selectedTags.filter(t => t !== tag)
-                        : selectedTags.push(tag);
-                    renderTagSelector();
-                };
-                box.appendChild(b);
-            });
-        }
 
-        /* ===== 列表 ===== */
-        function renderList() {
-            const list = document.getElementById("wordList");
-            list.innerHTML = "";
-            words.forEach((w, i) => {
-                const b = document.createElement("button");
-                b.textContent = w.en;
-                b.onclick = () => load(i);
-                list.appendChild(b);
-            });
-        }
+/* ===== list ===== */
+function renderList(){
+  wordList.innerHTML = "";
 
-        function load(i) {
-            currentIndex = i;
-            const w = words[i];
+  words.forEach((w, i) => {
+    const row = document.createElement("div");
+    row.className = "list-row";
 
-            document.querySelectorAll("#wordList button")
-                .forEach(b => b.classList.remove("active"));
-            document.querySelectorAll("#wordList button")[i].classList.add("active");
+    /* ↑ */
+    const up = document.createElement("button");
+    up.className = "sort-btn";
+    up.textContent = "↑";
+    up.disabled = i === 0;
+    up.onclick = e => {
+      e.stopPropagation();
+      moveWord(i, -1);
+    };
 
-            title.textContent = w.en;
-            en.value = w.en || "";
-            cn.value = w.cn || "";
-            enUsage.value = w.enUsage || "";
-            usage.value = w.usage || "";
-            formula.value = w.formula || "";
-            category.value = w.category || "";
-            similar.value = (w.similar || []).join(", ");
-            example.value = w.example || "";
-            updated.value = w.updated || "";
+    /* ↓ */
+    const down = document.createElement("button");
+    down.className = "sort-btn";
+    down.textContent = "↓";
+    down.disabled = i === words.length - 1;
+    down.onclick = e => {
+      e.stopPropagation();
+      moveWord(i, 1);
+    };
 
-            selectedTags = [...(w.tags || [])];
-            renderTagSelector();
-        }
+    /* 单词 */
+    const b = document.createElement("button");
+    b.className = "word-btn";
+    b.textContent = w.en;
+    b.onclick = () => {
+      if (sortMode) return;
+      if (isDirty && !confirm("当前词条未保存，是否切换？")) return;
+      load(i);
+    };
+    if (i === currentIndex) b.classList.add("active");
 
-        /* ===== 保存 ===== */
-        function save() {
-            if (currentIndex === null) return;
-            const w = words[currentIndex];
+    /* 组合 */
+    if (sortMode) {
+      row.appendChild(up);
+      row.appendChild(down);
+    }
+    row.appendChild(b);
 
-            w.en = en.value.trim();
-            w.cn = cn.value.trim();
-            w.enUsage = enUsage.value.trim();
-            w.usage = usage.value.trim();
-            w.formula = formula.value.trim();
-            w.category = category.value.trim();
-            w.similar = similar.value.split(",").map(s => s.trim()).filter(Boolean);
-            w.example = example.value.trim();
-            w.tags = [...selectedTags];
-            w.updated = new Date().toISOString().slice(0, 10);
+    wordList.appendChild(row);
+  });
+}
 
-            updated.value = w.updated;
-            renderList();
-            showToast();
-        }
+  wordList.innerHTML="";
+  words.forEach((w,i)=>{
+    const row = document.createElement("div");
+    row.style.display="flex";
+    row.style.alignItems="center";
+    row.style.gap="4px";
+    row.style.margin="0 8px 6px";
 
-        /* ===== 新增 / 删除 / 导出 ===== */
-        function newWord() {
-            words.push({
-                en: "NewTerm", cn: "",
-                enUsage: "", usage: "",
-                tags: [], formula: "",
-                category: "", similar: [],
-                example: "",
-                updated: new Date().toISOString().slice(0, 10)
-            });
-            renderList();
-            load(words.length - 1);
-        }
+    const b = document.createElement("button");
+    b.className="word-btn";
+    b.textContent=w.en;
+    b.style.flex="1";
+    if(i===currentIndex) b.classList.add("active");
 
-        function remove() {
-            if (currentIndex === null) return;
-            if (!confirm("确定删除？")) return;
-            words.splice(currentIndex, 1);
-            currentIndex = null;
-            renderList();
-        }
+    b.onclick=()=>{
+      if(isDirty && !confirm("当前词条未保存，是否切换？")) return;
+      load(i);
+    };
 
-        function exportData() {
-            const blob = new Blob(
-                [`const words = ${JSON.stringify(words, null, 4)};`],
-                { type: "text/javascript" }
-            );
-            const a = document.createElement("a");
-            a.href = URL.createObjectURL(blob);
-            a.download = "data.js";
-            a.click();
-        }
+    if(sortMode){
+      const up=document.createElement("button");
+      up.textContent="↑";
+      up.disabled=i===0;
+      up.onclick=e=>{e.stopPropagation();moveWord(i,-1);};
 
-        /* ===== 搜索 ===== */
-        devSearch.oninput = e => {
-            const q = e.target.value.toLowerCase();
-            document.querySelectorAll("#wordList button").forEach(b => {
-                b.style.display = b.textContent.toLowerCase().includes(q) ? "block" : "none";
-            });
-        };
+      const down=document.createElement("button");
+      down.textContent="↓";
+      down.disabled=i===words.length-1;
+      down.onclick=e=>{e.stopPropagation();moveWord(i,1);};
 
-        renderList();
-        renderTagSelector();
-    </script>
+      row.appendChild(up);
+      row.appendChild(down);
+    }
+
+    row.appendChild(b);
+    wordList.appendChild(row);
+  });
+
+  wordList.innerHTML="";
+  words.forEach((w,i)=>{
+const b = document.createElement("button");
+b.className = "word-btn";
+b.textContent = w.en;
+
+
+    row.style.display="flex";
+    row.style.alignItems="center";
+    row.style.gap="4px";
+    row.style.margin="0 8px 6px";
+
+    b.style.flex = "1";
+    if(i===currentIndex) b.classList.add("active");
+
+    b.onclick = ()=>{
+      if(isDirty && !confirm("当前词条未保存，是否切换？")) return;
+      load(i);
+    };
+
+    const up = document.createElement("button");
+    up.textContent="↑";
+    up.style.width="28px";
+
+    up.onclick = (e)=>{
+      e.stopPropagation();
+      moveWord(i,-1);
+    };
+
+    const down = document.createElement("button");
+    down.textContent="↓";
+    down.style.width="28px";
+
+    down.onclick = (e)=>{
+      e.stopPropagation();
+      moveWord(i,1);
+    };
+if(i===0) up.disabled = true;
+if(i===words.length-1) down.disabled = true;
+
+
+if(sortMode){
+  row.appendChild(up);
+  row.appendChild(down);
+}
+    row.appendChild(b);
+    wordList.appendChild(row);
+  });
+function moveWord(index, direction){
+  const newIndex = index + direction;
+  if(newIndex < 0 || newIndex >= words.length) return;
+
+  // 交换数组位置
+  [words[index], words[newIndex]] = [words[newIndex], words[index]];
+
+  // 修正 currentIndex
+  if(currentIndex === index) currentIndex = newIndex;
+  else if(currentIndex === newIndex) currentIndex = index;
+
+  renderList();
+}
+
+
+function load(i){
+  currentIndex=i;
+  const w=words[i];
+  en.value=w.en||"";cn.value=w.cn||"";
+  enUsage.innerHTML=w.enUsage||"";usage.innerHTML=w.usage||"";
+  formula.value=w.formula||"";category.value=w.category||"";
+  example.value=w.example||"";updated.value=w.updated||"";
+  similarSelected=[...(w.similar||[])];
+  classificationSelected=[...(w.classification||[])];
+  selectedTags=[...(w.tags||[])];
+  renderSimilarChips();renderClassChips();renderTagSelector();
+  snapshot=getFormState();isDirty=false;
+  title.textContent=w.en;title.classList.remove("dirty");
+  document.querySelectorAll("#wordList .word-btn").forEach(b=>b.classList.remove("active","dirty"));
+  document.querySelectorAll("#wordList .word-btn")[i]
+  ?.classList.add("active");
+
+}
+
+/* ===== actions ===== */
+function save(){
+  if(currentIndex===null)return alert("未选择词条");
+  Object.assign(words[currentIndex],{
+    en:en.value,cn:cn.value,
+    enUsage:enUsage.innerHTML,
+    usage:usage.innerHTML,
+    formula:formula.value,
+    category:category.value,
+    similar:[...similarSelected],
+    classification:[...classificationSelected],
+    example:example.value,
+    tags:[...selectedTags],
+    updated:new Date().toISOString().slice(0,10)
+  });
+  updated.value=words[currentIndex].updated;
+  snapshot=getFormState();isDirty=false;
+  title.classList.remove("dirty");
+  document.querySelectorAll("#wordList .word-btn")[currentIndex].classList.remove("dirty");
+  renderList();showToast();
+}
+
+function newWord(){
+  words.push({en:"NewTerm",cn:"",tags:[],updated:""});
+  renderList();load(words.length-1);
+}
+function remove(){
+  if(currentIndex===null)return;
+  if(!confirm("确定删除？"))return;
+  words.splice(currentIndex,1);
+  currentIndex=null;
+  renderList();
+}
+function exportData(){
+  const a=document.createElement("a");
+  a.href=URL.createObjectURL(new Blob([`const words=${JSON.stringify(words,null,2)};`]));
+  a.download="data.js";a.click();
+}
+
+devSearch.oninput=e=>{
+  const q=e.target.value.toLowerCase();
+document.querySelectorAll("#wordList .word-btn").forEach(b=>{
+  b.parentElement.style.display =
+    b.textContent.toLowerCase().includes(q) ? "flex" : "none";
+});
+
+};
+
+renderList();renderTagSelector();
+</script>
 </body>
 </html>
