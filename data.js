@@ -623,6 +623,76 @@ const words=[
     "updated": "2026-01-21"
   },
   {
+    "en": "Reference Frame",
+    "cn": "参考系影格",
+    "tags": [
+      "Physics"
+    ],
+    "updated": "2026-01-21",
+    "enUsage": "",
+    "usage": "",
+    "formula": "",
+    "category": "",
+    "similar": [],
+    "example": ""
+  },
+  {
+    "en": "Key Parameters of Mechanical Motion",
+    "cn": "机械运动的关键参数",
+    "tags": [
+      "Physics"
+    ],
+    "updated": "2026-01-21",
+    "enUsage": "",
+    "usage": "",
+    "formula": "",
+    "category": "",
+    "similar": [],
+    "example": ""
+  },
+  {
+    "en": "Uniform Linear Motion",
+    "cn": "匀速直线运动",
+    "tags": [
+      "Physics"
+    ],
+    "updated": "2026-01-21",
+    "enUsage": "Straight line path.\nDisplacement in equal time is equal.",
+    "usage": "",
+    "formula": "",
+    "category": "",
+    "similar": [],
+    "example": ""
+  },
+  {
+    "en": "Uniform Acceration Linear Motion",
+    "cn": "匀加速直线运动",
+    "tags": [
+      "Physics"
+    ],
+    "updated": "2026-01-21",
+    "enUsage": "",
+    "usage": "",
+    "formula": "",
+    "category": "",
+    "similar": [],
+    "example": ""
+  },
+  {
+    "en": "Free Fall Motion",
+    "cn": "自由落体",
+    "tags": [
+      "Physics"
+    ],
+    "updated": "2026-01-21",
+    "enUsage": "",
+    "usage": "",
+    "formula": "",
+    "category": "",
+    "similar": [],
+    "example": ""
+  },
+  {
     "en": "Dimension",
     "cn": "量纲",
     "enUsage": "The expression of a physical quantity in terms of fundamental quantities such as length, mass, and time.",
@@ -1246,76 +1316,6 @@ const words=[
     "example": ""
   },
   {
-    "en": "Reference Frame",
-    "cn": "参考系影格",
-    "tags": [
-      "Physics"
-    ],
-    "updated": "2026-01-21",
-    "enUsage": "",
-    "usage": "",
-    "formula": "",
-    "category": "",
-    "similar": [],
-    "example": ""
-  },
-  {
-    "en": "Key Parameters of Mechanical Motion",
-    "cn": "机械运动的关键参数",
-    "tags": [
-      "Physics"
-    ],
-    "updated": "2026-01-21",
-    "enUsage": "",
-    "usage": "",
-    "formula": "",
-    "category": "",
-    "similar": [],
-    "example": ""
-  },
-  {
-    "en": "Uniform Linear Motion",
-    "cn": "匀速直线运动",
-    "tags": [
-      "Physics"
-    ],
-    "updated": "2026-01-21",
-    "enUsage": "Straight line path.\nDisplacement in equal time is equal.",
-    "usage": "",
-    "formula": "",
-    "category": "",
-    "similar": [],
-    "example": ""
-  },
-  {
-    "en": "Uniform Acceration Linear Motion",
-    "cn": "匀加速直线运动",
-    "tags": [
-      "Physics"
-    ],
-    "updated": "2026-01-21",
-    "enUsage": "",
-    "usage": "",
-    "formula": "",
-    "category": "",
-    "similar": [],
-    "example": ""
-  },
-  {
-    "en": "Free Fall Motion",
-    "cn": "自由落体",
-    "tags": [
-      "Physics"
-    ],
-    "updated": "2026-01-21",
-    "enUsage": "",
-    "usage": "",
-    "formula": "",
-    "category": "",
-    "similar": [],
-    "example": ""
-  },
-  {
     "en": "Body and Point Mass",
     "cn": "体和点质量",
     "tags": [
@@ -1402,16 +1402,19 @@ const words=[
   {
     "en": "Endothermic reactions",
     "cn": "吸热反应",
-    "tags": [],
+    "tags": [
+      "Chemistry"
+    ],
     "updated": "2026-01-21",
-    "enUsage": ">Melting\n>Vapotization\n>sublimation",
+    "enUsage": "&gt;Melting\n&gt;Vapotization\n&gt;sublimation",
     "usage": "",
     "formula": "",
     "category": "",
     "similar": [
       "Exothermic reaction"
     ],
-    "example": ""
+    "example": "",
+    "classification": []
   },
   {
     "en": "Exothermic reaction",
@@ -1496,14 +1499,17 @@ const words=[
   {
     "en": "Physical Properties",
     "cn": "物理性质",
-    "tags": [],
+    "tags": [
+      "Chemistry"
+    ],
     "updated": "2026-01-21",
     "enUsage": "The characteristics that can be observed without changing the substances that make up the material.",
     "usage": "",
     "formula": "",
     "category": "",
     "similar": [],
-    "example": "Melting and boiling points / Odour and colour / Density / Electrical conductivity / Hardness / Lustre / Thermal conductivity / Attraction to magnets"
+    "example": "Melting and boiling points / Odour and colour / Density / Electrical conductivity / Hardness / Lustre / Thermal conductivity / Attraction to magnets",
+    "classification": []
   },
   {
     "en": "Physical Changes",
@@ -1518,5 +1524,5 @@ const words=[
     "category": "",
     "similar": [],
     "example": "A liquid boiling (can be reversed) / Salt dissolving into water (can be reversed) / Wood being chopped (can't be reversed) / A mixture of colors being separated out / Peeling an orange (can't be reversed)"
-  }
+  },
 ];
