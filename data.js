@@ -1194,6 +1194,35 @@ const words=[
     "updated": "2026-01-19"
   },
   {
+    "en": "Cation",
+    "cn": "阳离子",
+    "tags": [
+      "Chemistry"
+    ],
+    "updated": "2026-01-22",
+    "enUsage": "Is positively-charged ion, which form an atom (metal) loses electrons",
+    "usage": "",
+    "formula": "",
+    "category": "",
+    "similar": [],
+    "example": "",
+    "classification": []
+  },
+  {
+    "en": "Anion",
+    "cn": "阴离子",
+    "tags": [
+      "Chemistry"
+    ],
+    "updated": "2026-01-21",
+    "enUsage": "Is negatively-charged ion, which form an atom (non-metal) gain electrons.",
+    "usage": "",
+    "formula": "",
+    "category": "",
+    "similar": [],
+    "example": ""
+  },
+  {
     "en": "Perpendicular",
     "cn": "垂直",
     "enUsage": "",
@@ -1344,34 +1373,6 @@ const words=[
     "example": ""
   },
   {
-    "en": "Cation",
-    "cn": "阳离子",
-    "tags": [
-      "Chemistry"
-    ],
-    "updated": "2026-01-21",
-    "enUsage": "Is positively-charged ion, which form an atom (metal) loses electrons",
-    "usage": "",
-    "formula": "",
-    "category": "",
-    "similar": [],
-    "example": ""
-  },
-  {
-    "en": "Anion",
-    "cn": "阴离子",
-    "tags": [
-      "Chemistry"
-    ],
-    "updated": "2026-01-21",
-    "enUsage": "Is negatively-charged ion, which form an atom (non-metal) gain electrons.",
-    "usage": "",
-    "formula": "",
-    "category": "",
-    "similar": [],
-    "example": ""
-  },
-  {
     "en": "Polyatomic ion",
     "cn": "原子团/多原子离子",
     "tags": [
@@ -1405,8 +1406,8 @@ const words=[
     "tags": [
       "Chemistry"
     ],
-    "updated": "2026-01-21",
-    "enUsage": "&gt;Melting\n&gt;Vapotization\n&gt;sublimation",
+    "updated": "2026-01-22",
+    "enUsage": "<br>",
     "usage": "",
     "formula": "",
     "category": "",
@@ -1414,7 +1415,20 @@ const words=[
       "Exothermic reaction"
     ],
     "example": "",
-    "classification": []
+    "classification": [
+      {
+        "en": "Melting",
+        "cn": "融化"
+      },
+      {
+        "en": "Vaporization",
+        "cn": "汽化"
+      },
+      {
+        "en": "Sublimation",
+        "cn": "升华"
+      }
+    ]
   },
   {
     "en": "Exothermic reaction",
@@ -1422,15 +1436,29 @@ const words=[
     "tags": [
       "Chemistry"
     ],
-    "updated": "2026-01-21",
-    "enUsage": ">frerzing\n>condensation\n>deposition",
+    "updated": "2026-01-22",
+    "enUsage": "<br>",
     "usage": "",
     "formula": "",
     "category": "",
     "similar": [
       "Endothermic reactions"
     ],
-    "example": ""
+    "example": "",
+    "classification": [
+      {
+        "en": "Freezing",
+        "cn": "凝固"
+      },
+      {
+        "en": "Condensation",
+        "cn": "凝结"
+      },
+      {
+        "en": "Deposition",
+        "cn": "凝华 / 凝化"
+      }
+    ]
   },
   {
     "en": "Sensible heat",
@@ -1634,7 +1662,8 @@ const words=[
     "en": "Constituents / Components",
     "cn": "组成成分",
     "tags": [
-      "Chemistry"
+      "Chemistry",
+      "General"
     ],
     "updated": "2026-01-22",
     "enUsage": "",
@@ -1664,7 +1693,8 @@ const words=[
     "en": "Separates",
     "cn": "分离",
     "tags": [
-      "Chemistry"
+      "Chemistry",
+      "General"
     ],
     "updated": "2026-01-22",
     "enUsage": "",
@@ -1693,6 +1723,277 @@ const words=[
   {
     "en": "Residue",
     "cn": "残留物",
+    "tags": [
+      "Chemistry"
+    ],
+    "updated": "2026-01-22",
+    "enUsage": "",
+    "usage": "",
+    "formula": "",
+    "category": "",
+    "similar": [],
+    "classification": [],
+    "example": ""
+  },
+  {
+    "en": "Isotopes",
+    "cn": "同位素",
+    "tags": [
+      "Chemistry"
+    ],
+    "updated": "2026-01-22",
+    "enUsage": "Atoms of an element which has the same number of protons but different number of neutrons.",
+    "usage": "",
+    "formula": "",
+    "category": "",
+    "similar": [],
+    "classification": [],
+    "example": ""
+  },
+  {
+    "en": "Valence electrons",
+    "cn": "价电子",
+    "tags": [
+      "Chemistry"
+    ],
+    "updated": "2026-01-22",
+    "enUsage": "",
+    "usage": "",
+    "formula": "",
+    "category": "",
+    "similar": [],
+    "classification": [],
+    "example": ""
+  },
+  {
+    "en": "Subatomic particles",
+    "cn": "亚原子粒子",
+    "tags": [
+      "Chemistry"
+    ],
+    "updated": "2026-01-22",
+    "enUsage": "",
+    "usage": "",
+    "formula": "",
+    "category": "",
+    "similar": [],
+    "classification": [],
+    "example": ""
+  },
+  {
+    "en": "Proton",
+    "cn": "质子",
+    "tags": [
+      "Chemistry"
+    ],
+    "updated": "2026-01-22",
+    "enUsage": "Carries a positive electric charge",
+    "usage": "",
+    "formula": "",
+    "category": "",
+    "similar": [
+      "Neutron",
+      "Electron"
+    ],
+    "classification": [],
+    "example": ""
+  },
+  {
+    "en": "Neutron",
+    "cn": "中子",
+    "tags": [
+      "Chemistry"
+    ],
+    "updated": "2026-01-22",
+    "enUsage": "Has the same mass as a proton but carries no charge",
+    "usage": "",
+    "formula": "",
+    "category": "",
+    "similar": [
+      "Proton",
+      "Electron"
+    ],
+    "classification": [],
+    "example": ""
+  },
+  {
+    "en": "Electron",
+    "cn": "电子",
+    "tags": [
+      "Chemistry"
+    ],
+    "updated": "2026-01-22",
+    "enUsage": "Carries a negative electric charge",
+    "usage": "",
+    "formula": "",
+    "category": "",
+    "similar": [
+      "Proton",
+      "Neutron"
+    ],
+    "classification": [],
+    "example": ""
+  },
+  {
+    "en": "Occupies",
+    "cn": "占据",
+    "tags": [
+      "General"
+    ],
+    "updated": "2026-01-22",
+    "enUsage": "",
+    "usage": "",
+    "formula": "",
+    "category": "",
+    "similar": [],
+    "classification": [],
+    "example": ""
+  },
+  {
+    "en": "Discrete",
+    "cn": "分散",
+    "tags": [
+      "General"
+    ],
+    "updated": "2026-01-22",
+    "enUsage": "",
+    "usage": "",
+    "formula": "",
+    "category": "",
+    "similar": [],
+    "classification": [],
+    "example": ""
+  },
+  {
+    "en": "Constant",
+    "cn": "持续",
+    "tags": [
+      "General"
+    ],
+    "updated": "2026-01-22",
+    "enUsage": "",
+    "usage": "",
+    "formula": "",
+    "category": "",
+    "similar": [],
+    "classification": [],
+    "example": ""
+  },
+  {
+    "en": "Combine",
+    "cn": "结合",
+    "tags": [
+      "General",
+      "Chemistry"
+    ],
+    "updated": "2026-01-22",
+    "enUsage": "",
+    "usage": "",
+    "formula": "",
+    "category": "",
+    "similar": [],
+    "classification": [],
+    "example": ""
+  },
+  {
+    "en": "Alloys",
+    "cn": "合金",
+    "tags": [
+      "Chemistry"
+    ],
+    "updated": "2026-01-22",
+    "enUsage": "",
+    "usage": "",
+    "formula": "",
+    "category": "",
+    "similar": [],
+    "classification": [],
+    "example": ""
+  },
+  {
+    "en": "Ratio / Proportion",
+    "cn": "比例",
+    "tags": [
+      "General",
+      "Math",
+      "Chemistry",
+      "Physics"
+    ],
+    "updated": "2026-01-22",
+    "enUsage": "",
+    "usage": "",
+    "formula": "",
+    "category": "",
+    "similar": [],
+    "classification": [],
+    "example": ""
+  },
+  {
+    "en": "Fixed",
+    "cn": "固定(的)",
+    "tags": [
+      "General",
+      "Biology",
+      "Chemistry"
+    ],
+    "updated": "2026-01-22",
+    "enUsage": "",
+    "usage": "",
+    "formula": "",
+    "category": "",
+    "similar": [],
+    "classification": [],
+    "example": ""
+  },
+  {
+    "en": "Definite",
+    "cn": "固定(的)",
+    "tags": [
+      "General",
+      "Chemistry"
+    ],
+    "updated": "2026-01-22",
+    "enUsage": "",
+    "usage": "",
+    "formula": "",
+    "category": "",
+    "similar": [],
+    "classification": [],
+    "example": ""
+  },
+  {
+    "en": "Manner",
+    "cn": "方式",
+    "tags": [
+      "General"
+    ],
+    "updated": "2026-01-22",
+    "enUsage": "",
+    "usage": "",
+    "formula": "",
+    "category": "",
+    "similar": [],
+    "classification": [],
+    "example": ""
+  },
+  {
+    "en": "Vary",
+    "cn": "变化 / 各不相同 / 不一",
+    "tags": [
+      "General"
+    ],
+    "updated": "2026-01-22",
+    "enUsage": "",
+    "usage": "",
+    "formula": "",
+    "category": "",
+    "similar": [],
+    "classification": [],
+    "example": ""
+  },
+  {
+    "en": "Fractional distillation",
+    "cn": "分馏",
     "tags": [
       "Chemistry"
     ],
