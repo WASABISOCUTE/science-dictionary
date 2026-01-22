@@ -1525,4 +1525,184 @@ const words=[
     "similar": [],
     "example": "A liquid boiling (can be reversed) / Salt dissolving into water (can be reversed) / Wood being chopped (can't be reversed) / A mixture of colors being separated out / Peeling an orange (can't be reversed)"
   },
+  {
+    "en": "Trapezium",
+    "cn": "梯形",
+    "tags": [
+      "Math"
+    ],
+    "updated": "2026-01-22",
+    "enUsage": "",
+    "usage": "",
+    "formula": "",
+    "category": "",
+    "similar": [],
+    "classification": [],
+    "example": ""
+  },
+  {
+    "en": "Gradient",
+    "cn": "斜率",
+    "tags": [
+      "Math"
+    ],
+    "updated": "2026-01-22",
+    "enUsage": "",
+    "usage": "",
+    "formula": "",
+    "category": "",
+    "similar": [],
+    "classification": [],
+    "example": ""
+  },
+  {
+    "en": "Collinear",
+    "cn": "共线",
+    "tags": [
+      "Math"
+    ],
+    "updated": "2026-01-22",
+    "enUsage": "",
+    "usage": "",
+    "formula": "",
+    "category": "",
+    "similar": [],
+    "classification": [],
+    "example": ""
+  },
+  {
+    "en": "Substitute",
+    "cn": "代入",
+    "tags": [
+      "Math"
+    ],
+    "updated": "2026-01-22",
+    "enUsage": "",
+    "usage": "",
+    "formula": "",
+    "category": "",
+    "similar": [],
+    "classification": [],
+    "example": ""
+  },
+  {
+    "en": "Coefficient",
+    "cn": "系数",
+    "tags": [
+      "Math"
+    ],
+    "updated": "2026-01-22",
+    "enUsage": "",
+    "usage": "",
+    "formula": "",
+    "category": "",
+    "similar": [],
+    "classification": [],
+    "example": ""
+  },
+  {
+    "en": "Slope-intercept form",
+    "cn": "斜截式",
+    "tags": [
+      "Math"
+    ],
+    "updated": "2026-01-22",
+    "enUsage": "",
+    "usage": "",
+    "formula": "",
+    "category": "",
+    "similar": [],
+    "classification": [],
+    "example": ""
+  },
+  {
+    "en": "Periodic Table of the Elements",
+    "cn": "元素周期表",
+    "tags": [
+      "Chemistry"
+    ],
+    "updated": "2026-01-22",
+    "enUsage": "",
+    "usage": "",
+    "formula": "",
+    "category": "",
+    "similar": [],
+    "classification": [],
+    "example": ""
+  },
+  {
+    "en": "Constituents / Components",
+    "cn": "组成成分",
+    "tags": [
+      "Chemistry"
+    ],
+    "updated": "2026-01-22",
+    "enUsage": "",
+    "usage": "",
+    "formula": "",
+    "category": "",
+    "similar": [],
+    "classification": [],
+    "example": ""
+  },
+  {
+    "en": "Brass",
+    "cn": "黄铜",
+    "tags": [
+      "Chemistry"
+    ],
+    "updated": "2026-01-22",
+    "enUsage": "",
+    "usage": "铜和锌混合的合金",
+    "formula": "",
+    "category": "",
+    "similar": [],
+    "classification": [],
+    "example": ""
+  },
+  {
+    "en": "Separates",
+    "cn": "分离",
+    "tags": [
+      "Chemistry"
+    ],
+    "updated": "2026-01-22",
+    "enUsage": "",
+    "usage": "",
+    "formula": "",
+    "category": "",
+    "similar": [],
+    "classification": [],
+    "example": ""
+  },
+  {
+    "en": "Oxide",
+    "cn": "氧化物",
+    "tags": [
+      "Chemistry"
+    ],
+    "updated": "2026-01-22",
+    "enUsage": "",
+    "usage": "",
+    "formula": "",
+    "category": "",
+    "similar": [],
+    "classification": [],
+    "example": ""
+  },
+  {
+    "en": "Residue",
+    "cn": "残留物",
+    "tags": [
+      "Chemistry"
+    ],
+    "updated": "2026-01-22",
+    "enUsage": "",
+    "usage": "",
+    "formula": "",
+    "category": "",
+    "similar": [],
+    "classification": [],
+    "example": ""
+  }
 ];
