@@ -1991,19 +1991,25 @@ const words=[
     "classification": [],
     "example": ""
   },
-  {
-    "en": "Fractional distillation",
-    "cn": "分馏",
-    "tags": [
-      "Chemistry"
-    ],
-    "updated": "2026-01-22",
-    "enUsage": "",
-    "usage": "",
-    "formula": "",
-    "category": "",
-    "similar": [],
-    "classification": [],
-    "example": ""
-  }
+    {
+        en: "Mitochondrion",
+        cn: "线粒体",
+        tags: ["Biology"],
+        bioType: "Organelle", // Cell / Microorganism / Organelle / Other
+
+        bioDetail: {
+            system: "Cellular Respiration",
+            function: "Produces ATP through respiration",
+            structure: "Double membrane",
+            image: "images/mitochondrion.png",
+            reference: "Campbell Biology Chapter 6"
+        },
+
+        enUsage: "",
+        usage: "",
+        formula: "",
+        example: "",
+        updated: "2026-01-23"
+    }
+
 ];

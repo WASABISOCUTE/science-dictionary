@@ -9,431 +9,486 @@
 </head>
 <body>
 
-<h1>Science Dictionary</h1>
+    <h1>Science Dictionary</h1>
 
-<input id="search" placeholder="Type English / Chinese / Subject">
+    <input id="search" placeholder="Type English / Chinese / Subject">
 
-<div id="filter">
-  <select id="subjectFilter">
-    <option value="">All Subject</option>
-    <option value="General">General</option>
-    <option value="Physics">Physics</option>
-    <option value="Math">Math</option>
-    <option value="Chemistry">Chemistry</option>
-    <option value="Biology">Biology</option>
-    <option value="Computer">Computer</option>
-  </select>
-  <select id="sortSelect">
-  <option value="">Default</option>
-  <option value="az">A → Z</option>
-  <option value="za">Z → A</option>
-  <option value="marked">Marked First</option>
-</select>
-  <button id="clearFilter">Clear Filter</button>
-  <button id="showMarkedBtn">⭐ Show Marked Words</button>
-</div>
+    <div id="filter">
+        <select id="subjectFilter">
+            <option value="">All Subject</option>
+            <option value="General">General</option>
+            <option value="Physics">Physics</option>
+            <option value="Math">Math</option>
+            <option value="Chemistry">Chemistry</option>
+            <option value="Biology">Biology</option>
+            <option value="Computer">Computer</option>
+        </select>
+        <select id="sortSelect">
+            <option value="">Default</option>
+            <option value="az">A → Z</option>
+            <option value="za">Z → A</option>
+            <option value="marked">Marked First</option>
+        </select>
+        <button id="clearFilter">Clear Filter</button>
+        <button id="showMarkedBtn">⭐ Show Marked Words</button>
+    </div>
 
-<div id="list"></div>
+    <div id="list"></div>
 
-<!-- ===== 详情页 ===== -->
-<div id="detail" style="display:none;">
-  <button id="backBtn">← Back</button>
+    <!-- ===== 详情页 ===== -->
+    <div id="detail" style="display:none;">
+        <button id="backBtn">← Back</button>
 
-  <h2>
-  <span id="dEn"></span>
-  <button id="pronounceBtn" title="Pronounce">🔊</button>
-  </h2>
-  <p id="dCn"></p>
-  <div id="dTags"></div>
+        <h2>
+            <span id="dEn"></span>
+            <button id="pronounceBtn" title="Pronounce">🔊</button>
+        </h2>
+        <p id="dCn"></p>
+        <div id="dTags"></div>
 
-  <p><strong>类别:</strong> <span id="dCategory"></span></p>
-  <p><strong>中文解释:</strong> <span id="dUsage"></span></p>
-  <p><strong>English:</strong> <span id="dEnUsage"></span></p>
-  <p><strong>公式:</strong> <span id="dFormula"></span></p>
-  <p><strong>示例:</strong> <span id="dExample"></span></p>
-  <!-- 所属分类 -->
-  <p id="belongsBlock" class="detail-section"> <strong>所属分类 / Belongs to:</strong> <span id="belongsList"></span></p>
-  <p id="classificationBlock" class="detail-section"><strong>分类:</strong> <span id="classificationList"></span></p>
-  <p id="dSimilar"><strong>相关单词:</strong></p>
-  <button id="markDetailBtn">☆ Mark</button>
-  <button id="reportBtn">⚠️ 报告错误</button>
-<!-- 更新时间 -->
-<div id="dUpdated" class="detail-updated"></div>
+        <p><strong>类别:</strong> <span id="dCategory"></span></p>
+        <p><strong>中文解释:</strong> <span id="dUsage"></span></p>
+        <p><strong>English:</strong> <span id="dEnUsage"></span></p>
+        <p><strong>公式:</strong> <span id="dFormula"></span></p>
+        <p><strong>示例:</strong> <span id="dExample"></span></p>
+        <!-- 所属分类 -->
+        <p id="belongsBlock" class="detail-section"> <strong>所属分类 / Belongs to:</strong> <span id="belongsList"></span></p>
+        <p id="classificationBlock" class="detail-section"><strong>分类:</strong> <span id="classificationList"></span></p>
+        <p id="dSimilar"><strong>相关单词:</strong></p>
+        <button id="markDetailBtn">☆ Mark</button>
+        <button id="reportBtn">⚠️ 报告错误</button>
+        <!-- 更新时间 -->
+        <div id="dUpdated" class="detail-updated"></div>
 
-  <div id="reportForm" style="display:none;">
-    <p>请填写正确资料：</p>
-    <textarea id="reportText" rows="4" placeholder="输入正确的英文 / 中文 / 公式 / 示例等"></textarea>
-    <button id="submitReport">提交</button>
-    <button id="cancelReport">取消</button>
-  </div>
-</div>
+        <div id="reportForm" style="display:none;">
+            <p>请填写正确资料：</p>
+            <textarea id="reportText" rows="4" placeholder="输入正确的英文 / 中文 / 公式 / 示例等"></textarea>
+            <button id="submitReport">提交</button>
+            <button id="cancelReport">取消</button>
+        </div>
+    </div>
 
-<!-- ===== 网站信息页 ===== -->
-<div id="about" style="display:none;">
-  <button id="aboutBackBtn">← Back</button>
+    
 
-  <h2>网站信息 / Website Information</h2>
+    <!-- ===== 网站信息页 ===== -->
+    <div id="about" style="display:none;">
+        <button id="aboutBackBtn">← Back</button>
 
-  <section class="about-section">
-    <h3>项目简介 / About</h3>
-    <p>理科词典是一个面向高中理科生的在线学习工具，用于快速查询物理、数学、化学等科目中的重要术语。</p>
-    <p>Science Dictionary is an online learning tool designed for high school science students, used for quickly looking up important terms in Physics, Mathematics, and Chemistry.</p>
-  </section>
+        <h2>网站信息 / Website Information</h2>
 
-  <section class="about-section">
-    <h3>制作人员 / Credits</h3>
-    <ul>
-      <li><strong>项目概念：</strong> WASABISOCUTE</li>
-      <li><strong>界面及功能设计：</strong> WASABISOCUTE</li>
-      <li><strong>代码：</strong> ChatGPT</li>
-    </ul>
-    <ul>
-      <li><strong>Project Concept:</strong> WASABISOCUTE</li>
-      <li><strong>UI and Feature Design:</strong> WASABISOCUTE</li>
-      <li><strong>Code Assistance:</strong> ChatGPT</li>
-    </ul>
-  </section>
+        <section class="about-section">
+            <h3>项目简介 / About</h3>
+            <p>理科词典是一个面向高中理科生的在线学习工具，用于快速查询物理、数学、化学等科目中的重要术语。</p>
+            <p>Science Dictionary is an online learning tool designed for high school science students, used for quickly looking up important terms in Physics, Mathematics, and Chemistry.</p>
+        </section>
 
-  <section class="about-section">
-    <h3>开源信息 / Open Source</h3>
-    <p>本项目托管于 GitHub，欢迎提交 Issue 或 Pull Request。</p>
-    <p>This project is hosted on GitHub. Issues and Pull Requests are welcome.</p>
-  </section>
+        <section class="about-section">
+            <h3>制作人员 / Credits</h3>
+            <ul>
+                <li><strong>项目概念：</strong> WASABISOCUTE</li>
+                <li><strong>界面及功能设计：</strong> WASABISOCUTE</li>
+                <li><strong>代码：</strong> ChatGPT</li>
+            </ul>
+            <ul>
+                <li><strong>Project Concept:</strong> WASABISOCUTE</li>
+                <li><strong>UI and Feature Design:</strong> WASABISOCUTE</li>
+                <li><strong>Code Assistance:</strong> ChatGPT</li>
+            </ul>
+        </section>
 
-  <section class="about-section">
-    <h3>
-      贡献者 / Contributors
-      <span id="contributorsInfo"></span>
-    </h3>
-    <ul id="contributors"><li>Loading...</li></ul>
-  </section>
+        <section class="about-section">
+            <h3>开源信息 / Open Source</h3>
+            <p>本项目托管于 GitHub，欢迎提交 Issue 或 Pull Request。</p>
+            <p>This project is hosted on GitHub. Issues and Pull Requests are welcome.</p>
+        </section>
 
-  <section class="about-section">
-    <h3>计划添加功能 / Planned Features</h3>
-    <ul>
-    <li><strong>公式查找</strong></li>
-    <li><strong>设置</strong></li>
-    </ul>
-  </section>
-</div>
+        <section class="about-section">
+            <h3>
+                贡献者 / Contributors
+                <span id="contributorsInfo"></span>
+            </h3>
+            <ul id="contributors"><li>Loading...</li></ul>
+        </section>
 
-<footer id="footer">
-  <span id="aboutLink">网站信息</span>
-</footer>
+        <section class="about-section">
+            <h3>计划添加功能 / Planned Features</h3>
+            <ul>
+                <li><strong>公式查找</strong></li>
+                <li><strong>设置</strong></li>
+            </ul>
+        </section>
+    </div>
 
-<script src="data.js"></script>
-<script>
-const input = document.getElementById("search");
-const list = document.getElementById("list");
-const detail = document.getElementById("detail");
-const about = document.getElementById("about");
+    <footer id="footer">
+        <span id="aboutLink">网站信息</span>
+    </footer>
 
-const backBtn = document.getElementById("backBtn");
-const aboutBackBtn = document.getElementById("aboutBackBtn");
-const aboutLink = document.getElementById("aboutLink");
+    <script src="data.js"></script>
+    <script>
+        const input = document.getElementById("search");
+        const list = document.getElementById("list");
+        const detail = document.getElementById("detail");
+        const about = document.getElementById("about");
 
-const dEn = document.getElementById("dEn");
-const dCn = document.getElementById("dCn");
-const dTags = document.getElementById("dTags");
-const dCategory = document.getElementById("dCategory");
-const dUsage = document.getElementById("dUsage");
-const dEnUsage = document.getElementById("dEnUsage");
-const dFormula = document.getElementById("dFormula");
-const dExample = document.getElementById("dExample");
-const dSimilar = document.getElementById("dSimilar");
-const belongsBlock = document.getElementById("belongsBlock");
-const belongsList = document.getElementById("belongsList");
-const classificationBlock = document.getElementById("classificationBlock");
-const classificationList = document.getElementById("classificationList");
+        const backBtn = document.getElementById("backBtn");
+        const aboutBackBtn = document.getElementById("aboutBackBtn");
+        const aboutLink = document.getElementById("aboutLink");
 
-const sortSelect = document.getElementById("sortSelect");
-const subjectFilter = document.getElementById("subjectFilter");
-const clearFilter = document.getElementById("clearFilter");
-const showMarkedBtn = document.getElementById("showMarkedBtn");
+        const dEn = document.getElementById("dEn");
+        const dCn = document.getElementById("dCn");
+        const dTags = document.getElementById("dTags");
+        const dCategory = document.getElementById("dCategory");
+        const dUsage = document.getElementById("dUsage");
+        const dEnUsage = document.getElementById("dEnUsage");
+        const dFormula = document.getElementById("dFormula");
+        const dExample = document.getElementById("dExample");
+        const dSimilar = document.getElementById("dSimilar");
+        const belongsBlock = document.getElementById("belongsBlock");
+        const belongsList = document.getElementById("belongsList");
+        const classificationBlock = document.getElementById("classificationBlock");
+        const classificationList = document.getElementById("classificationList");
 
-const dUpdated = document.getElementById("dUpdated");
+        const sortSelect = document.getElementById("sortSelect");
+        const subjectFilter = document.getElementById("subjectFilter");
+        const clearFilter = document.getElementById("clearFilter");
+        const showMarkedBtn = document.getElementById("showMarkedBtn");
 
-const reportBtn = document.getElementById("reportBtn");
-const reportForm = document.getElementById("reportForm");
-const reportText = document.getElementById("reportText");
-const submitReport = document.getElementById("submitReport");
-const cancelReport = document.getElementById("cancelReport");
+        const dUpdated = document.getElementById("dUpdated");
 
-const markDetailBtn = document.getElementById("markDetailBtn");
+        const reportBtn = document.getElementById("reportBtn");
+        const reportForm = document.getElementById("reportForm");
+        const reportText = document.getElementById("reportText");
+        const submitReport = document.getElementById("submitReport");
+        const cancelReport = document.getElementById("cancelReport");
 
-let currentWord = null;
-let markedWords = JSON.parse(localStorage.getItem("markedWords") || "[]");
-let showingMarkedOnly = false;
+        const markDetailBtn = document.getElementById("markDetailBtn");
 
-/* ===== 标记逻辑 ===== */
-function updateMarkBtn(btn, en) { btn.textContent = markedWords.includes(en) ? "★" : "☆"; }
-function toggleMark(en) {
-  if(markedWords.includes(en)) markedWords = markedWords.filter(w=>w!==en);
-  else markedWords.push(en);
-  localStorage.setItem("markedWords", JSON.stringify(markedWords));
-}
-function initMarkButtons(){
-  document.querySelectorAll(".markBtn").forEach(btn=>{
-    const en = btn.dataset.en;
-    updateMarkBtn(btn, en);
-    btn.onclick = e=>{
-      e.stopPropagation();
-      toggleMark(en);
-      updateMarkBtn(btn, en);
-    };
-  });
-}
+        let currentWord = null;
+        let markedWords = JSON.parse(localStorage.getItem("markedWords") || "[]");
+        let showingMarkedOnly = false;
 
-/* ===== 渲染 ===== */
-function render(items){
-  list.innerHTML="";
-  items.forEach(w=>{
-    const div=document.createElement("div");
-    div.className="card";
-const parents = getParentCategories(w);
+        /* ===== 标记逻辑 ===== */
+        function updateMarkBtn(btn, en) { btn.textContent = markedWords.includes(en) ? "★" : "☆"; }
+        function toggleMark(en) {
+            if (markedWords.includes(en)) markedWords = markedWords.filter(w => w !== en);
+            else markedWords.push(en);
+            localStorage.setItem("markedWords", JSON.stringify(markedWords));
+        }
+        function initMarkButtons() {
+            document.querySelectorAll(".markBtn").forEach(btn => {
+                const en = btn.dataset.en;
+                updateMarkBtn(btn, en);
+                btn.onclick = e => {
+                    e.stopPropagation();
+                    toggleMark(en);
+                    updateMarkBtn(btn, en);
+                };
+            });
+        }
+        function mapBioType(type) {
+            const map = {
+                Cell: "细胞",
+                Microorganism: "微生物",
+                Organelle: "细胞器",
+                Other: "其他"
+            };
+            return map[type] || type;
+        }
 
-div.innerHTML = `
-  <h2>${w.en} / ${w.cn}</h2>
+        /* ===== 渲染 ===== */
+        function renderWordDetail(word) {
+            const detail = document.getElementById("wordDetail");
+            detail.innerHTML = "";
 
-  ${
-    parents.length > 0
-      ? `<div class="belongs-text">
-           属于：${parents.map(p => `${p.en}`).join(", ")}
-         </div>`
-      : ""
-  }
+            const isBiology = word.tags?.includes("Biology");
+            const onlyBiology = isBiology && word.tags.length === 1;
 
-  <div class="tags">
-    ${(w.tags || []).map(t =>
-      `<span class="tag ${t}" data-tag="${t}">${t}</span>`
-    ).join("")}
-  </div>
+            /* ===== 标题 ===== */
+            detail.innerHTML += `
+    <h2>${word.en} <span>${word.cn}</span></h2>
+    `;
 
-  <button class="markBtn" data-en="${w.en}">☆</button>
+            /* ===== Biology Type ===== */
+            if (isBiology) {
+                detail.innerHTML += `
+    <div class="bio-type">
+        <strong>Type:</strong>
+        <span>${mapBioType(word.bioType)}</span>
+    </div>
+    `;
+            }
+
+            /* ===== 非纯 Biology 才显示基础信息 ===== */
+            if (!onlyBiology) {
+                if (word.enUsage)
+                    detail.innerHTML += `<p><b>EN:</b> ${word.enUsage}</p>`;
+                if (word.usage)
+                    detail.innerHTML += `<p><b>中文：</b> ${word.usage}</p>`;
+                if (word.formula)
+                    detail.innerHTML += `<p><b>Formula:</b> ${word.formula}</p>`;
+            }
+
+            /* ===== Biology 专属详细信息 ===== */
+            if (isBiology && word.bioDetail) {
+                detail.innerHTML += `
+    <div class="bio-detail">
+        ${word.bioDetail.system ? `<p><b>System：</b>${word.bioDetail.system}</p>` : ""}
+        ${word.bioDetail.function ? `<p><b>Function：</b>${word.bioDetail.function}</p>` : ""}
+        ${word.bioDetail.structure ? `<p><b>Structure：</b>${word.bioDetail.structure}</p>` : ""}
+        ${word.bioDetail.reference ? `<p><b>Reference：</b>${word.bioDetail.reference}</p>` : ""}
+        ${word.bioDetail.image ? `<img src="${word.bioDetail.image}" alt="${word.en}">` : ""}
+    </div>
+    `;
+            }
+        }
+        function render(items) {
+            list.innerHTML = "";
+            items.forEach(w => {
+                const div = document.createElement("div");
+                div.className = "card";
+                const parents = getParentCategories(w);
+
+                div.innerHTML = `
+      <h2>${w.en} / ${w.cn}</h2>
+
+      ${parents.length > 0
+                        ? `<div class="belongs-text">
+               属于：${parents.map(p => `${p.en}`).join(", ")}
+             </div>`
+                        : ""
+                    }
+
+      <div class="tags">
+        ${(w.tags || []).map(t =>
+                        `<span class="tag ${t}" data-tag="${t}">${t}</span>`
+                    ).join("")}
+      </div>
+
+      <button class="markBtn" data-en="${w.en}">☆</button>
 `;
 
-    div.onclick=()=>showDetail(w);
-    list.appendChild(div);
-  });
-  initMarkButtons();
-}
+                div.onclick = () => showDetail(w);
+                list.appendChild(div);
+            });
+            initMarkButtons();
+        }
 
-/* ===== 详情页 ===== */
-function showDetail(word){
-  currentWord = word;
-  list.style.display="none";
-  about.style.display="none";
-  detail.style.display="block";
+        /* ===== 详情页 ===== */
+        function showDetail(word) {
+            currentWord = word;
+            list.style.display = "none";
+            about.style.display = "none";
+            detail.style.display = "block";
 
-  dEn.textContent = word.en;
-  dCn.textContent = word.cn;
-  dTags.innerHTML = (word.tags||[]).map(t=>`<span class="tag ${t}" data-tag="${t}">${t}</span>`).join("");
-  dCategory.textContent = word.category||"";
-  dUsage.textContent = word.usage||"";
-  dEnUsage.textContent = word.enUsage||"";
-  dFormula.innerHTML = word.formula?`\\(${word.formula}\\)`:"无";
-  dExample.textContent = word.example||"无";
+            dEn.textContent = word.en;
+            dCn.textContent = word.cn;
+            dTags.innerHTML = (word.tags || []).map(t => `<span class="tag ${t}" data-tag="${t}">${t}</span>`).join("");
+            dCategory.textContent = word.category || "";
+            dUsage.textContent = word.usage || "";
+            dEnUsage.textContent = word.enUsage || "";
+            dFormula.innerHTML = word.formula ? `\\(${word.formula}\\)` : "无";
+            dExample.textContent = word.example || "无";
 
-  dSimilar.innerHTML="<strong>相关单词:</strong> ";
-  (word.similar||[]).forEach(s=>{
-    const sw=words.find(w=>w.en===s);
-    if(sw){
-      const b=document.createElement("button");
-      b.textContent=sw.en;
-      b.className="tag";
-      b.onclick=()=>showDetail(sw);
-      dSimilar.appendChild(b);
-    }
-  });
-  if(!word.similar || word.similar.length===0) dSimilar.innerHTML+="无";
+            dSimilar.innerHTML = "<strong>相关单词:</strong> ";
+            (word.similar || []).forEach(s => {
+                const sw = words.find(w => w.en === s);
+                if (sw) {
+                    const b = document.createElement("button");
+                    b.textContent = sw.en;
+                    b.className = "tag";
+                    b.onclick = () => showDetail(sw);
+                    dSimilar.appendChild(b);
+                }
+            });
+            if (!word.similar || word.similar.length === 0) dSimilar.innerHTML += "无";
 
-const pronounceBtn = document.getElementById("pronounceBtn");
+            const pronounceBtn = document.getElementById("pronounceBtn");
 
-/*发音 */
-function pronounceWord(text) {
-  if (!window.speechSynthesis) return;
+            /*发音 */
+            function pronounceWord(text) {
+                if (!window.speechSynthesis) return;
 
-  speechSynthesis.cancel(); // 停止上一次发音
+                speechSynthesis.cancel(); // 停止上一次发音
 
-  const utter = new SpeechSynthesisUtterance(text);
-  utter.lang = "en-UK";
-  utter.rate = 0.9;
-  utter.pitch = 1;
+                const utter = new SpeechSynthesisUtterance(text);
+                utter.lang = "en-UK";
+                utter.rate = 0.9;
+                utter.pitch = 1;
 
-  // 优先选择英文声音
-  const voices = speechSynthesis.getVoices();
-  const enVoice = voices.find(v => v.lang.startsWith("en"));
-  if (enVoice) utter.voice = enVoice;
+                // 优先选择英文声音
+                const voices = speechSynthesis.getVoices();
+                const enVoice = voices.find(v => v.lang.startsWith("en"));
+                if (enVoice) utter.voice = enVoice;
 
-  speechSynthesis.speak(utter);
-}
+                speechSynthesis.speak(utter);
+            }
 
-pronounceBtn.onclick = () => {
-  if (currentWord) {
-    pronounceWord(currentWord.en);
-  }
-};
+            pronounceBtn.onclick = () => {
+                if (currentWord) {
+                    pronounceWord(currentWord.en);
+                }
+            };
 
 
-  /* 所属分类 / Belongs to */
-belongsList.innerHTML = "";
+            /* 所属分类 / Belongs to */
+            belongsList.innerHTML = "";
 
-const parents = words.filter(w =>
-  Array.isArray(w.classification) &&
-  w.classification.some(c => c.en === word.en)
-);
+            const parents = words.filter(w =>
+                Array.isArray(w.classification) &&
+                w.classification.some(c => c.en === word.en)
+            );
 
-if (parents.length > 0) {
-  belongsBlock.style.display = "block";
+            if (parents.length > 0) {
+                belongsBlock.style.display = "block";
 
-  parents.forEach(p => {
-    const tag = document.createElement("span");
-    tag.className = "tag";
-    tag.textContent = `${p.en} / ${p.cn}`;
+                parents.forEach(p => {
+                    const tag = document.createElement("span");
+                    tag.className = "tag";
+                    tag.textContent = `${p.en} / ${p.cn}`;
 
-    tag.onclick = () => showDetail(p);
+                    tag.onclick = () => showDetail(p);
 
-    belongsList.appendChild(tag);
-  });
-} else {
-  belongsBlock.style.display = "none";
-}
+                    belongsList.appendChild(tag);
+                });
+            } else {
+                belongsBlock.style.display = "none";
+            }
 
-  /* 分类 / Classification */
-classificationList.innerHTML = "";
+            /* 分类 / Classification */
+            classificationList.innerHTML = "";
 
-if (word.classification && word.classification.length > 0) {
-  classificationBlock.style.display = "block";
+            if (word.classification && word.classification.length > 0) {
+                classificationBlock.style.display = "block";
 
-  word.classification.forEach(item => {
-    const btn = document.createElement("span");
-    btn.className = "tag";
-    btn.textContent = `${item.en} / ${item.cn}`;
+                word.classification.forEach(item => {
+                    const btn = document.createElement("span");
+                    btn.className = "tag";
+                    btn.textContent = `${item.en} / ${item.cn}`;
 
-    btn.onclick = () => {
-      searchInput.value = item.en;
-      renderList();
-    };
+                    btn.onclick = () => {
+                        searchInput.value = item.en;
+                        renderList();
+                    };
 
-    classificationList.appendChild(btn);
-  });
-} else {
-  classificationBlock.style.display = "none";
-}
+                    classificationList.appendChild(btn);
+                });
+            } else {
+                classificationBlock.style.display = "none";
+            }
 
-  /* 更新时间 */
-if (word.updated) {
-  dUpdated.textContent = `更新时间 / Last Updated: ${word.updated}`;
-} else {
-  dUpdated.textContent = "更新时间 / Last Updated: Unknown";
-}
+            /* 更新时间 */
+            if (word.updated) {
+                dUpdated.textContent = `更新时间 / Last Updated: ${word.updated}`;
+            } else {
+                dUpdated.textContent = "更新时间 / Last Updated: Unknown";
+            }
 
-  updateMarkBtn(markDetailBtn, word.en);
-  MathJax.typesetPromise();
-}
-/* ===== 列表中属于 ===== */
-function getParentCategories(word) {
-  return words.filter(w =>
-    Array.isArray(w.classification) &&
-    w.classification.some(c => c.en === word.en)
-  );
-}
+            updateMarkBtn(markDetailBtn, word.en);
+            MathJax.typesetPromise();
+        }
+        /* ===== 列表中属于 ===== */
+        function getParentCategories(word) {
+            return words.filter(w =>
+                Array.isArray(w.classification) &&
+                w.classification.some(c => c.en === word.en)
+            );
+        }
 
-/* ===== 页面切换 ===== */
-backBtn.onclick=()=>{detail.style.display="none"; list.style.display="block";}
-aboutLink.onclick=()=>{list.style.display="none"; detail.style.display="none"; about.style.display="block";}
-aboutBackBtn.onclick=()=>{about.style.display="none"; list.style.display="block";}
+        /* ===== 页面切换 ===== */
+        backBtn.onclick = () => { detail.style.display = "none"; list.style.display = "block"; }
+        aboutLink.onclick = () => { list.style.display = "none"; detail.style.display = "none"; about.style.display = "block"; }
+        aboutBackBtn.onclick = () => { about.style.display = "none"; list.style.display = "block"; }
 
-/* ===== 搜索 & 筛选 ===== */
-input.oninput=()=>{const q=input.value.toLowerCase(); render(words.filter(w=>w.en.toLowerCase().includes(q)||w.cn.includes(q)||(w.tags||[]).join("").toLowerCase().includes(q)));};
-function applyFilters(){
-  let result = words;
-  if(subjectFilter.value) result = result.filter(w=>(w.tags||[]).includes(subjectFilter.value));
-  if(showingMarkedOnly) result = result.filter(w=>markedWords.includes(w.en));
-result = applySort(result);
-render(result);
-}
-sortSelect.addEventListener("change", applyFilters);
-subjectFilter.onchange = applyFilters;
-clearFilter.onclick = ()=>{subjectFilter.value=""; showingMarkedOnly=false; showMarkedBtn.textContent="⭐ Show Marked Words"; render(words);};
-showMarkedBtn.onclick=()=>{showingMarkedOnly=!showingMarkedOnly; showMarkedBtn.textContent=showingMarkedOnly?"⭐ Show All Words":"⭐ Show Marked Words"; applyFilters();};
-markDetailBtn.onclick=()=>{if(currentWord){toggleMark(currentWord.en); updateMarkBtn(markDetailBtn, currentWord.en);}};
-/* ===== 排序 ===== */
-function applySort(list) {
-  const mode = sortSelect.value;
-  const arr = [...list];
+        /* ===== 搜索 & 筛选 ===== */
+        input.oninput = () => { const q = input.value.toLowerCase(); render(words.filter(w => w.en.toLowerCase().includes(q) || w.cn.includes(q) || (w.tags || []).join("").toLowerCase().includes(q))); };
+        function applyFilters() {
+            let result = words;
+            if (subjectFilter.value) result = result.filter(w => (w.tags || []).includes(subjectFilter.value));
+            if (showingMarkedOnly) result = result.filter(w => markedWords.includes(w.en));
+            result = applySort(result);
+            render(result);
+        }
+        sortSelect.addEventListener("change", applyFilters);
+        subjectFilter.onchange = applyFilters;
+        clearFilter.onclick = () => { subjectFilter.value = ""; showingMarkedOnly = false; showMarkedBtn.textContent = "⭐ Show Marked Words"; render(words); };
+        showMarkedBtn.onclick = () => { showingMarkedOnly = !showingMarkedOnly; showMarkedBtn.textContent = showingMarkedOnly ? "⭐ Show All Words" : "⭐ Show Marked Words"; applyFilters(); };
+        markDetailBtn.onclick = () => { if (currentWord) { toggleMark(currentWord.en); updateMarkBtn(markDetailBtn, currentWord.en); } };
+        /* ===== 排序 ===== */
+        function applySort(list) {
+            const mode = sortSelect.value;
+            const arr = [...list];
 
-  if (mode === "az") {
-    arr.sort((a, b) => a.en.localeCompare(b.en));
-  } 
-  else if (mode === "za") {
-    arr.sort((a, b) => b.en.localeCompare(a.en));
-  } 
-  else if (mode === "marked") {
-    arr.sort((a, b) => {
-      const aMarked = markedWords.includes(a.en);
-      const bMarked = markedWords.includes(b.en);
-      return bMarked - aMarked;
-    });
-  }
+            if (mode === "az") {
+                arr.sort((a, b) => a.en.localeCompare(b.en));
+            }
+            else if (mode === "za") {
+                arr.sort((a, b) => b.en.localeCompare(a.en));
+            }
+            else if (mode === "marked") {
+                arr.sort((a, b) => {
+                    const aMarked = markedWords.includes(a.en);
+                    const bMarked = markedWords.includes(b.en);
+                    return bMarked - aMarked;
+                });
+            }
 
-  return arr;
-}
-/* ===== 报错 ===== */
-reportBtn.onclick=()=>reportForm.style.display="block";
-cancelReport.onclick=()=>reportForm.style.display="none";
-submitReport.onclick=()=>{
-  if(currentWord && reportText.value.trim()){
-    const repo="https://github.com/WASABISOCUTE/science-dictionary/issues/new";
-    const title=encodeURIComponent(`Science Dictionary 单词报错: ${currentWord.en}`);
-    const body=encodeURIComponent(reportText.value);
-    window.open(`${repo}?title=${title}&body=${body}`,"_blank");
-    reportForm.style.display="none"; reportText.value="";
-  }
-};
+            return arr;
+        }
+        /* ===== 报错 ===== */
+        reportBtn.onclick = () => reportForm.style.display = "block";
+        cancelReport.onclick = () => reportForm.style.display = "none";
+        submitReport.onclick = () => {
+            if (currentWord && reportText.value.trim()) {
+                const repo = "https://github.com/WASABISOCUTE/science-dictionary/issues/new";
+                const title = encodeURIComponent(`Science Dictionary 单词报错: ${currentWord.en}`);
+                const body = encodeURIComponent(reportText.value);
+                window.open(`${repo}?title=${title}&body=${body}`, "_blank");
+                reportForm.style.display = "none"; reportText.value = "";
+            }
+        };
 
-/* ===== GitHub 贡献者 ===== */
-const contributorsList = document.getElementById("contributors");
-fetch("https://api.github.com/repos/WASABISOCUTE/science-dictionary/contributors")
-.then(res=>res.json())
-.then(data=>{
-  contributorsList.innerHTML="";
-  data.forEach(user=>{
-    const li=document.createElement("li");
-    li.innerHTML=`<a href="${user.html_url}" target="_blank" style="color:#60a5fa;">${user.login}</a> （${user.contributions} commits）`;
-    contributorsList.appendChild(li);
-  });
-}).catch(()=>{contributorsList.innerHTML="<li>无法加载贡献者列表</li>";});
+        /* ===== GitHub 贡献者 ===== */
+        const contributorsList = document.getElementById("contributors");
+        fetch("https://api.github.com/repos/WASABISOCUTE/science-dictionary/contributors")
+            .then(res => res.json())
+            .then(data => {
+                contributorsList.innerHTML = "";
+                data.forEach(user => {
+                    const li = document.createElement("li");
+                    li.innerHTML = `<a href="${user.html_url}" target="_blank" style="color:#60a5fa;">${user.login}</a> （${user.contributions} commits）`;
+                    contributorsList.appendChild(li);
+                });
+            }).catch(() => { contributorsList.innerHTML = "<li>无法加载贡献者列表</li>"; });
 
-/* ===== tooltip 修复 ===== */
-const contributorsInfo = document.getElementById("contributorsInfo");
-const contributorsTip = document.getElementById("contributorsTip");
-let tipVisible = false;
+        /* ===== tooltip 修复 ===== */
+        const contributorsInfo = document.getElementById("contributorsInfo");
+        const contributorsTip = document.getElementById("contributorsTip");
+        let tipVisible = false;
 
-// 点击切换显示
-contributorsInfo.addEventListener("click", e => {
-  e.stopPropagation(); 
-  tipVisible = !tipVisible;
-  contributorsTip.style.display = tipVisible ? "block" : "none";
-});
+        // 点击切换显示
+        contributorsInfo.addEventListener("click", e => {
+            e.stopPropagation();
+            tipVisible = !tipVisible;
+            contributorsTip.style.display = tipVisible ? "block" : "none";
+        });
 
-// 点击页面其他地方关闭 tooltip
-document.addEventListener("click", () => {
-  tipVisible = false;
-  contributorsTip.style.display = "none";
-});
+        // 点击页面其他地方关闭 tooltip
+        document.addEventListener("click", () => {
+            tipVisible = false;
+            contributorsTip.style.display = "none";
+        });
 
-/* ===== 标签筛选 ===== */
-document.body.addEventListener("click", e=>{
-  if(e.target.classList.contains("tag") && e.target.dataset.tag){
-    const tag=e.target.dataset.tag;
-    render(words.filter(w=>(w.tags||[]).includes(e.target.dataset.tag)));
-    detail.style.display="none";
-    list.style.display="block";
-  }
-});
+        /* ===== 标签筛选 ===== */
+        document.body.addEventListener("click", e => {
+            if (e.target.classList.contains("tag") && e.target.dataset.tag) {
+                const tag = e.target.dataset.tag;
+                render(words.filter(w => (w.tags || []).includes(e.target.dataset.tag)));
+                detail.style.display = "none";
+                list.style.display = "block";
+            }
+        });
 
-render(words);
-</script>
+        render(words);
+    </script>
 </body>
 </html>
