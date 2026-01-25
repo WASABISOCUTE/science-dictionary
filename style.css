@@ -195,26 +195,61 @@ input::placeholder {
     margin-bottom: 6px;
 }
 
-.bio-type {
-    margin: 10px 0;
-    padding: 6px 10px;
-    border-left: 4px solid #4caf50;
-    background: #f4fff6;
+/* ===== Contributors Tooltip Icon ===== */
+.info-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    margin-left: 6px;
+    border-radius: 50%;
+    border: 1px solid #94a3b8;
+    color: #94a3b8;
+    font-size: 12px;
+    cursor: pointer;
+    user-select: none;
 }
 
-.bio-detail {
-    margin-top: 12px;
-    padding: 10px;
-    background: #fafafa;
-    border-radius: 6px;
+.info-icon:hover {
+    background: #334155;
+}
+/* tooltip 修复样式 */
+.info-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  margin-left: 6px;
+  border-radius: 50%;
+  border: 1px solid #94a3b8;
+  font-size: 12px;
+  cursor: pointer;
+  user-select: none;
 }
 
-    .bio-detail img {
-        max-width: 100%;
-        margin-top: 8px;
-        border-radius: 4px;
-    }
-
+.info-tooltip {
+  display: none;
+  margin-top: 8px;
+  padding: 10px 12px;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  font-size: 13px;
+  line-height: 1.5;
+  pointer-events: none; /* 防止鼠标进入导致闪烁 */
+}
+/* ===== Contributors Tooltip ===== */
+.info-tooltip {
+    display: none;
+    background: #1e293b;
+    border-radius: 12px;
+    padding: 12px;
+    margin-top: 8px;
+    font-size: 14px;
+    line-height: 1.5;
+}
 
 /* ===== Footer ===== */
 footer {
@@ -300,4 +335,3 @@ body {
 #pronounceBtn:active {
   transform: scale(0.92);
 }
-

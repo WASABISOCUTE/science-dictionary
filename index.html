@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Science Dictionary</title>
-<link rel="stylesheet" href="style.css">
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Science Dictionary</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
+
 <body>
 
     <h1>Science Dictionary</h1>
@@ -51,9 +53,14 @@
         <p><strong>English:</strong> <span id="dEnUsage"></span></p>
         <p><strong>公式:</strong> <span id="dFormula"></span></p>
         <p><strong>示例:</strong> <span id="dExample"></span></p>
+        <!-- 图片 / Video / Link Container -->
+        <div id="dMedia" style="margin-top: 15px;"></div>
+        <div id="dLinks" style="margin-top: 10px;"></div>
         <!-- 所属分类 -->
-        <p id="belongsBlock" class="detail-section"> <strong>所属分类 / Belongs to:</strong> <span id="belongsList"></span></p>
-        <p id="classificationBlock" class="detail-section"><strong>分类:</strong> <span id="classificationList"></span></p>
+        <p id="belongsBlock" class="detail-section"> <strong>所属分类 / Belongs to:</strong> <span id="belongsList"></span>
+        </p>
+        <p id="classificationBlock" class="detail-section"><strong>分类:</strong> <span id="classificationList"></span>
+        </p>
         <p id="dSimilar"><strong>相关单词:</strong></p>
         <button id="markDetailBtn">☆ Mark</button>
         <button id="reportBtn">⚠️ 报告错误</button>
@@ -68,7 +75,7 @@
         </div>
     </div>
 
-    
+
 
     <!-- ===== 网站信息页 ===== -->
     <div id="about" style="display:none;">
@@ -79,7 +86,8 @@
         <section class="about-section">
             <h3>项目简介 / About</h3>
             <p>理科词典是一个面向高中理科生的在线学习工具，用于快速查询物理、数学、化学等科目中的重要术语。</p>
-            <p>Science Dictionary is an online learning tool designed for high school science students, used for quickly looking up important terms in Physics, Mathematics, and Chemistry.</p>
+            <p>Science Dictionary is an online learning tool designed for high school science students, used for quickly
+                looking up important terms in Physics, Mathematics, and Chemistry.</p>
         </section>
 
         <section class="about-section">
@@ -87,12 +95,12 @@
             <ul>
                 <li><strong>项目概念：</strong> WASABISOCUTE</li>
                 <li><strong>界面及功能设计：</strong> WASABISOCUTE</li>
-                <li><strong>代码：</strong> ChatGPT</li>
+                <li><strong>代码：</strong> <del>ChatGPT</del> Google Antigravity</li>
             </ul>
             <ul>
                 <li><strong>Project Concept:</strong> WASABISOCUTE</li>
                 <li><strong>UI and Feature Design:</strong> WASABISOCUTE</li>
-                <li><strong>Code Assistance:</strong> ChatGPT</li>
+                <li><strong>Code Assistance:</strong> <del>ChatGPT</del> Google Antigravity</li>
             </ul>
         </section>
 
@@ -105,9 +113,14 @@
         <section class="about-section">
             <h3>
                 贡献者 / Contributors
-                <span id="contributorsInfo"></span>
+                <span id="contributorsInfo" class="info-icon">i</span>
             </h3>
-            <ul id="contributors"><li>Loading...</li></ul>
+            <div id="contributorsTip" class="info-tooltip">
+                数据来自 GitHub API / Data fetched from GitHub API
+            </div>
+            <ul id="contributors">
+                <li>Loading...</li>
+            </ul>
         </section>
 
         <section class="about-section">
@@ -186,63 +199,11 @@
                 };
             });
         }
-        function mapBioType(type) {
-            const map = {
-                Cell: "细胞",
-                Microorganism: "微生物",
-                Organelle: "细胞器",
-                Other: "其他"
-            };
-            return map[type] || type;
-        }
+
 
 
         /* ===== 渲染 ===== */
-        function renderWordDetail(word) {
-            const detail = document.getElementById("wordDetail");
-            detail.innerHTML = "";
 
-            const isBiology = word.tags?.includes("Biology");
-            const onlyBiology = isBiology && word.tags.length === 1;
-
-            /* ===== 标题 ===== */
-            detail.innerHTML += `
-    <h2>${word.en} <span>${word.cn}</span></h2>
-    `;
-
-            /* ===== Biology Type ===== */
-            if (isBiology) {
-                detail.innerHTML += `
-    <div class="bio-type">
-        <strong>Type:</strong>
-        <span>${mapBioType(word.bioType)}</span>
-    </div>
-    `;
-            }
-
-            /* ===== 非纯 Biology 才显示基础信息 ===== */
-            if (!onlyBiology) {
-                if (word.enUsage)
-                    detail.innerHTML += `<p><b>EN:</b> ${word.enUsage}</p>`;
-                if (word.usage)
-                    detail.innerHTML += `<p><b>中文：</b> ${word.usage}</p>`;
-                if (word.formula)
-                    detail.innerHTML += `<p><b>Formula:</b> ${word.formula}</p>`;
-            }
-
-            /* ===== Biology 专属详细信息 ===== */
-            if (isBiology && word.bioDetail) {
-                detail.innerHTML += `
-    <div class="bio-detail">
-        ${word.bioDetail.system ? `<p><b>System：</b>${word.bioDetail.system}</p>` : ""}
-        ${word.bioDetail.function ? `<p><b>Function：</b>${word.bioDetail.function}</p>` : ""}
-        ${word.bioDetail.structure ? `<p><b>Structure：</b>${word.bioDetail.structure}</p>` : ""}
-        ${word.bioDetail.reference ? `<p><b>Reference：</b>${word.bioDetail.reference}</p>` : ""}
-        ${word.bioDetail.image ? `<img src="${word.bioDetail.image}" alt="${word.en}">` : ""}
-    </div>
-    `;
-            }
-        }
         function render(items) {
             list.innerHTML = "";
             items.forEach(w => {
@@ -285,16 +246,119 @@
             dEn.textContent = word.en;
             dCn.textContent = word.cn;
             dTags.innerHTML = (word.tags || []).map(t => `<span class="tag ${t}" data-tag="${t}">${t}</span>`).join("");
-            dCategory.textContent = word.category || "";
-            dUsage.textContent = word.usage || "";
-            dEnUsage.textContent = word.enUsage || "";
-            dFormula.innerHTML = word.formula ? `\\(${word.formula}\\)` : "无";
-            dExample.textContent = word.example || "无";
+            const setVisible = (el, val, isFormula = false) => {
+                if (val && val !== "无") {
+                    el.parentElement.style.display = "block";
+                    if (isFormula) el.innerHTML = `\\(${val}\\)`;
+                    else el.textContent = val;
+                } else {
+                    el.parentElement.style.display = "none";
+                }
+            };
+
+            setVisible(dCategory, word.category);
+            setVisible(dUsage, word.usage);
+            setVisible(dEnUsage, word.enUsage);
+            setVisible(dFormula, word.formula, true);
+            setVisible(dFormula, word.formula, true);
+            setVisible(dExample, word.example);
+
+            /* ===== Image / Video / Links ===== */
+            const dMedia = document.getElementById("dMedia");
+            const dLinks = document.getElementById("dLinks");
+            dMedia.innerHTML = "";
+            dLinks.innerHTML = "";
+
+            // Image
+            if (word.image) {
+                const img = document.createElement("img");
+                img.src = word.image;
+                img.style.maxWidth = "100%";
+                img.style.borderRadius = "8px";
+                img.style.marginTop = "10px";
+                dMedia.appendChild(img);
+
+                if (word.imageAlt) {
+                    const caption = document.createElement("p");
+                    caption.textContent = word.imageAlt;
+                    caption.style.fontSize = "12px";
+                    caption.style.color = "#888";
+                    caption.style.marginTop = "4px";
+                    dMedia.appendChild(caption);
+                }
+            }
+
+            if (word.gif) {
+                const gif = document.createElement("img");
+                gif.src = word.gif;
+                gif.style.maxWidth = "100%";
+                gif.style.borderRadius = "8px";
+                gif.style.marginTop = "10px";
+                dMedia.appendChild(gif);
+            }
+
+            // Video (Loop if multiple logic needed, but simplifying for single field logic first. Or check if word.video is array)
+            if (word.video) {
+                const vidContainer = document.createElement("div");
+                vidContainer.style.marginTop = "10px";
+
+                if (word.video.includes("youtube.com") || word.video.includes("youtu.be")) {
+                    const iframe = document.createElement("iframe");
+                    iframe.width = "80%";
+                    iframe.height = "300";
+                    let videoId = "";
+                    if (word.video.includes("youtu.be/")) {
+                        videoId = word.video.split("youtu.be/")[1].split("?")[0];
+                    } else if (word.video.includes("watch?v=")) {
+                        videoId = word.video.split("watch?v=")[1].split("&")[0];
+                    }
+
+                    if (videoId) {
+                        iframe.src = `https://www.youtube.com/embed/${videoId}`;
+                    } else {
+                        // 如果已经是 embed 链接或其他格式 / If already embed link or other format
+                        iframe.src = word.video;
+                    }
+                    iframe.frameBorder = "0";
+                    iframe.allow = "accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+                    iframe.allowFullscreen = true;
+                    vidContainer.appendChild(iframe);
+                } else {
+                    const vid = document.createElement("video");
+                    vid.src = word.video;
+                    vid.controls = true;
+                    vid.style.width = "100%";
+                    vid.style.borderRadius = "8px";
+                    vidContainer.appendChild(vid);
+                }
+                dMedia.appendChild(vidContainer);
+            }
+
+            // Links
+            if (word.links && word.links.length > 0) {
+                const ul = document.createElement("ul");
+                ul.style.paddingLeft = "20px";
+                word.links.forEach(l => {
+                    const li = document.createElement("li");
+                    const a = document.createElement("a");
+                    a.href = l.url;
+                    a.target = "_blank";
+                    a.textContent = l.text || l.url;
+                    a.style.color = "#60a5fa"; // Tailwind blue-400 equivalent match
+                    li.appendChild(a);
+                    ul.appendChild(li);
+                });
+                dLinks.innerHTML = "<strong>相关链接 / Links:</strong>";
+                dLinks.appendChild(ul);
+            }
 
             dSimilar.innerHTML = "<strong>相关单词:</strong> ";
-            (word.similar || []).forEach(s => {
+            const simWords = word.similar || [];
+            let hasSimilar = false;
+            simWords.forEach(s => {
                 const sw = words.find(w => w.en === s);
                 if (sw) {
+                    hasSimilar = true;
                     const b = document.createElement("button");
                     b.textContent = sw.en;
                     b.className = "tag";
@@ -302,7 +366,8 @@
                     dSimilar.appendChild(b);
                 }
             });
-            if (!word.similar || word.similar.length === 0) dSimilar.innerHTML += "无";
+
+            dSimilar.style.display = hasSimilar ? "block" : "none";
 
             const pronounceBtn = document.getElementById("pronounceBtn");
 
@@ -368,8 +433,8 @@
                     btn.textContent = `${item.en} / ${item.cn}`;
 
                     btn.onclick = () => {
-                        searchInput.value = item.en;
-                        renderList();
+                        input.value = item.en;
+                        input.dispatchEvent(new Event('input'));
                     };
 
                     classificationList.appendChild(btn);
@@ -493,4 +558,5 @@
         render(words);
     </script>
 </body>
+
 </html>
