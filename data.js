@@ -1989,20 +1989,75 @@ const words = [
     "category": "",
     "similar": [],
     "classification": [],
-    "example": ""
+    "example": ""，
   },
   {
-    en: "Mitochondrion",
-    cn: "线粒体",
-    tags: ["Biology"],
-    bioType: "Organelle", // Cell / Microorganism / Organelle / Other
-    system: "Cellular Respiration",
-    function: "Produces ATP through respiration",
-    structure: "Double membrane",
-    image: "images/Animal_mitochondrion_diagram_en.svg",
-    imageAlt: "Source: Wikipedia",
-    gif: "https://media1.tenor.com/m/diyvRwYCBtUAAAAC/emu-emu-otori.gif",
-    video: "https://youtu.be/uuFNVow4ciw?si=Y8vpNIcxH689RyHB",
-    updated: "2026-01-25"
-  },
+    "en": "Mitochondrion",
+    "cn": "线粒体",
+    "tags": ["Biology"],
+      "bioType": "Organelle", // Cell / Microorganism / Organelle / Other
+      "system": "Cellular Respiration",
+    "function": "Produces ATP through respiration",
+    "structure": "Double membrane",
+    "image": "images/Animal_mitochondrion_diagram_en.svg",
+    "imageAlt": "Source: Wikipedia",
+    "gif": "https://media1.tenor.com/m/diyvRwYCBtUAAAAC/emu-emu-otori.gif",
+    "video": "https://youtu.be/uuFNVow4ciw?si=Y8vpNIcxH689RyHB",
+    "updated": "2026-01-25"
+    },
+    {
+        "en": "Iodine Solution",
+        "cn": "碘溶液",
+        "tags": ["Experiment"],
+        "function": "",
+        "formula": "",
+        "updated": "2026-01-26",
+    },
+    {
+        "en": "Dropper",
+        "cn": "滴管 / 点滴器",
+        "tags": [
+            "Experiment"
+        ],
+        "updated": "2026-01-26",
+        "enUsage": "",
+        "usage": "",
+        "formula": "",
+        "category": "",
+        "similar": [],
+        "classification": [],
+        "example": "",
+    },
+    {
+        "en": "Forceps",
+        "cn": "点滴器",
+        "tags": [
+            "Experiment"
+        ],
+        "updated": "2026-01-26",
+        "enUsage": "",
+        "usage": "",
+        "formula": "",
+        "category": "",
+        "similar": [],
+        "classification": [],
+        "example": "",
+    },
+    {
+        "en": "Microscope",
+        "cn": "显微镜",
+        "tags": [
+            "Experiment","Biology"
+        ],
+        "updated": "2026-01-26",
+        "enUsage": "",
+        "usage": "",
+        "formula": "",
+        "category": "",
+        "similar": [],
+        "image": "https://sciencenotes.org/wp-content/uploads/2025/04/Parts-of-a-Microscope-With-Labels.png"
+        "imageAlt": "Source： Science Notes"
+        "classification": [],
+        "example": ""
+    },
 ];
