@@ -2009,8 +2009,8 @@ const words = [
     "en": "Mitochondrion",
     "cn": "线粒体",
     "tags": ["Biology"],
-      "bioType": "Organelle", // Cell / Microorganism / Organelle / Other
-      "system": "Cellular Respiration",
+    "bioType": "Organelle", // Cell / Microorganism / Organelle / Other
+    "system": "Cellular Respiration",
     "function": "Produces ATP through respiration",
     "structure": "Double membrane",
     "image": "images/Animal_mitochondrion_diagram_en.svg",
@@ -2018,278 +2018,301 @@ const words = [
     "gif": "https://media1.tenor.com/m/diyvRwYCBtUAAAAC/emu-emu-otori.gif",
     "video": "https://youtu.be/uuFNVow4ciw?si=Y8vpNIcxH689RyHB",
     "updated": "2026-01-25"
-    },
+  },
 
-    {
-        "en": "Iodine Solution",
-        "cn": "碘溶液",
-        "tags": ["Experiment"],
-        "function": "",
-        "formula": "",
-        "updated": "2026-01-26",
-    },
-    {
-        "en": "Dropper",
-        "cn": "滴管",
-        "tags": [
-            "Experiment"
-        ],
-        "updated": "2026-01-26",
-        "enUsage": "",
-        "usage": "",
-        "formula": "",
-        "category": "",
-        "similar": [],
-        "classification": [],
-        "example": "",
-    },
-    {
-        "en": "Forceps",
-        "cn": "点滴器",
-        "tags": [
-            "Experiment"
-        ],
-        "updated": "2026-01-26",
-        "enUsage": "",
-        "usage": "",
-        "formula": "",
-        "category": "",
-        "similar": [],
-        "classification": [],
-        "example": "",
-    },
-    {
-        "en": "Microscope",
-        "cn": "显微镜",
-        "tags": [
-            "Experiment", "Biology"
-        ],
-        "updated": "2026-01-26",
-        "enUsage": "",
-        "usage": "",
-        "formula": "",
-        "category": "",
-        "similar": [],
-        "image": "https://sciencenotes.org/wp-content/uploads/2025/04/Parts-of-a-Microscope-With-Labels.png",
-        "imageAlt": "Source: Science Notes",
-        "classification": [],
-        "example": ""
-    },
-    {
-      "en": "Beaker",
-      "cn": "烧杯",
-      "tags": [
-          "Experiment"
-      ],
-      "updated": "2026-01-27",
-      "enUsage": "",
-      "usage": "",
-      "formula": "",
-      "category": "",
-      "similar": [],
-      "image": "",
-      "imageAlt": "",
-      "classification": [],
-      "example": ""
-    },
-    {
-      "en": "Aim",
-      "cn": "目的",
-      "tags": [
-          "Experiment"
-      ],
-      "updated": "2026-01-27",
-      "enUsage": "",
-      "usage": "",
-      "formula": "",
-      "category": "",
-      "similar": [],
-      "image": "",
-      "imageAlt": "",
-      "classification": [],
-      "example": ""
-    },
-    {
-      "en": "Problem statement",
-      "cn": "问题陈述",
-      "tags": [
-          "Experiment"
-      ],
-      "updated": "2026-01-27",
-      "enUsage": "",
-      "usage": "",
-      "formula": "",
-      "category": "",
-      "similar": [],
-      "image": "",
-      "imageAlt": "",
-      "classification": [],
-      "example": ""
-    },
-    {
-      "en": "Hypothesis",
-      "cn": "假设",
-      "tags": [
-          "Experiment"
-      ],
-      "updated": "2026-01-27",
-      "enUsage": "",
-      "usage": "",
-      "formula": "",
-      "category": "",
-      "similar": [],
-      "image": "",
-      "imageAlt": "",
-      "classification": [],
-      "example": ""
-    },
-    {
-      "en": "Variables",
-      "cn": "变数",
-      "tags": [
-          "Experiment"
-      ],
-      "updated": "2026-01-27",
-      "enUsage": "",
-      "usage": "",
-      "formula": "",
-      "category": "",
-      "similar": [],
-      "image": "",
-      "imageAlt": "",
-      "classification": [
-        {
-          "en": "Manipulated variable",
-          "cn": "操纵性变数"
-        },
-        {
-          "en": "Responding variable",
-          "cn": "反应性变数"
-        },
-        {
-          "en": "Fixed variable",
-          "cn": "固定性变数"
-        }
-      ],
-      "example": ""
-    },
-    {
-      "en": "Materials",
-      "cn": "材料",
-      "tags": [
-          "Experiment"
-      ],
-      "updated": "2026-01-27",
-      "enUsage": "",
-      "usage": "",
-      "formula": "",
-      "category": "",
-      "similar": [],
-      "image": "",
-      "imageAlt": "",
-      "classification": [],
-      "example": ""
-    },
-    {
-      "en": "Procedure",
-      "cn": "步骤",
-      "tags": [
-          "Experiment"
-      ],
-      "updated": "2026-01-27",
-      "enUsage": "",
-      "usage": "",
-      "formula": "",
-      "category": "",
-      "similar": [],
-      "image": "",
-      "imageAlt": "",
-      "classification": [],
-      "example": ""
-    },
-    {
-      "en": "Observation",
-      "cn": "观察",
-      "tags": [
-          "Experiment"
-      ],
-      "updated": "2026-01-27",
-      "enUsage": "",
-      "usage": "",
-      "formula": "",
-      "category": "",
-      "similar": [],
-      "image": "",
-      "imageAlt": "",
-      "classification": [],
-      "example": ""
-    },
-    {
-      "en": "Conclusion",
-      "cn": "结论",
-      "tags": [
-          "Experiment"
-      ],
-      "updated": "2026-01-27",
-      "enUsage": "",
-      "usage": "",
-      "formula": "",
-      "category": "",
-      "similar": [],
-      "image": "",
-      "imageAlt": "",
-      "classification": [],
-      "example": ""
-    },
-    {
-      "en": "Apparatus",
-      "cn": "仪器",
-      "tags": [
-          "Experiment"
-      ],
-      "updated": "2026-01-27",
-      "enUsage": "",
-      "usage": "",
-      "formula": "",
-      "category": "",
-      "similar": [],
-      "image": "",
-      "imageAlt": "",
-      "classification": [],
-      "example": ""
-    },
-    {
-      "en": "Discussion",
-      "cn": "结论",
-      "tags": [
-          "Experiment"
-      ],
-      "updated": "2026-01-27",
-      "enUsage": "",
-      "usage": "",
-      "formula": "",
-      "category": "",
-      "similar": [],
-      "image": "",
-      "imageAlt": "",
-      "classification": [],
-      "example": ""
-    },
-    {
-      "en": "Relative Velocity",
-      "cn": "相对速度",
-      "tags": [
-          "Physics"
-      ],
-      "updated": "2026-01-27",
-      "enUsage": "",
-      "usage": "",
-      "formula": "The velocity of A relative to B: v_AB = v_A - v_B",
-      "category": "",
-      "similar": [],
-      "image": "",
-      "imageAlt": "",
-      "classification": [],
-      "example": ""
-    }
+  {
+    "en": "Iodine Solution",
+    "cn": "碘溶液",
+    "tags": ["Experiment"],
+    "function": "",
+    "formula": "",
+    "updated": "2026-01-26",
+  },
+  {
+    "en": "Dropper",
+    "cn": "滴管",
+    "tags": [
+      "Experiment"
+    ],
+    "updated": "2026-01-26",
+    "enUsage": "",
+    "usage": "",
+    "formula": "",
+    "category": "",
+    "similar": [],
+    "classification": [],
+    "example": "",
+  },
+  {
+    "en": "Forceps",
+    "cn": "点滴器",
+    "tags": [
+      "Experiment"
+    ],
+    "updated": "2026-01-26",
+    "enUsage": "",
+    "usage": "",
+    "formula": "",
+    "category": "",
+    "similar": [],
+    "classification": [],
+    "example": "",
+  },
+  {
+    "en": "Microscope",
+    "cn": "显微镜",
+    "tags": [
+      "Experiment",
+    ],
+    "updated": "2026-01-26",
+    "enUsage": "",
+    "usage": "",
+    "formula": "",
+    "category": "",
+    "similar": [],
+    "image": "https://sciencenotes.org/wp-content/uploads/2025/04/Parts-of-a-Microscope-With-Labels.png",
+    "imageAlt": "Source: Science Notes",
+    "classification": [],
+    "example": ""
+  },
+  {
+    "en": "Beaker",
+    "cn": "烧杯",
+    "tags": [
+      "Experiment"
+    ],
+    "updated": "2026-01-27",
+    "enUsage": "",
+    "usage": "",
+    "formula": "",
+    "category": "",
+    "similar": [],
+    "image": "",
+    "imageAlt": "",
+    "classification": [],
+    "example": ""
+  },
+  {
+    "en": "Aim",
+    "cn": "目的",
+    "tags": [
+      "Experiment"
+    ],
+    "updated": "2026-01-27",
+    "enUsage": "",
+    "usage": "",
+    "formula": "",
+    "category": "",
+    "similar": [],
+    "image": "",
+    "imageAlt": "",
+    "classification": [],
+    "example": ""
+  },
+  {
+    "en": "Problem statement",
+    "cn": "问题陈述",
+    "tags": [
+      "Experiment"
+    ],
+    "updated": "2026-01-27",
+    "enUsage": "",
+    "usage": "",
+    "formula": "",
+    "category": "",
+    "similar": [],
+    "image": "",
+    "imageAlt": "",
+    "classification": [],
+    "example": ""
+  },
+  {
+    "en": "Hypothesis",
+    "cn": "假设",
+    "tags": [
+      "Experiment"
+    ],
+    "updated": "2026-01-27",
+    "enUsage": "",
+    "usage": "",
+    "formula": "",
+    "category": "",
+    "similar": [],
+    "image": "",
+    "imageAlt": "",
+    "classification": [],
+    "example": ""
+  },
+  {
+    "en": "Variables",
+    "cn": "变数",
+    "tags": [
+      "Experiment"
+    ],
+    "updated": "2026-01-27",
+    "enUsage": "",
+    "usage": "",
+    "formula": "",
+    "category": "",
+    "similar": [],
+    "image": "",
+    "imageAlt": "",
+    "classification": [
+      {
+        "en": "Manipulated variable",
+        "cn": "操纵性变数"
+      },
+      {
+        "en": "Responding variable",
+        "cn": "反应性变数"
+      },
+      {
+        "en": "Fixed variable",
+        "cn": "固定性变数"
+      }
+    ],
+    "example": ""
+  },
+  {
+    "en": "Materials",
+    "cn": "材料",
+    "tags": [
+      "Experiment"
+    ],
+    "updated": "2026-01-27",
+    "enUsage": "",
+    "usage": "",
+    "formula": "",
+    "category": "",
+    "similar": [],
+    "image": "",
+    "imageAlt": "",
+    "classification": [],
+    "example": ""
+  },
+  {
+    "en": "Procedure",
+    "cn": "步骤",
+    "tags": [
+      "Experiment"
+    ],
+    "updated": "2026-01-27",
+    "enUsage": "",
+    "usage": "",
+    "formula": "",
+    "category": "",
+    "similar": [],
+    "image": "",
+    "imageAlt": "",
+    "classification": [],
+    "example": ""
+  },
+  {
+    "en": "Observation",
+    "cn": "观察",
+    "tags": [
+      "Experiment"
+    ],
+    "updated": "2026-01-27",
+    "enUsage": "",
+    "usage": "",
+    "formula": "",
+    "category": "",
+    "similar": [],
+    "image": "",
+    "imageAlt": "",
+    "classification": [],
+    "example": ""
+  },
+  {
+    "en": "Conclusion",
+    "cn": "结论",
+    "tags": [
+      "Experiment"
+    ],
+    "updated": "2026-01-27",
+    "enUsage": "",
+    "usage": "",
+    "formula": "",
+    "category": "",
+    "similar": [],
+    "image": "",
+    "imageAlt": "",
+    "classification": [],
+    "example": ""
+  },
+  {
+    "en": "Apparatus",
+    "cn": "仪器",
+    "tags": [
+      "Experiment"
+    ],
+    "updated": "2026-01-27",
+    "enUsage": "",
+    "usage": "",
+    "formula": "",
+    "category": "",
+    "similar": [],
+    "image": "",
+    "imageAlt": "",
+    "classification": [],
+    "example": ""
+  },
+  {
+    "en": "Discussion",
+    "cn": "结论",
+    "tags": [
+      "Experiment"
+    ],
+    "updated": "2026-01-27",
+    "enUsage": "",
+    "usage": "",
+    "formula": "",
+    "category": "",
+    "similar": [],
+    "image": "",
+    "imageAlt": "",
+    "classification": [],
+    "example": ""
+  },
+  {
+    "en": "Relative Velocity",
+    "cn": "相对速度",
+    "tags": [
+      "Physics"
+    ],
+    "updated": "2026-01-27",
+    "enUsage": "",
+    "usage": "",
+    "formula": "The velocity of A relative to B: v_AB = v_A - v_B",
+    "category": "",
+    "similar": [],
+    "image": "",
+    "imageAlt": "",
+    "classification": [],
+    "example": ""
+  },
+  {
+    "en": "Plant Cell",
+    "cn": "植物细胞",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-01-27",
+    "enUsage": "https://share.google/Fs3PV060MpBmQOi6B",
+    "function": "",
+    "classification": "",
+    "similar": ["Animal Cell"],
+    "image": "https://microbenotes.com/wp-content/uploads/2025/07/Structure-of-Plant-cell-1024x647.jpeg",
+    "imageAlt": "Source: Microbe Notes"
+  },
+  {
+    "en": "Animal Cell",
+    "cn": "动物细胞",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-01-27",
+    "similar": ["Plant Cell"],
+  }
 ];
