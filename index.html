@@ -53,6 +53,7 @@
         <p><strong>English:</strong> <span id="dEnUsage"></span></p>
         <p><strong>公式:</strong> <span id="dFormula"></span></p>
         <p><strong>示例:</strong> <span id="dExample"></span></p>
+        <p><strong>功能:</strong> <span id="dFunction"></span></p>
         <!-- 图片 / Video / Link Container -->
         <div id="dMedia" style="margin-top: 15px;"></div>
         <div id="dLinks" style="margin-top: 10px;"></div>
@@ -126,7 +127,6 @@
         <section class="about-section">
             <h3>计划添加功能 / Planned Features</h3>
             <ul>
-                <li><strong>生物科单词</strong></li>
                 <li><strong>公式查找</strong></li>
                 <li><strong>设置</strong></li>
             </ul>
@@ -155,6 +155,7 @@
         const dUsage = document.getElementById("dUsage");
         const dEnUsage = document.getElementById("dEnUsage");
         const dFormula = document.getElementById("dFormula");
+        const dFunction = document.getElementById("dFunction");
         const dExample = document.getElementById("dExample");
         const dSimilar = document.getElementById("dSimilar");
         const belongsBlock = document.getElementById("belongsBlock");
@@ -260,8 +261,8 @@
             setVisible(dUsage, word.usage);
             setVisible(dEnUsage, word.enUsage);
             setVisible(dFormula, word.formula, true);
-            setVisible(dFormula, word.formula, true);
             setVisible(dExample, word.example);
+            setVisible(dFunction, word.function);
 
             /* ===== Image / Video / Links ===== */
             const dMedia = document.getElementById("dMedia");

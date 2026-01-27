@@ -642,8 +642,8 @@ const words = [
     "tags": [
       "Physics"
     ],
-    "updated": "2026-01-21",
-    "enUsage": "",
+    "updated": "2026-01-27",
+    "enUsage": "Distance & Displacement: The change in position of an object.\nSpeed & Velocity: The rate at which an object changes its position.\nAcceleration: The rate at which an object changes its velocity.",
     "usage": "",
     "formula": "",
     "category": "",
@@ -665,13 +665,27 @@ const words = [
     "example": ""
   },
   {
+    "en": "Variable Speed Linear Motion",
+    "cn": "变速直线运动",
+    "tags": [
+      "Physics"
+    ],
+    "updated": "2026-01-27",
+    "enUsage": "Linear motion in which the displacements of objects are not all equal in equal time.",
+    "usage": "",
+    "formula": "",
+    "category": "",
+    "similar": [],
+    "example": ""
+  },
+  {
     "en": "Uniform Acceration Linear Motion",
     "cn": "匀加速直线运动",
     "tags": [
       "Physics"
     ],
-    "updated": "2026-01-21",
-    "enUsage": "",
+    "updated": "2026-01-27",
+    "enUsage": "Linear motion with equal speed increase in equal time.",
     "usage": "",
     "formula": "",
     "category": "",
@@ -684,10 +698,10 @@ const words = [
     "tags": [
       "Physics"
     ],
-    "updated": "2026-01-21",
-    "enUsage": "",
+    "updated": "2026-01-27",
+    "enUsage": "The motion of an object under the influence of gravity alone, with no other forces acting on it, such as air resistance\nThe object experiencee constant acceleration due to gravity, called gravitational acceleration.",
     "usage": "",
-    "formula": "",
+    "formula": "g = 9.8 ms^-2",
     "category": "",
     "similar": [],
     "example": ""
@@ -2016,7 +2030,7 @@ const words = [
     },
     {
         "en": "Dropper",
-        "cn": "滴管 / 点滴器",
+        "cn": "滴管",
         "tags": [
             "Experiment"
         ],
@@ -2057,8 +2071,225 @@ const words = [
         "category": "",
         "similar": [],
         "image": "https://sciencenotes.org/wp-content/uploads/2025/04/Parts-of-a-Microscope-With-Labels.png",
-        "imageAlt": "Source： Science Notes",
+        "imageAlt": "Source: Science Notes",
         "classification": [],
         "example": ""
     },
+    {
+      "en": "Beaker",
+      "cn": "烧杯",
+      "tags": [
+          "Experiment"
+      ],
+      "updated": "2026-01-27",
+      "enUsage": "",
+      "usage": "",
+      "formula": "",
+      "category": "",
+      "similar": [],
+      "image": "",
+      "imageAlt": "",
+      "classification": [],
+      "example": ""
+    },
+    {
+      "en": "Aim",
+      "cn": "目的",
+      "tags": [
+          "Experiment"
+      ],
+      "updated": "2026-01-27",
+      "enUsage": "",
+      "usage": "",
+      "formula": "",
+      "category": "",
+      "similar": [],
+      "image": "",
+      "imageAlt": "",
+      "classification": [],
+      "example": ""
+    },
+    {
+      "en": "Problem statement",
+      "cn": "问题陈述",
+      "tags": [
+          "Experiment"
+      ],
+      "updated": "2026-01-27",
+      "enUsage": "",
+      "usage": "",
+      "formula": "",
+      "category": "",
+      "similar": [],
+      "image": "",
+      "imageAlt": "",
+      "classification": [],
+      "example": ""
+    },
+    {
+      "en": "Hypothesis",
+      "cn": "假设",
+      "tags": [
+          "Experiment"
+      ],
+      "updated": "2026-01-27",
+      "enUsage": "",
+      "usage": "",
+      "formula": "",
+      "category": "",
+      "similar": [],
+      "image": "",
+      "imageAlt": "",
+      "classification": [],
+      "example": ""
+    },
+    {
+      "en": "Variables",
+      "cn": "变数",
+      "tags": [
+          "Experiment"
+      ],
+      "updated": "2026-01-27",
+      "enUsage": "",
+      "usage": "",
+      "formula": "",
+      "category": "",
+      "similar": [],
+      "image": "",
+      "imageAlt": "",
+      "classification": [
+        {
+          "en": "Manipulated variable",
+          "cn": "操纵性变数"
+        },
+        {
+          "en": "Responding variable",
+          "cn": "反应性变数"
+        },
+        {
+          "en": "Fixed variable",
+          "cn": "固定性变数"
+        }
+      ],
+      "example": ""
+    },
+    {
+      "en": "Materials",
+      "cn": "材料",
+      "tags": [
+          "Experiment"
+      ],
+      "updated": "2026-01-27",
+      "enUsage": "",
+      "usage": "",
+      "formula": "",
+      "category": "",
+      "similar": [],
+      "image": "",
+      "imageAlt": "",
+      "classification": [],
+      "example": ""
+    },
+    {
+      "en": "Procedure",
+      "cn": "步骤",
+      "tags": [
+          "Experiment"
+      ],
+      "updated": "2026-01-27",
+      "enUsage": "",
+      "usage": "",
+      "formula": "",
+      "category": "",
+      "similar": [],
+      "image": "",
+      "imageAlt": "",
+      "classification": [],
+      "example": ""
+    },
+    {
+      "en": "Observation",
+      "cn": "观察",
+      "tags": [
+          "Experiment"
+      ],
+      "updated": "2026-01-27",
+      "enUsage": "",
+      "usage": "",
+      "formula": "",
+      "category": "",
+      "similar": [],
+      "image": "",
+      "imageAlt": "",
+      "classification": [],
+      "example": ""
+    },
+    {
+      "en": "Conclusion",
+      "cn": "结论",
+      "tags": [
+          "Experiment"
+      ],
+      "updated": "2026-01-27",
+      "enUsage": "",
+      "usage": "",
+      "formula": "",
+      "category": "",
+      "similar": [],
+      "image": "",
+      "imageAlt": "",
+      "classification": [],
+      "example": ""
+    },
+    {
+      "en": "Apparatus",
+      "cn": "仪器",
+      "tags": [
+          "Experiment"
+      ],
+      "updated": "2026-01-27",
+      "enUsage": "",
+      "usage": "",
+      "formula": "",
+      "category": "",
+      "similar": [],
+      "image": "",
+      "imageAlt": "",
+      "classification": [],
+      "example": ""
+    },
+    {
+      "en": "Discussion",
+      "cn": "结论",
+      "tags": [
+          "Experiment"
+      ],
+      "updated": "2026-01-27",
+      "enUsage": "",
+      "usage": "",
+      "formula": "",
+      "category": "",
+      "similar": [],
+      "image": "",
+      "imageAlt": "",
+      "classification": [],
+      "example": ""
+    },
+    {
+      "en": "Relative Velocity",
+      "cn": "相对速度",
+      "tags": [
+          "Physics"
+      ],
+      "updated": "2026-01-27",
+      "enUsage": "",
+      "usage": "",
+      "formula": "The velocity of A relative to B: v_AB = v_A - v_B",
+      "category": "",
+      "similar": [],
+      "image": "",
+      "imageAlt": "",
+      "classification": [],
+      "example": ""
+    }
 ];
