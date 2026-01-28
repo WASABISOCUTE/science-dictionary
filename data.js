@@ -2314,5 +2314,382 @@ const words = [
     ],
     "updated": "2026-01-27",
     "similar": ["Plant Cell"],
-  }
+  },
+  {
+    "en": "Cell",
+    "cn": "细胞",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-01-28",
+    "similar": ["Plant Cell", "Animal Cell"],
+  },
+  {
+    "en": "Quadratic Equations in One Variable",
+    "cn": "一元二次方程",
+    "tags": [
+      "Math"
+    ],
+    "updated": "2026-01-28",
+    "similar": ["Quadratic Equations in Two Variables"],
+    "formula": "ax² + bx + c = 0",
+    "category": "Equation",
+    "example": "x² + 2x + 1 = 0",
+  },
+  {
+    "en": "Quadratic Equations in Two Variables",
+    "cn": "二元二次方程",
+    "tags": [
+      "Math"
+    ],
+    "updated": "2026-01-28",
+    "similar": ["Quadratic Equations in One Variable"],
+    "formula": "ax² + bx + c = 0",
+    "category": "Equation",
+    "example": "x² + 2x + 1 = 0",
+  },
+  {
+    "en": "Quadratic term",
+    "cn": "二次项",
+    "tags": [
+      "Math"
+    ],
+    "updated": "2026-01-28",
+    "similar": ["Quadratic Equations in One Variable", "Quadratic Equations in Two Variables"],
+    "formula": "ax²",
+    "category": "Term",
+    "example": "x²",
+  },
+  {
+    "en": "Linear term",
+    "cn": "一次项",
+    "tags": [
+      "Math"
+    ],
+    "similar": ["Quadratic Equations in One Variable", "Quadratic Equations in Two Variables"],
+    "formula": "ax",
+    "category": "Term",
+    "example": "2x",
+    "updated": "2026-01-28",
+  },
+  {
+    "en": "Constant term",
+    "cn": "常数项",
+    "tags": [
+      "Math"
+    ],
+    "similar": ["Quadratic Equations in One Variable", "Quadratic Equations in Two Variables"],
+    "formula": "c",
+    "category": "Term",
+    "example": "1",
+    "updated": "2026-01-28",
+  },
+  {
+    "en": "Valence electron",
+    "cn": "价电子",
+    "tags": [
+      "Chemistry"
+    ],
+    "updated": "2026-01-28",
+    "similar": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Noble gas / Inert gas",
+    "cn": "惰性气体",
+    "tags": [
+      "Chemistry"
+    ],
+    "updated": "2026-01-28",
+    "similar": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Outermost shell",
+    "cn": "最外层轨道",
+    "tags": [
+      "Chemistry"
+    ],
+    "updated": "2026-01-28",
+    "similar": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Electron configuration",
+    "cn": "电子排布",
+    "tags": [
+      "Chemistry"
+    ],
+    "updated": "2026-01-28",
+    "similar": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Electron Arrangement",
+    "cn": "电子排序",
+    "tags": [
+      "Chemistry"
+    ],
+    "updated": "2026-01-28",
+    "similar": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Oxidation",
+    "cn": "氧化",
+    "tags": [
+      "Chemistry"
+    ],
+    "updated": "2026-01-28",
+    "similar": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Oxidation state",
+    "cn": "氧化态",
+    "tags": [
+      "Chemistry"
+    ],
+    "updated": "2026-01-28",
+    "similar": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Oxidation number",
+    "cn": "氧化数",
+    "tags": [
+      "Chemistry"
+    ],
+    "updated": "2026-01-28",
+    "similar": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Nomenclature",
+    "cn": "命名法",
+    "tags": [
+      "Chemistry"
+    ],
+    "updated": "2026-01-28",
+    "similar": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Hypothetical",
+    "cn": "假想",
+    "tags": [
+      "Chemistry"
+    ],
+    "updated": "2026-01-28",
+    "similar": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Hydrogenation",
+    "cn": "氢化",
+    "tags": [
+      "Chemistry"
+    ],
+    "updated": "2026-01-28",
+    "similar": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Reduction",
+    "cn": "还原",
+    "tags": [
+      "Chemistry"
+    ],
+    "updated": "2026-01-28",
+    "similar": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Alkali metal",
+    "cn": "碱金属",
+    "tags": [
+      "Chemistry"
+    ],
+    "updated": "2026-01-28",
+    "similar": ["Alkaline earth metal"],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Alkaline earth metal",
+    "cn": "碱土金属",
+    "tags": [
+      "Chemistry"
+    ],
+    "updated": "2026-01-28",
+    "similar": ["Alkali metal"],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Peroxides",
+    "cn": "过氧化物",
+    "tags": [
+      "Chemistry"
+    ],
+    "updated": "2026-01-28",
+    "similar": ["Superoxide"],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Superoxide",
+    "cn": "超氧化物",
+    "tags": [
+      "Chemistry"
+    ],
+    "updated": "2026-01-28",
+    "similar": ["Peroxides"],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Hydride",
+    "cn": "氢化物",
+    "tags": [
+      "Chemistry"
+    ],
+    "updated": "2026-01-28",
+    "similar": ["Hydrogenation"],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Halogens",
+    "cn": "卤素",
+    "tags": [
+      "Chemistry"
+    ],
+    "updated": "2026-01-28",
+    "similar": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Chemical formula",
+    "cn": "化学式",
+    "tags": [
+      "Chemistry"
+    ],
+    "updated": "2026-01-28",
+    "similar": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Subscript",
+    "cn": "下标",
+    "tags": [
+      "Chemistry"
+    ],
+    "updated": "2026-01-28",
+    "similar": ["Superscript"],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Superscript",
+    "cn": "上标",
+    "tags": [
+      "Chemistry"
+    ],
+    "updated": "2026-01-28",
+    "similar": ["Subscript"],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Binary compound",
+    "cn": "二元化合物",
+    "enUsage": "Contain only 2 different elements",
+    "usage": "只含两种不同元素",
+    "tags": [
+      "Chemistry"
+    ],
+    "updated": "2026-01-28",
+    "similar": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Electrically neutral",
+    "cn": "电中性",
+    "enUsage": "The sum of positive and negative charges is zero",
+    "usage": "正负电荷的总和为零",
+    "tags": [
+      "Chemistry"
+    ],
+    "updated": "2026-01-28",
+    "similar": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Inorganic Compound",
+    "cn": "无机化合物",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Chemistry"
+    ],
+    "updated": "2026-01-28",
+    "similar": [""],
+    "classification": [
+      {
+        "en": "Covalent Compound",
+        "cn": "共价化合物"
+      },
+      {
+        "en": "Ionic Compound",
+        "cn": "离子化合物"
+      },
+      {
+        "en": "Acid",
+        "cn": "酸"
+      },
+    ],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
 ];
