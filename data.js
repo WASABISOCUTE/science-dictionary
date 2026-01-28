@@ -219,7 +219,7 @@ const words = [
   {
     "en": "Distance",
     "cn": "距离",
-    "enUsage": "The total length of the path traveled by an object. Does not depend on direction.",
+    "enUsage": "The total length of the path travelled by an object. Does not depend on direction.",
     "usage": "物体实际运动路径的总长度，不包含方向。",
     "tags": [
       "Physics"
@@ -699,7 +699,7 @@ const words = [
       "Physics"
     ],
     "updated": "2026-01-27",
-    "enUsage": "The motion of an object under the influence of gravity alone, with no other forces acting on it, such as air resistance\nThe object experiencee constant acceleration due to gravity, called gravitational acceleration.",
+    "enUsage": "The motion of an object under the influence of gravity alone, with no other forces acting on it, such as air resistance\nThe object experiences constant acceleration due to gravity, called gravitational acceleration.",
     "usage": "",
     "formula": "g = 9.8 ms^-2",
     "category": "",
@@ -918,7 +918,7 @@ const words = [
   {
     "en": "Radius",
     "cn": "半径",
-    "enUsage": "The distance from the center of a circle or sphere to any point on its boundary.",
+    "enUsage": "The distance from the centre of a circle or sphere to any point on its boundary.",
     "usage": "从圆心或球心到圆周或球面上任意一点的距离。",
     "tags": [
       "Math",
@@ -2326,7 +2326,7 @@ const words = [
   },
   {
     "en": "Quadratic Equations in One Variable",
-    "cn": "一元二次方程",
+    "cn": "一元二次方程式",
     "tags": [
       "Math"
     ],
@@ -2338,7 +2338,7 @@ const words = [
   },
   {
     "en": "Quadratic Equations in Two Variables",
-    "cn": "二元二次方程",
+    "cn": "二元二次方程式",
     "tags": [
       "Math"
     ],
