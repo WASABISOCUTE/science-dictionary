@@ -2692,4 +2692,98 @@ const words = [
     "category": "",
     "example": "",
   },
+  {
+    "en": "Perpendicular Bisector",
+    "cn": "垂直平分线",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Math"
+    ],
+    "updated": "2026-01-29",
+    "similar": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Living Process",
+    "cn": "生命活动",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-01-29",
+    "similar": [""],
+    "classification": [
+      {
+        "en": "Cellular",
+        "cn": "细胞活动"
+      },
+      {
+        "en": "Non-cellular",
+        "cn": "非细胞活动"
+      },
+    ],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Reproduction",
+    "cn": "繁殖",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-01-29",
+    "similar": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Nutrition",
+    "cn": "营养",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-01-29",
+    "similar": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Respiration",
+    "cn": "气体交换",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-01-29",
+    "similar": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Blood Circulation",
+    "cn": "血液循环",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-01-29",
+    "similar": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
 ];
