@@ -2786,4 +2786,452 @@ const words = [
     "category": "",
     "example": "",
   },
+  {
+    "en": "Perfect Square",
+    "cn": "完全平方",
+    "enUsage": "A number that can be expressed as the square of an integer",
+    "usage": "",
+    "tags": [
+      "Math"
+    ],
+    "updated": "2026-01-30",
+    "similar": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Perfect Cube",
+    "cn": "完全立方",
+    "enUsage": "A number that can be expressed as the cube of an integer",
+    "usage": "",
+    "tags": [
+      "Math"
+    ],
+    "updated": "2026-01-30",
+    "similar": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Excretion",
+    "cn": "排泄",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-01-30",
+    "similar": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Locomotion",
+    "cn": "动作",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-01-30",
+    "similar": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "System",
+    "cn": "系统",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Biology", "Computer"
+    ],
+    "updated": "2026-01-30",
+    "similar": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Organ",
+    "cn": "器官",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-01-30",
+    "similar": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Tissue",
+    "cn": "组织",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-01-30",
+    "similar": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Plasme membrane",
+    "cn": "细胞膜",
+    "enUsage": "Made of plospholipid and protain",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-01-30",
+    "similar": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Cytoplasm",
+    "cn": "细胞质",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-01-30",
+    "similar": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Nucleus",
+    "cn": "细胞核",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-01-30",
+    "similar": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Protoplasm",
+    "cn": "原生质",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-01-30",
+    "similar": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Ribosome",
+    "cn": "核糖体",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-01-30",
+    "similar": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Endoplasmic reticulum",
+    "cn": "内质网",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-01-30",
+    "similar": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Golgi Body",
+    "cn": "高尔基体",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-01-30",
+    "similar": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Lysosome",
+    "cn": "溶酶体",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-01-30",
+    "similar": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Mitochondrion(singular) / Mitochondria(plural)",
+    "cn": "线粒体",
+    "enUsage": "Site of cellular respiration",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-01-30",
+    "similar": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Centrioles",
+    "cn": "中心粒",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-01-30",
+    "similar": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Cellulose",
+    "cn": "纤维素",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-01-30",
+    "similar": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Chloroplast",
+    "cn": "叶绿体",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-01-30",
+    "similar": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Vacuole",
+    "cn": "液泡",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-01-30",
+    "similar": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "<i>Amoeba</i>",
+    "cn": "变形虫",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-01-30",
+    "similar": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "<i>Paramecium</i>",
+    "cn": "草履虫",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-01-30",
+    "similar": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Adipocyte",
+    "cn": "脂肪细胞",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-01-30",
+    "similar": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Columnar epithelium cell",
+    "cn": "柱状上皮细胞",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-01-30",
+    "similar": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Skeletal muscle cell",
+    "cn": "骨骼肌细胞",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-01-30",
+    "similar": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Cuboidal epithelium cell",
+    "cn": "立方上皮细胞",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-01-30",
+    "similar": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Neuron",
+    "cn": "神经元",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-01-30",
+    "similar": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "White blood cell",
+    "cn": "白细胞",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-01-30",
+    "similar": ["Red blood cell"],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Red blood cell",
+    "cn": "红细胞",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-01-30",
+    "similar": ["White blood cell"],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Ciliated epithelium cell",
+    "cn": "纤毛上皮细胞",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-01-30",
+    "similar": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Fibre",
+    "cn": "纤维",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-01-30",
+    "similar": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Cardiac muscle fibre",
+    "cn": "心肌纤维",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-01-30",
+    "similar": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
 ];
