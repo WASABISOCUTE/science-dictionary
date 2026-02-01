@@ -3234,4 +3234,12 @@ const words = [
     "category": "",
     "example": "",
   },
+  {
+    "en": "Coincident",
+    "cn": "重合",
+    "tags": [
+      "Math"
+      ],
+    "updated": "2026-02-01",
+  },
 ];
