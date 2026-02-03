@@ -2918,7 +2918,7 @@ const words = [
     "enUsage": "Largest component in the cell \n Spherical, compressed and enclosed in a nuclear membrane with many pores \n The nucleus contains chromosomal, nucleolus and nucleoplasm",
     "function": "Controls the cell activities \n Has chromosomal that contain deoxyribonucleic acid (DNA). DNA determines the cell characteristics and metabolic function.",
     "image": "https://media.beckman.com/-/media/stock-images/resource-center/images/nucleus.jpg?rev=26b369d29b4b46c194b6c61b6e965b89",
-    "imageCredit": "Beckman Coulter",
+    "imageAlt": "Beckman Coulter",
     "usage": "",
     "tags": [
       "Biology"
