@@ -3242,4 +3242,21 @@ const words = [
       ],
     "updated": "2026-02-01",
   },
+  {
+    "en": "Acid",
+    "cn": "酸",
+    "tags": [
+      "Chemistry"
+      ],
+    "classification": [
+      {
+        "en": "Binary acids",
+        "cn": "二次酸"
+      },
+      {
+        "en": "Oxo-acids",
+        "cn": "含氧酸"
+      },
+    "updated": "2026-02-03",
+  },
 ];
