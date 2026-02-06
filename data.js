@@ -3263,4 +3263,158 @@ const words = [
     ],
     "updated": "2026-02-03",
   },
+  {
+    "en": "Polar molecule",
+    "cn": "极性分子",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Chemistry"
+    ],
+    "updated": "2026-02-06",
+    "similar": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Universal solvent",
+    "cn": "万能载具",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-02-06",
+    "similar": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Hydrolysis reaction",
+    "cn": "水解反应",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Chemistry"
+    ],
+    "updated": "2026-02-06",
+    "similar": ["Condensation reaction"],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Hydrogen Bond",
+    "cn": "氢键",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Chemistry"
+    ],
+    "updated": "2026-02-06",
+    "similar": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Cohesion",
+    "cn": "凝聚力",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-02-06",
+    "similar": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Adhesion",
+    "cn": "附着力",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-02-06",
+    "similar": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Buffer",
+    "cn": "缓冲",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-02-06",
+    "similar": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Monomer",
+    "cn": "单体",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-02-06",
+    "similar": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Polymer",
+    "cn": "聚合物",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-02-06",
+    "similar": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Condensation reaction",
+    "cn": "缩合反应",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-02-06",
+    "similar": ["Hydrolysis reaction"],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Carbohydrate",
+    "cn": "碳水化合物",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-02-06",
+    "similar": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
 ];
