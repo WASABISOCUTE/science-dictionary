@@ -135,7 +135,9 @@ input::placeholder {
 #reportBtn,
 #submitReport,
 #cancelReport,
-#markDetailBtn {
+#markDetailBtn,
+#confirmSubmitWord,
+#cancelSubmitWord {
     padding: 8px 14px;
     border-radius: 10px;
     border: none;
@@ -152,7 +154,9 @@ input::placeholder {
 #reportBtn:hover,
 #submitReport:hover,
 #cancelReport:hover,
-#markDetailBtn:hover {
+#markDetailBtn:hover,
+#confirmSubmitWord:hover,
+#cancelSubmitWord:hover {
     background: #1e40af;
 }
 
@@ -161,21 +165,49 @@ input::placeholder {
 #reportBtn:active,
 #submitReport:active,
 #cancelReport:active,
-#markDetailBtn:active {
+#markDetailBtn:active,
+#confirmSubmitWord:active,
+#cancelSubmitWord:active {
     transform: scale(0.96);
 }
 
-/* ===== Error Report ===== */
-#reportForm textarea {
+/* ===== Error Report & Submit Form ===== */
+#reportForm textarea,
+#submitWordForm textarea,
+#submitWordForm input,
+#submitWordForm select {
     width: 100%;
     padding: 10px;
     border-radius: 10px;
-    border: none;
+    border: 1px solid #334155;
     background: #1e293b;
     color: #e5e7eb;
     font-size: 14px;
     margin-bottom: 8px;
     resize: vertical;
+    box-sizing: border-box;
+}
+
+#submitWordForm {
+    border: 1px solid #334155;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 12px;
+    background-color: #1e293b;
+}
+
+#submitWordForm h3 {
+    margin-top: 0;
+    color: #e5e7eb;
+}
+
+#submitWordForm label {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 4px;
+    color: #94a3b8;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 /* ===== Website Info ===== */
@@ -214,41 +246,17 @@ input::placeholder {
 .info-icon:hover {
     background: #334155;
 }
-/* tooltip 修复样式 */
-.info-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 18px;
-  height: 18px;
-  margin-left: 6px;
-  border-radius: 50%;
-  border: 1px solid #94a3b8;
-  font-size: 12px;
-  cursor: pointer;
-  user-select: none;
-}
 
 .info-tooltip {
-  display: none;
-  margin-top: 8px;
-  padding: 10px 12px;
-  background: #1e293b;
-  border: 1px solid #334155;
-  border-radius: 10px;
-  font-size: 13px;
-  line-height: 1.5;
-  pointer-events: none; /* 防止鼠标进入导致闪烁 */
-}
-/* ===== Contributors Tooltip ===== */
-.info-tooltip {
     display: none;
-    background: #1e293b;
-    border-radius: 12px;
-    padding: 12px;
     margin-top: 8px;
-    font-size: 14px;
+    padding: 10px 12px;
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 10px;
+    font-size: 13px;
     line-height: 1.5;
+    pointer-events: none;
 }
 
 /* ===== Footer ===== */
@@ -269,24 +277,20 @@ footer {
 }
 
 /* ===== Hide Scroll Bar ===== */
-
-/* Chrome / Edge / Safari */
 ::-webkit-scrollbar {
     width: 0px;
     height: 0px;
 }
 
-/* Firefox */
 html {
     scrollbar-width: none;
 }
 
-/* IE */
 body {
     -ms-overflow-style: none;
 }
 
-/* ===== Added: Sort Control ===== */
+/* ===== Sort Control ===== */
 #sortSelect {
     padding: 8px 12px;
     border-radius: 10px;
@@ -311,27 +315,27 @@ body {
 }
 
 .belongs-text {
-  font-size: 13px;
-  color: #94a3b8;
-  margin: 4px 0 6px;
+    font-size: 13px;
+    color: #94a3b8;
+    margin: 4px 0 6px;
 }
 
 #pronounceBtn {
-  margin-left: 8px;
-  padding: 2px 6px;
-  font-size: 16px;
-  border: none;
-  border-radius: 6px;
-  background: rgba(255, 255, 255, 0.08);
-  color: #fff;
-  cursor: pointer;
-  transition: background 0.2s ease, transform 0.1s ease;
+    margin-left: 8px;
+    padding: 2px 6px;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.1s ease;
 }
 
 #pronounceBtn:hover {
-  background: rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.18);
 }
 
 #pronounceBtn:active {
-  transform: scale(0.92);
+    transform: scale(0.92);
 }

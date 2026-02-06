@@ -33,6 +33,39 @@
         </select>
         <button id="clearFilter">Clear Filter</button>
         <button id="showMarkedBtn">⭐ Show Marked Words</button>
+        <button id="submitWordBtn">➕ Submit Word</button>
+    </div>
+
+    <div id="submitWordForm" style="display:none;">
+        <h3>Submit New Word</h3>
+        <p>Please select a category and fill in details (Optional):</p>
+
+        <label>Category:</label>
+        <select id="submitCategory"></select>
+
+        <label>Word (English):</label>
+        <input type="text" id="subEn" placeholder="Example: Velocity">
+
+        <label>Word (Chinese):</label>
+        <input type="text" id="subCn" placeholder="Example: 速度">
+
+        <label>Definition/Usage (Chinese):</label>
+        <textarea id="subUsage" rows="2"></textarea>
+
+        <label>Definition/Usage (English):</label>
+        <textarea id="subEnUsage" rows="2"></textarea>
+
+        <label>Formula:</label>
+        <input type="text" id="subFormula" placeholder="LaTeX format supported, e.g. v = d/t">
+
+        <label>Function:</label>
+        <textarea id="subFunction" rows="2"></textarea>
+
+        <label>Example:</label>
+        <textarea id="subExample" rows="2"></textarea>
+
+        <button id="confirmSubmitWord">Submit to GitHub</button>
+        <button id="cancelSubmitWord">Cancel</button>
     </div>
 
     <div id="list"></div>
@@ -95,7 +128,7 @@
             <h3>制作人员 / Credits</h3>
             <ul>
                 <li><strong>项目概念：</strong> WASABISOCUTE</li>
-                <li><strong>界面及功能设计：</strong> WASABISOCUTE</li>
+                <li><strong>界面及功能设计：：</strong> WASABISOCUTE</li>
                 <li><strong>代码：</strong> <del>ChatGPT</del> Google Antigravity</li>
             </ul>
             <ul>
@@ -127,7 +160,6 @@
         <section class="about-section">
             <h3>计划添加功能 / Planned Features</h3>
             <ul>
-                <li><strong>化学元素</strong></li>
                 <li><strong>公式查找</strong></li>
                 <li><strong>设置</strong></li>
             </ul>
@@ -168,6 +200,20 @@
         const subjectFilter = document.getElementById("subjectFilter");
         const clearFilter = document.getElementById("clearFilter");
         const showMarkedBtn = document.getElementById("showMarkedBtn");
+        const submitWordBtn = document.getElementById("submitWordBtn");
+        const submitWordForm = document.getElementById("submitWordForm");
+        const submitCategory = document.getElementById("submitCategory");
+        // Form inputs
+        const subEn = document.getElementById("subEn");
+        const subCn = document.getElementById("subCn");
+        const subUsage = document.getElementById("subUsage");
+        const subEnUsage = document.getElementById("subEnUsage");
+        const subFormula = document.getElementById("subFormula");
+        const subFunction = document.getElementById("subFunction");
+        const subExample = document.getElementById("subExample");
+
+        const confirmSubmitWord = document.getElementById("confirmSubmitWord");
+        const cancelSubmitWord = document.getElementById("cancelSubmitWord");
 
         const dUpdated = document.getElementById("dUpdated");
 
@@ -482,6 +528,57 @@
         clearFilter.onclick = () => { subjectFilter.value = ""; showingMarkedOnly = false; showMarkedBtn.textContent = "⭐ Show Marked Words"; render(words); };
         showMarkedBtn.onclick = () => { showingMarkedOnly = !showingMarkedOnly; showMarkedBtn.textContent = showingMarkedOnly ? "⭐ Show All Words" : "⭐ Show Marked Words"; applyFilters(); };
         markDetailBtn.onclick = () => { if (currentWord) { toggleMark(currentWord.en); updateMarkBtn(markDetailBtn, currentWord.en); } };
+        /* ===== Submit Word ===== */
+        // Populate Categories dynamically
+        function initSubmitCategories() {
+            submitCategory.innerHTML = "";
+            Array.from(subjectFilter.options).forEach(opt => {
+                if (opt.value) { // Skip "All"
+                    const newOpt = document.createElement("option");
+                    newOpt.value = opt.value;
+                    newOpt.textContent = opt.textContent;
+                    submitCategory.appendChild(newOpt);
+                }
+            });
+        }
+        initSubmitCategories();
+
+        submitWordBtn.onclick = () => {
+            submitWordForm.style.display = "block";
+            submitWordForm.scrollIntoView({ behavior: "smooth" });
+        };
+        cancelSubmitWord.onclick = () => submitWordForm.style.display = "none";
+
+        confirmSubmitWord.onclick = () => {
+            const en = subEn.value.trim();
+            const cn = subCn.value.trim();
+
+            if (en || cn) {
+                const repo = "https://github.com/WASABISOCUTE/science-dictionary/issues/new";
+                const cat = submitCategory.value;
+                const title = encodeURIComponent(`New Word: ${en} / ${cn}`);
+
+                let bodyContent = `### Category\n${cat}\n\n`;
+                bodyContent += `### Word\n**English:** ${en}\n**Chinese:** ${cn}\n\n`;
+                if (subUsage.value.trim()) bodyContent += `### Usage (Chinese)\n${subUsage.value}\n\n`;
+                if (subEnUsage.value.trim()) bodyContent += `### Usage (English)\n${subEnUsage.value}\n\n`;
+                if (subFormula.value.trim()) bodyContent += `### Formula\n${subFormula.value}\n\n`;
+                if (subFunction.value.trim()) bodyContent += `### Function\n${subFunction.value}\n\n`;
+                if (subExample.value.trim()) bodyContent += `### Example\n${subExample.value}\n\n`;
+
+                const body = encodeURIComponent(bodyContent);
+                window.open(`${repo}?title=${title}&body=${body}`, "_blank");
+
+                // Clear form
+                submitWordForm.style.display = "none";
+                subEn.value = ""; subCn.value = "";
+                subUsage.value = ""; subEnUsage.value = "";
+                subFormula.value = ""; subFunction.value = ""; subExample.value = "";
+            } else {
+                alert("Please enter at least the word.");
+            }
+        };
+
         /* ===== 排序 ===== */
         function applySort(list) {
             const mode = sortSelect.value;
@@ -560,6 +657,5 @@
         render(words);
     </script>
 </body>
-
 
 </html>
