@@ -4555,4 +4555,244 @@ const words = [
     "category": "",
     "example": "",
   },
+  {
+    "en": "Phosplipid",
+    "cn": "脂肪",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-02-23",
+    "similar": [""],
+    "classification": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Nucleolus",
+    "cn": "核仁",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-02-23",
+    "similar": [""],
+    "classification": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "organelle",
+    "cn": "细胞器",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-02-23",
+    "similar": [""],
+    "classification": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Enzyme",
+    "cn": "酶",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-02-23",
+    "similar": [""],
+    "classification": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Lymph",
+    "cn": "淋巴液",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-02-23",
+    "similar": [""],
+    "classification": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Saccharide",
+    "cn": "糖类",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-02-23",
+    "similar": [""],
+    "classification": ["Triose","Pentose","Hexose"],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Triose",
+    "cn": "三碳糖",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-02-23",
+    "similar": [""],
+    "classification": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Pentose",
+    "cn": "五碳糖",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-02-23",
+    "similar": [""],
+    "classification": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Hexose",
+    "cn": "六碳糖",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-02-23",
+    "similar": [""],
+    "classification": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Sucrose",
+    "cn": "蔗糖",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-02-23",
+    "similar": [""],
+    "classification": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Actose",
+    "cn": "乳糖",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-02-23",
+    "similar": [""],
+    "classification": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Glucose",
+    "cn": "葡萄糖",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-02-23",
+    "similar": [""],
+    "classification": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Fructose",
+    "cn": "果糖",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-02-23",
+    "similar": [""],
+    "classification": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Galactose",
+    "cn": "半乳糖",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-02-23",
+    "similar": [""],
+    "classification": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Starch",
+    "cn": "淀粉",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-02-23",
+    "similar": [""],
+    "classification": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Triglyceride",
+    "cn": "甘油三酯",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-02-23",
+    "similar": [""],
+    "classification": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
 ]
