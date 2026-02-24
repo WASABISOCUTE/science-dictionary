@@ -4795,4 +4795,19 @@ const words = [
     "category": "",
     "example": "",
   },
+  {
+    "en": "Saturation",
+    "cn": "饱和",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-02-24",
+    "similar": [""],
+    "classification": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
 ]
