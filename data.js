@@ -1671,6 +1671,7 @@ const words = [
     "similar": [],
     "classification": [],
     "example": ""
+    "image":"images/Periodic Table of the Elements.png";
   },
   {
     "en": "Constituents / Components",
