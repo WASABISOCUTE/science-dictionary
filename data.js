@@ -4811,4 +4811,19 @@ const words = [
     "category": "",
     "example": "",
   },
+  {
+    "en": "Parabola",
+    "cn": "抛物线",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Math"
+    ],
+    "updated": "2026-02-25",
+    "similar": [""],
+    "classification": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
 ]
