@@ -3435,7 +3435,7 @@ const words = [
   {
     "en": "Protein",
     "cn": "蛋白质",
-    "enUsage": "",
+    "enUsage": "Element: Carbon, hydrogen, oxygen,nitrogen(~16%). Some contain: Sulphur, phosphorus",
     "usage": "",
     "tags": [
       "Biology"
@@ -4825,5 +4825,110 @@ const words = [
     "formula": "",
     "category": "",
     "example": "",
-  },
+    },
+    {
+        "en": "lipoids",
+        "cn": "类脂",
+        "enUsage": "",
+        "usage": "",
+        "tags": [
+            "Biology"
+        ],
+        "updated": "2026-03-02",
+        "similar": [""],
+        "classification": [""],
+        "formula": "",
+        "category": "",
+        "example": "",
+    },
+    {
+        "en": "Wax",
+        "cn": "蜡",
+        "enUsage": "",
+        "usage": "",
+        "tags": [
+            "Biology"
+        ],
+        "updated": "2026-03-02",
+        "similar": [""],
+        "classification": [""],
+        "formula": "",
+        "category": "",
+        "example": "",
+    },
+    {
+        "en": "Phospholipid",
+        "cn": "磷脂",
+        "enUsage": "",
+        "usage": "",
+        "tags": [
+            "Biology"
+        ],
+        "updated": "2026-03-02",
+        "similar": [""],
+        "classification": [""],
+        "formula": "",
+        "category": "",
+        "example": "",
+    },
+    {
+        "en": "Phospholipid",
+        "cn": "磷脂",
+        "enUsage": "Contains one molecule of glycerol that combines with: Two molecules of fatty acid and one phosphate group",
+        "usage": "",
+        "tags": [
+            "Biology"
+        ],
+        "updated": "2026-03-02",
+        "similar": [""],
+        "classification": ["Hydrophilic phosphate head", "Hydrophobic fatty acid tail"],
+        "formula": "",
+        "category": "",
+        "example": "",
+    },
+    {
+        "en": "Steroid",
+        "cn": "类固醇",
+        "enUsage": "",
+        "usage": "",
+        "tags": [
+            "Biology"
+        ],
+        "updated": "2026-03-02",
+        "similar": [""],
+        "classification": [""],
+        "formula": "",
+        "category": "",
+        "example": "Cholesterol",
+    },
+    {
+        "en": "Cholesterol",
+        "cn": "胆固醇",
+        "enUsage": "Do not contain fatty acids. Contains carbon atoms connected with 4 fused rings in a specific way.",
+        "usage": "",
+        "tags": [
+            "Biology"
+        ],
+        "updated": "2026-03-02",
+        "similar": [""],
+        "classification": [""],
+        "formula": "",
+        "category": "",
+        "example": "",
+    },
+    {
+        "en": "Denaturation",
+        "cn": "变性（性质）",
+        "enUsage": "Denaturation of protein: Loss of three-dimensional shape of a protein. Due to factors such as heat, organic solvent, heavy metal, strong acid and base. When a protein is denatured, it will lose its function.",
+        "usage": "",
+        "tags": [
+            "Biology"
+        ],
+        "updated": "2026-03-02",
+        "similar": [""],
+        "classification": [""],
+        "formula": "",
+        "category": "",
+        "example": "",
+    },
 ]
