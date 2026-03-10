@@ -4641,7 +4641,7 @@ const words = [
     ],
     "updated": "2026-02-23",
     "similar": [""],
-    "classification": ["Triose","Pentose","Hexose"],
+    "classification": ["Triose", "Pentose", "Hexose"],
     "formula": "",
     "category": "",
     "example": "",
@@ -4825,110 +4825,281 @@ const words = [
     "formula": "",
     "category": "",
     "example": "",
-    },
-    {
-        "en": "lipoids",
-        "cn": "类脂",
-        "enUsage": "",
-        "usage": "",
-        "tags": [
-            "Biology"
-        ],
-        "updated": "2026-03-02",
-        "similar": [""],
-        "classification": [""],
-        "formula": "",
-        "category": "",
-        "example": "",
-    },
-    {
-        "en": "Wax",
-        "cn": "蜡",
-        "enUsage": "",
-        "usage": "",
-        "tags": [
-            "Biology"
-        ],
-        "updated": "2026-03-02",
-        "similar": [""],
-        "classification": [""],
-        "formula": "",
-        "category": "",
-        "example": "",
-    },
-    {
-        "en": "Phospholipid",
-        "cn": "磷脂",
-        "enUsage": "",
-        "usage": "",
-        "tags": [
-            "Biology"
-        ],
-        "updated": "2026-03-02",
-        "similar": [""],
-        "classification": [""],
-        "formula": "",
-        "category": "",
-        "example": "",
-    },
-    {
-        "en": "Phospholipid",
-        "cn": "磷脂",
-        "enUsage": "Contains one molecule of glycerol that combines with: Two molecules of fatty acid and one phosphate group",
-        "usage": "",
-        "tags": [
-            "Biology"
-        ],
-        "updated": "2026-03-02",
-        "similar": [""],
-        "classification": ["Hydrophilic phosphate head", "Hydrophobic fatty acid tail"],
-        "formula": "",
-        "category": "",
-        "example": "",
-    },
-    {
-        "en": "Steroid",
-        "cn": "类固醇",
-        "enUsage": "",
-        "usage": "",
-        "tags": [
-            "Biology"
-        ],
-        "updated": "2026-03-02",
-        "similar": [""],
-        "classification": [""],
-        "formula": "",
-        "category": "",
-        "example": "Cholesterol",
-    },
-    {
-        "en": "Cholesterol",
-        "cn": "胆固醇",
-        "enUsage": "Do not contain fatty acids. Contains carbon atoms connected with 4 fused rings in a specific way.",
-        "usage": "",
-        "tags": [
-            "Biology"
-        ],
-        "updated": "2026-03-02",
-        "similar": [""],
-        "classification": [""],
-        "formula": "",
-        "category": "",
-        "example": "",
-    },
-    {
-        "en": "Denaturation",
-        "cn": "变性（性质）",
-        "enUsage": "Denaturation of protein: Loss of three-dimensional shape of a protein. Due to factors such as heat, organic solvent, heavy metal, strong acid and base. When a protein is denatured, it will lose its function.",
-        "usage": "",
-        "tags": [
-            "Biology"
-        ],
-        "updated": "2026-03-02",
-        "similar": [""],
-        "classification": [""],
-        "formula": "",
-        "category": "",
-        "example": "",
-    },
+  },
+  {
+    "en": "lipoids",
+    "cn": "类脂",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-03-02",
+    "similar": [""],
+    "classification": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Wax",
+    "cn": "蜡",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-03-02",
+    "similar": [""],
+    "classification": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Phospholipid",
+    "cn": "磷脂",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-03-02",
+    "similar": [""],
+    "classification": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Phospholipid",
+    "cn": "磷脂",
+    "enUsage": "Contains one molecule of glycerol that combines with: Two molecules of fatty acid and one phosphate group",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-03-02",
+    "similar": [""],
+    "classification": ["Hydrophilic phosphate head", "Hydrophobic fatty acid tail"],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Steroid",
+    "cn": "类固醇",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-03-02",
+    "similar": [""],
+    "classification": [""],
+    "formula": "",
+    "category": "",
+    "example": "Cholesterol",
+  },
+  {
+    "en": "Cholesterol",
+    "cn": "胆固醇",
+    "enUsage": "Do not contain fatty acids. Contains carbon atoms connected with 4 fused rings in a specific way.",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-03-02",
+    "similar": [""],
+    "classification": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Denaturation",
+    "cn": "变性（性质）",
+    "enUsage": "Denaturation of protein: Loss of three-dimensional shape of a protein. Due to factors such as heat, organic solvent, heavy metal, strong acid and base. When a protein is denatured, it will lose its function.",
+    "usage": "",
+    "tags": [
+      "Biology"
+    ],
+    "updated": "2026-03-02",
+    "similar": [""],
+    "classification": [""],
+    "formula": "",
+    "category": "",
+    "example": "",
+  },
+  {
+    "en": "Hydrate",
+    "cn": "水合物",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Chemistry"
+    ],
+    "updated": "2026-03-10",
+  },
+  {
+    "en": "Indicator",
+    "cn": "指示剂",
+    "enUsage": "",
+    "usage": "",
+    "tags": [
+      "Chemistry"
+    ],
+    "updated": "2026-03-10",
+  },
+  {
+    "en": "Anhydrous cobalt(II) chloride",
+    "cn": "无水氯化钴",
+    "formula": "CoCl₂",
+    "tags": [
+      "Chemistry"
+    ],
+    "updated": "2026-03-10",
+  },
+  {
+    "en": "Anhydride",
+    "cn": "无水物",
+    "formula": "",
+    "tags": [
+      "Chemistry"
+    ],
+    "updated": "2026-03-10",
+  },
+  {
+    "en": "Drying agent",
+    "cn": "干燥剂",
+    "formula": "",
+    "tags": [
+      "Chemistry"
+    ],
+    "updated": "2026-03-10",
+  },
+  {
+    "en": "Relative atomic mass",
+    "cn": "相对原子质量",
+    "formula": "",
+    "tags": [
+      "Chemistry"
+    ],
+    "example": "H: 1, He: 4, Li: 7",
+    "similar": ["Relative molecular mass", "Relative formula mass"],
+    "updated": "2026-03-10",
+  },
+  {
+    "en": "Relative molecular mass",
+    "cn": "相对分子质量",
+    "formula": "",
+    "tags": [
+      "Chemistry"
+    ],
+    "example": "H₂: 1*2=2, CO₂: 12+(16*2)=44, O₂: (16*2)=32",
+    "similar": ["Relative atomic mass", "Relative formula mass"],
+    "updated": "2026-03-10",
+  },
+  {
+    "en": "Relative formula mass",
+    "cn": "相对式量",
+    "formula": "",
+    "tags": [
+      "Chemistry"
+    ],
+    "example": "NaCl: 23+35.5=58.5, Al₂O₃: (27*2)+(16*3)=102",
+    "similar": ["Relative atomic mass", "Relative molecular mass"],
+    "updated": "2026-03-10",
+  },
+  {
+    "en": "Estimate",
+    "cn": "估算",
+    "formula": "",
+    "tags": [
+      "Chemistry", "Math"
+    ],
+    "example": "",
+    "updated": "2026-03-10",
+  },
+  {
+    "en": "Relative abundance",
+    "cn": "相对丰度",
+    "formula": "",
+    "tags": [
+      "Chemistry"
+    ],
+    "example": "",
+    "updated": "2026-03-10",
+  },
+  {
+    "en": "Correspond",
+    "cn": "对应",
+    "formula": "",
+    "tags": [
+      "General"
+    ],
+    "updated": "2026-03-10",
+  },
+  {
+    "en": "Avogadro number",
+    "cn": "阿伏伽德罗常数",
+    "enUsage": "",
+    "usage": "",
+    "formula": "6.02*10²³",
+    "tags": [
+      "Chemistry"
+    ],
+    "example": "",
+    "updated": "2026-03-10",
+  },
+  {
+    "en": "Reactant",
+    "cn": "反应物",
+    "formula": "",
+    "tags": [
+      "Chemistry"
+    ],
+    "example": "",
+    "updated": "2026-03-10",
+  },
+  {
+    "en": "Product",
+    "cn": "产物",
+    "formula": "",
+    "tags": [
+      "Chemistry"
+    ],
+    "example": "",
+    "updated": "2026-03-10",
+  },
+  {
+    "en": "Molar mass",
+    "cn": "摩尔质量",
+    "formula": "gram per mole (g/mol or g mol-1)",
+    "tags": [
+      "Chemistry"
+    ],
+    "example": "",
+    "updated": "2026-03-10",
+  },
+  {
+    "en": "Purity",
+    "cn": "纯度",
+    "formula": "",
+    "tags": [
+      "Chemistry"
+    ],
+    "example": "",
+    "updated": "2026-03-10",
+  },
+  {
+    "en": "Impure substance",
+    "cn": "杂质",
+    "formula": "",
+    "tags": [
+      "Chemistry"
+    ],
+    "example": "",
+    "updated": "2026-03-10",
+  },
 ]
