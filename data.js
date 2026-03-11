@@ -1669,7 +1669,39 @@ const words = [
     "formula": "",
     "category": "",
     "similar": [],
-    "classification": ["Alkali metal","Alkaline earth metal","Noble gas","Metal","Transition metal","Lanhanide", "Actinide","Metalloid", "Halogen", "Non-metal"],
+"classification": [
+      {
+        "en": "Alkali metal",
+        "cn": "碱金属"
+      },
+      {
+        "en": "Alkaline earth metal",
+        "cn": "碱土金属"
+      },
+{
+"en": "Noble gas",
+"cn": "稀有气体",
+},
+{
+"en": "Metal",
+"cn": "金属",
+},
+{"en": "Transition metal",
+"cn":"过渡金属",
+},
+{"en": "Lanhanide",
+"cn": "镧系金属",
+},{
+"en": "Actinide",
+"cn": "锕系金属",
+},{
+"en": "Metalloid",
+"cn": "类金属",},{
+"en": "Halogen",
+"cn": "卤素",},{
+"en": "Non-metal",
+"cn": "非金属",}
+    ],
     "example": "",
     "image": "images/Periodic Table of the Elements.png",
   },
