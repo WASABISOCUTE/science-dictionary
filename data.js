@@ -1669,9 +1669,159 @@ const words = [
     "formula": "",
     "category": "",
     "similar": [],
-    "classification": [],
+    "classification": ["Alkali metal","Alkaline earth metal","Noble gas","Metal","Transition metal","Lanhanide", "Actinide","Metalloid", "Halogen", "Non-metal"],
     "example": "",
     "image": "images/Periodic Table of the Elements.png",
+  },
+{
+    "en": "Alkali metal",
+    "cn": "碱金属",
+    "tags": [
+      "Chemistry",
+    ],
+    "updated": "2026-03-11",
+    "enUsage": "",
+    "usage": "",
+    "formula": "",
+    "category": "",
+    "similar": ["Alkaline earth metal","Noble gas","Metal","Transition metal","Lanhanide", "Actinide","Metalloid", "Halogen", "Non-metal"],
+    "classification": [],
+    "example": ""
+  },
+{
+    "en": "Alkaline earth metal",
+    "cn": "碱土金属",
+    "tags": [
+      "Chemistry",
+    ],
+    "updated": "2026-03-11",
+    "enUsage": "",
+    "usage": "",
+    "formula": "",
+    "category": "",
+    "similar": ["Alkali metal","Noble gas","Metal","Transition metal","Lanhanide", "Actinide","Metalloid", "Halogen", "Non-metal"],
+    "classification": [],
+    "example": ""
+  },
+{
+    "en": "Noble gas",
+    "cn": "稀有气体",
+    "tags": [
+      "Chemistry",
+    ],
+    "updated": "2026-03-11",
+    "enUsage": "",
+    "usage": "",
+    "formula": "",
+    "category": "",
+    "similar": ["Alkali metal","Alkaline earth metal","Metal","Transition metal","Lanhanide", "Actinide","Metalloid", "Halogen", "Non-metal"],
+    "classification": [],
+    "example": ""
+  },
+{
+    "en": "Metal",
+    "cn": "金属",
+    "tags": [
+      "Chemistry",
+    ],
+    "updated": "2026-03-11",
+    "enUsage": "",
+    "usage": "",
+    "formula": "",
+    "category": "",
+    "similar": ["Alkali metal","Alkaline earth metal","Noble gas","Transition metal","Lanhanide", "Actinide","Metalloid", "Halogen", "Non-metal"],
+    "classification": [],
+    "example": ""
+  },
+{
+    "en": "Transition metal",
+    "cn": "过渡金属",
+    "tags": [
+      "Chemistry",
+    ],
+    "updated": "2026-03-11",
+    "enUsage": "",
+    "usage": "",
+    "formula": "",
+    "category": "",
+    "similar": ["Alkali metal","Alkaline earth metal","Noble gas","Metal","Lanhanide", "Actinide","Metalloid", "Halogen", "Non-metal"],
+    "classification": [],
+    "example": ""
+  },
+{
+    "en": "Lanhanide",
+    "cn": "镧系元素",
+    "tags": [
+      "Chemistry",
+    ],
+    "updated": "2026-03-11",
+    "enUsage": "",
+    "usage": "",
+    "formula": "",
+    "category": "",
+    "similar": ["Alkali metal","Alkaline earth metal","Noble gas","Metal","Trabsition metal", "Actinide","Metalloid", "Halogen", "Non-metal"],
+    "classification": [],
+    "example": ""
+  },
+{
+    "en": "Actinide",
+    "cn": "锕系元素",
+    "tags": [
+      "Chemistry",
+    ],
+    "updated": "2026-03-11",
+    "enUsage": "",
+    "usage": "",
+    "formula": "",
+    "category": "",
+    "similar": ["Alkali metal","Alkaline earth metal","Noble gas","Metal","Trabsition metal","Lanhanide", "Metalloid", "Halogen", "Non-metal"],
+    "classification": [],
+    "example": ""
+  },
+{
+    "en": "Metalloid/Quasimetal",
+    "cn": "类金属/准金属",
+    "tags": [
+      "Chemistry",
+    ],
+    "updated": "2026-03-11",
+    "enUsage": "",
+    "usage": "",
+    "formula": "",
+    "category": "",
+    "similar": ["Alkali metal","Alkaline earth metal","Noble gas","Metal","Trabsition metal","Lanhanide", "Actinide", "Halogen", "Non-metal"],
+    "classification": [],
+    "example": ""
+  },
+{
+    "en": "Halogen",
+    "cn": "卤素",
+    "tags": [
+      "Chemistry",
+    ],
+    "updated": "2026-03-11",
+    "enUsage": "",
+    "usage": "",
+    "formula": "",
+    "category": "",
+    "similar": ["Alkali metal","Alkaline earth metal","Noble gas","Metal","Trabsition metal","Lanhanide", "Actinide","Metalloid", "Non-metal"],
+    "classification": [],
+    "example": ""
+  },
+{
+    "en": "Non-metal",
+    "cn": "非金属",
+    "tags": [
+      "Chemistry",
+    ],
+    "updated": "2026-03-11",
+    "enUsage": "",
+    "usage": "",
+    "formula": "",
+    "category": "",
+    "similar": ["Alkali metal","Alkaline earth metal","Noble gas","Metal","Trabsition metal","Lanhanide", "Actinide","Metalloid", "Halogen"],
+    "classification": [],
+    "example": ""
   },
   {
     "en": "Constituents / Components",
@@ -2525,30 +2675,6 @@ const words = [
     ],
     "updated": "2026-01-28",
     "similar": [""],
-    "formula": "",
-    "category": "",
-    "example": "",
-  },
-  {
-    "en": "Alkali metal",
-    "cn": "碱金属",
-    "tags": [
-      "Chemistry"
-    ],
-    "updated": "2026-01-28",
-    "similar": ["Alkaline earth metal"],
-    "formula": "",
-    "category": "",
-    "example": "",
-  },
-  {
-    "en": "Alkaline earth metal",
-    "cn": "碱土金属",
-    "tags": [
-      "Chemistry"
-    ],
-    "updated": "2026-01-28",
-    "similar": ["Alkali metal"],
     "formula": "",
     "category": "",
     "example": "",
