@@ -1748,7 +1748,7 @@ const words = [
     "category": "",
     "similar": ["Alkali metal","Alkaline earth metal","Metal","Transition metal","Lanhanide", "Actinide","Metalloid", "Halogen", "Non-metal"],
     "classification": [],
-    "example": ""
+    "example": "氦（He）、氖（Ne）、氩（Ar）、氪（Kr）、氙（Xe）、氡（Rn）、鿫（Og}"
   },
 {
     "en": "Metal",
@@ -1811,8 +1811,8 @@ const words = [
     "example": ""
   },
 {
-    "en": "Metalloid/Quasimetal",
-    "cn": "类金属/准金属",
+    "en": "Metalloid",
+    "cn": "类金属",
     "tags": [
       "Chemistry",
     ],
@@ -2570,18 +2570,6 @@ const words = [
   {
     "en": "Valence electron",
     "cn": "价电子",
-    "tags": [
-      "Chemistry"
-    ],
-    "updated": "2026-01-28",
-    "similar": [""],
-    "formula": "",
-    "category": "",
-    "example": "",
-  },
-  {
-    "en": "Noble gas / Inert gas",
-    "cn": "惰性气体",
     "tags": [
       "Chemistry"
     ],
