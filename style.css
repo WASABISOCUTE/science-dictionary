@@ -480,3 +480,64 @@ html {
     /* position: absolute; removed to keep flow */
     /* z-index: 10; removed */
 }
+
+/* ===== Image Modal ===== */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(15, 23, 42, 0.9);
+    backdrop-filter: blur(8px);
+    cursor: zoom-out;
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 12px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    animation: zoomIn 0.3s ease-out forwards;
+}
+
+@keyframes zoomIn {
+    to {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+.close {
+    position: absolute;
+    top: 24px;
+    right: 32px;
+    color: #f1f5f9;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s;
+    z-index: 1001;
+}
+
+.close:hover {
+    color: var(--primary);
+}
+
+#dMedia img {
+    max-width: 100%;
+    border-radius: 12px;
+    cursor: zoom-in;
+    transition: transform 0.2s;
+}
+
+#dMedia img:hover {
+    transform: scale(1.02);
+}

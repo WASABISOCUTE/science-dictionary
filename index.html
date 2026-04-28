@@ -111,6 +111,12 @@
             <button id="cancelReport">取消</button>
         </div>
     </div>
+    
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImg">
+    </div>
 
 
 
@@ -163,7 +169,6 @@
         <section class="about-section">
             <h3>计划添加功能 / Planned Features</h3>
             <ul>
-                <li><strong>化学元素</strong></li>
                 <li><strong>公式查找</strong></li>
                 <li><strong>设置</strong></li>
             </ul>
@@ -228,6 +233,10 @@
         const cancelReport = document.getElementById("cancelReport");
 
         const markDetailBtn = document.getElementById("markDetailBtn");
+        
+        const imageModal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("modalImg");
+        const closeModal = document.querySelector(".close");
 
         let currentWord = null;
         let markedWords = JSON.parse(localStorage.getItem("markedWords") || "[]");
@@ -325,9 +334,11 @@
             if (word.image) {
                 const img = document.createElement("img");
                 img.src = word.image;
-                img.style.maxWidth = "100%";
-                img.style.borderRadius = "8px";
                 img.style.marginTop = "10px";
+                img.onclick = () => {
+                    imageModal.style.display = "block";
+                    modalImg.src = img.src;
+                };
                 dMedia.appendChild(img);
 
                 if (word.imageAlt) {
@@ -343,9 +354,11 @@
             if (word.gif) {
                 const gif = document.createElement("img");
                 gif.src = word.gif;
-                gif.style.maxWidth = "100%";
-                gif.style.borderRadius = "8px";
                 gif.style.marginTop = "10px";
+                gif.onclick = () => {
+                    imageModal.style.display = "block";
+                    modalImg.src = gif.src;
+                };
                 dMedia.appendChild(gif);
             }
 
@@ -658,9 +671,12 @@
             }
         });
 
+        /* ===== Modal Logic ===== */
+        closeModal.onclick = () => imageModal.style.display = "none";
+        imageModal.onclick = (e) => { if (e.target === imageModal) imageModal.style.display = "none"; };
+
         render(words);
     </script>
 </body>
-
 
 </html>
