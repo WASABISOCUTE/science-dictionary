@@ -3,18 +3,36 @@ const words = [
     "en": "Quantity",
     "cn": "量",
     "enUsage": "Represents the magnitude of a physical quantity",
-    "usage": "表示物理量的大小或数值，不涉及方向。",
+    "usage": "表示物理量的大小或数值",
     "tags": [
       "Physics"
     ],
     "formula": "",
     "category": "Scalar",
     "similar": [
-      "Distance",
-      "Speed"
     ],
-    "example": "质量、长度、时间",
-    "updated": "2025-12-28"
+    "classification": [
+      {
+        "en": "Scalar",
+        "cn": "标量"
+      },
+      {
+        "en": "Vector",
+        "cn": "向量"
+      }
+    ],
+    "classification": [
+      {
+        "en": "Fundamental quantity",
+        "cn": "基本量"
+      },
+      {
+        "en": "Derived quantity",
+        "cn": "导出量"
+      }
+    ],
+    "example": "",
+    "updated": "2026-04-29"
   },
   {
     "en": "Speed",
@@ -1669,7 +1687,7 @@ const words = [
     "formula": "",
     "category": "",
     "similar": [],
-"classification": [
+    "classification": [
       {
         "en": "Alkali metal",
         "cn": "碱金属"
@@ -1678,34 +1696,39 @@ const words = [
         "en": "Alkaline earth metal",
         "cn": "碱土金属"
       },
-{
-"en": "Noble gas",
-"cn": "稀有气体",
-},
-{
-"en": "Metal",
-"cn": "金属",
-},
-{"en": "Transition metal",
-"cn":"过渡金属",
-},
-{"en": "Lanhanide",
-"cn": "镧系金属",
-},{
-"en": "Actinide",
-"cn": "锕系金属",
-},{
-"en": "Metalloid",
-"cn": "类金属",},{
-"en": "Halogen",
-"cn": "卤素",},{
-"en": "Non-metal",
-"cn": "非金属",}
+      {
+        "en": "Noble gas",
+        "cn": "稀有气体",
+      },
+      {
+        "en": "Metal",
+        "cn": "金属",
+      },
+      {
+        "en": "Transition metal",
+        "cn": "过渡金属",
+      },
+      {
+        "en": "Lanhanide",
+        "cn": "镧系金属",
+      }, {
+        "en": "Actinide",
+        "cn": "锕系金属",
+      }, {
+        "en": "Metalloid",
+        "cn": "类金属",
+      }, {
+        "en": "Halogen",
+        "cn": "卤素",
+      }, {
+        "en": "Non-metal",
+        "cn": "非金属",
+      }
     ],
     "example": "",
     "image": "images/Periodic Table of the Elements.png",
   },
-{
+  {
     "en": "Alkali metal",
     "cn": "碱金属",
     "tags": [
@@ -1716,11 +1739,11 @@ const words = [
     "usage": "",
     "formula": "",
     "category": "",
-    "similar": ["Alkaline earth metal","Noble gas","Metal","Transition metal","Lanhanide", "Actinide","Metalloid", "Halogen", "Non-metal"],
+    "similar": ["Alkaline earth metal", "Noble gas", "Metal", "Transition metal", "Lanhanide", "Actinide", "Metalloid", "Halogen", "Non-metal"],
     "classification": [],
     "example": ""
   },
-{
+  {
     "en": "Alkaline earth metal",
     "cn": "碱土金属",
     "tags": [
@@ -1731,11 +1754,11 @@ const words = [
     "usage": "",
     "formula": "",
     "category": "",
-    "similar": ["Alkali metal","Noble gas","Metal","Transition metal","Lanhanide", "Actinide","Metalloid", "Halogen", "Non-metal"],
+    "similar": ["Alkali metal", "Noble gas", "Metal", "Transition metal", "Lanhanide", "Actinide", "Metalloid", "Halogen", "Non-metal"],
     "classification": [],
     "example": ""
   },
-{
+  {
     "en": "Noble gas",
     "cn": "稀有气体",
     "tags": [
@@ -1746,11 +1769,11 @@ const words = [
     "usage": "",
     "formula": "",
     "category": "",
-    "similar": ["Alkali metal","Alkaline earth metal","Metal","Transition metal","Lanhanide", "Actinide","Metalloid", "Halogen", "Non-metal"],
+    "similar": ["Alkali metal", "Alkaline earth metal", "Metal", "Transition metal", "Lanhanide", "Actinide", "Metalloid", "Halogen", "Non-metal"],
     "classification": [],
     "example": "氦（He）、氖（Ne）、氩（Ar）、氪（Kr）、氙（Xe）、氡（Rn）、鿫（Og}"
   },
-{
+  {
     "en": "Metal",
     "cn": "金属",
     "tags": [
@@ -1761,11 +1784,11 @@ const words = [
     "usage": "",
     "formula": "",
     "category": "",
-    "similar": ["Alkali metal","Alkaline earth metal","Noble gas","Transition metal","Lanhanide", "Actinide","Metalloid", "Halogen", "Non-metal"],
+    "similar": ["Alkali metal", "Alkaline earth metal", "Noble gas", "Transition metal", "Lanhanide", "Actinide", "Metalloid", "Halogen", "Non-metal"],
     "classification": [],
     "example": ""
   },
-{
+  {
     "en": "Transition metal",
     "cn": "过渡金属",
     "tags": [
@@ -1776,11 +1799,11 @@ const words = [
     "usage": "",
     "formula": "",
     "category": "",
-    "similar": ["Alkali metal","Alkaline earth metal","Noble gas","Metal","Lanhanide", "Actinide","Metalloid", "Halogen", "Non-metal"],
+    "similar": ["Alkali metal", "Alkaline earth metal", "Noble gas", "Metal", "Lanhanide", "Actinide", "Metalloid", "Halogen", "Non-metal"],
     "classification": [],
     "example": ""
   },
-{
+  {
     "en": "Lanhanide",
     "cn": "镧系元素",
     "tags": [
@@ -1791,11 +1814,11 @@ const words = [
     "usage": "",
     "formula": "",
     "category": "",
-    "similar": ["Alkali metal","Alkaline earth metal","Noble gas","Metal","Trabsition metal", "Actinide","Metalloid", "Halogen", "Non-metal"],
+    "similar": ["Alkali metal", "Alkaline earth metal", "Noble gas", "Metal", "Trabsition metal", "Actinide", "Metalloid", "Halogen", "Non-metal"],
     "classification": [],
     "example": ""
   },
-{
+  {
     "en": "Actinide",
     "cn": "锕系元素",
     "tags": [
@@ -1806,11 +1829,11 @@ const words = [
     "usage": "",
     "formula": "",
     "category": "",
-    "similar": ["Alkali metal","Alkaline earth metal","Noble gas","Metal","Trabsition metal","Lanhanide", "Metalloid", "Halogen", "Non-metal"],
+    "similar": ["Alkali metal", "Alkaline earth metal", "Noble gas", "Metal", "Trabsition metal", "Lanhanide", "Metalloid", "Halogen", "Non-metal"],
     "classification": [],
     "example": ""
   },
-{
+  {
     "en": "Metalloid",
     "cn": "类金属",
     "tags": [
@@ -1821,11 +1844,11 @@ const words = [
     "usage": "",
     "formula": "",
     "category": "",
-    "similar": ["Alkali metal","Alkaline earth metal","Noble gas","Metal","Trabsition metal","Lanhanide", "Actinide", "Halogen", "Non-metal"],
+    "similar": ["Alkali metal", "Alkaline earth metal", "Noble gas", "Metal", "Trabsition metal", "Lanhanide", "Actinide", "Halogen", "Non-metal"],
     "classification": [],
     "example": ""
   },
-{
+  {
     "en": "Halogen",
     "cn": "卤素",
     "tags": [
@@ -1836,11 +1859,11 @@ const words = [
     "usage": "",
     "formula": "",
     "category": "",
-    "similar": ["Alkali metal","Alkaline earth metal","Noble gas","Metal","Trabsition metal","Lanhanide", "Actinide","Metalloid", "Non-metal"],
+    "similar": ["Alkali metal", "Alkaline earth metal", "Noble gas", "Metal", "Trabsition metal", "Lanhanide", "Actinide", "Metalloid", "Non-metal"],
     "classification": [],
     "example": ""
   },
-{
+  {
     "en": "Non-metal",
     "cn": "非金属",
     "tags": [
@@ -1851,7 +1874,7 @@ const words = [
     "usage": "",
     "formula": "",
     "category": "",
-    "similar": ["Alkali metal","Alkaline earth metal","Noble gas","Metal","Trabsition metal","Lanhanide", "Actinide","Metalloid", "Halogen"],
+    "similar": ["Alkali metal", "Alkaline earth metal", "Noble gas", "Metal", "Trabsition metal", "Lanhanide", "Actinide", "Metalloid", "Halogen"],
     "classification": [],
     "example": ""
   },
@@ -2467,7 +2490,7 @@ const words = [
     "updated": "2026-01-27",
     "enUsage": "",
     "usage": "",
-    "formula": "The velocity of A relative to B: v_AB = v_A - v_B",
+    "formula": "v_{AB} = v_A - v_B",
     "category": "",
     "similar": [],
     "image": "",
