@@ -879,8 +879,38 @@ const words = [
       "Energy",
       "Momentum"
     ],
+    "classification": [
+      {
+        "en": "External Force",
+        "cn": "外力"
+      },
+      {
+        "en": "Frictional Force",
+        "cn": "摩擦力"
+      },
+      {
+        "en": "Gravitational Force",
+        "cn": "重力"
+      },
+      {
+        "en": "Centripetal Force",
+        "cn": "向心力"
+      },
+      {
+        "en": "Centrifugal Force",
+        "cn": "离心力"
+      },
+      {
+        "en": "Normal Force",
+        "cn": "支持力"
+      },
+      {
+        "en": "Tension Force",
+        "cn": "拉力"
+      }
+    ],
     "example": "A force is applied to push the box forward.",
-    "updated": "2026-01-16"
+    "updated": "2026-05-04"
   },
   {
     "en": "Energy",
@@ -5271,4 +5301,104 @@ const words = [
     "example": "",
     "updated": "2026-03-10",
   },
+  {
+    "en": "Frictional force",
+    "cn": "摩擦力",
+    "enUsage": "A resistive force that opposes the relative motion or the tendecy of relative motion between two surfaces in contact.",
+    "usage": "阻止两个接触物体相对运动或趋势的力",
+    "formula": "f = μR",
+    "tags": [
+      "Physics"
+    ],
+    "classification": [
+      {
+        "en": "Static friction",
+        "cn": "静摩擦"
+      },
+      {
+        "en": "Kinetic friction",
+        "cn": "动摩擦"
+      }
+    ],
+    "example": "",
+    "updated": "2026-05-04",
+  },
+  {
+    "en": "Static friction",
+    "cn": "静摩擦",
+    "enUsage": "Prevent an object from starting to move (variable).",
+    "usage": "防止物体开始运动（可变）。",
+    "formula": "f_s ,max=μ_sR",
+    "tags": [
+      "Physics"
+    ],
+    "example": "",
+    "updated": "2026-05-04",
+  },
+  {
+    "en": "Kinetic friction",
+    "cn": "动摩擦",
+    "enUsage": "Opposes the motion of an object that is already moving (constant).",
+    "usage": "当两个表面滑动时，抵抗运动（恒定）。",
+    "formula": "f_k=μ_kR",
+    "tags": [
+      "Physics"
+    ],
+    "example": "",
+    "updated": "2026-05-04",
+  },
+  {
+    "en": "Gravity",
+    "cn": "重力",
+    "enUsage": "The force of attraction between two objects with mass",
+    "usage": "两个有质量的物体之间的引力",
+    "formula": "F = G(m₁m₂)/r²",
+    "tags": [
+      "Physics"
+    ],
+    "example": "",
+    "updated": "2026-05-04",
+  },
+  {
+    "en": "Weight",
+    "cn": "重量",
+    "enUsage": "The force exerted on an object due to gravity. It depends on the object's mass and the acceleration due to gravity",
+    "usage": "物体受到的重力。它取决于物体的质量和重力加速度。",
+    "formula": "W = mg",
+    "category": "Vector",
+    "tags": [
+      "Physics"
+    ],
+    "example": "The weight of an object is the force of gravity on it.",
+    "updated": "2026-05-04",
+  },
+  {
+    "en": "Resultant force",
+    "cn": "合力",
+    "enUsage": "When two or more forces act on an object, the resultant force is the single force that has the same effect as the individual forces combined.",
+    "usage": "当两个或多个力作用在物体上时，合力是具有与各个力合并相同的效果的单个力。",
+    "formula": "F = √(F₁² + F₂²)",
+    "category": "",
+    "similar": ["Component Force"],
+    "tags": [
+      "Physics"
+    ],
+    "example": "The resultant force of two equal and opposite forces is zero.",
+    "updated": "2026-05-04",
+  },
+  {
+    "en": "Component Force",
+    "cn": "分力",
+    "enUsage": "The components of a force are the two perpendicular forces that have the same effect as the original force combined.",
+    "usage": "一个力的分力是两个垂直的力，它们共同产生与原始力相同的效果。",
+    "formula": "F_x = Fcosθ, F_y = Fsinθ",
+    "category": "",
+    "similar": ["Resultant Force"],
+    "tags": [
+      "Physics"
+    ],
+    "example": "The resultant force of two equal and opposite forces is zero.",
+    "updated": "2026-05-04",
+  },
+
 ]
