@@ -5397,8 +5397,61 @@ const words = [
     "tags": [
       "Physics"
     ],
-    "example": "The resultant force of two equal and opposite forces is zero.",
+    "example": "To find the x-component and y-component of a force F at an angle of 30° to the horizontal: F_x = Fcos30°, F_y = Fsin30°",
     "updated": "2026-05-04",
   },
+  {
+    "en": "Inertia",
+    "cn": "惯性",
+    "enUsage": "The resistance of an object to changes in its state of motion.",
+    "usage": "物体抵抗运动状态改变的性质。",
+    "formula": "",
+    "category": "",
+    "tags": [
+      "Physics"
+    ],
+    "example": "A heavy object is harder to push than a light object.",
+    "updated": "2026-05-04",
+  },
+  {
+    "en": "Newton's first law of motion",
+    "cn": "牛顿第一定律",
+    "enUsage": "An object at rest. It will remain at rest and if the object is moving. It will stay in motion with the same speed and in the same direction unless acted upon by an unbalanced force.",
+    "usage": "静止的物体保持静止，运动的物体保持匀速直线运动，除非受到不平衡力的作用。",
+    "formula": "",
+    "category": "",
+    "similar": ["Inertia"],
+    "tags": [
+      "Physics"
+    ],
+    "example": "A book resting on a table will remain at rest unless a force is applied to it.",
+    "updated": "2026-05-04",
+  },
+  {
+    "en": "Newton's second law of motion",
+    "cn": "牛顿第二定律",
+    "enUsage": "The acceleration of an object is directly proportional to the net force acting on it and inversely proportional to its mass.",
+    "usage": "物体的加速度与作用在物体上的合力成正比，与物体的质量成反比。",
+    "formula": "F = ma",
+    "category": "",
+    "tags": [
+      "Physics"
+    ],
+    "example": "If a net force of 10 N is applied to an object with a mass of 2 kg, the object will accelerate at a rate of 5 m/s².",
+    "updated": "2026-05-04",
+  },
+  {
+    "en": "Newton's third law of motion",
+    "cn": "牛顿第三定律",
+    "enUsage": "For every action, there is an equal and opposite reaction.",
+    "usage": "对于每一个作用，都有一个大小相等、方向相反的反作用。",
+    "formula": "F_a = -F_b",
+    "category": "",
+    "tags": [
+      "Physics"
+    ],
+    "example": "When you push a wall, the wall pushes you back with the same force.",
+    "updated": "2026-05-04",
+  }
 
 ]
